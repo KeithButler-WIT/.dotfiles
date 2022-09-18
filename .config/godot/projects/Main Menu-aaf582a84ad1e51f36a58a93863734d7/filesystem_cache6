@@ -1,0 +1,23 @@
+679959e7917290c4d1380dafd36febcc
+::res://::1662851630
+default_env.tres::Environment::1662851558::0::1::::<><>::
+icon.png::StreamTexture::1662851522::1662851530::1::::<><>::
+::res://Menu/::1662851530
+ARIAL.TTF::DynamicFontData::1662851522::0::1::::<><>::
+background.png::StreamTexture::1662851522::1662851530::1::::<><>::
+Button.wav::AudioStreamSample::1662851522::1662851530::1::::<><>::
+Logo.png::StreamTexture::1662851522::1662851530::1::::<><>::
+Main Menu.tres::DynamicFont::1662851522::0::1::::<><>::res://Menu/ARIAL.TTF
+Main Menu.tscn::PackedScene::1662851522::0::1::::<><>::res://Menu/Buttons/StartButton.tscn<>res://Menu/background.png<>res://Menu/Logo.png<>res://Menu/Buttons/OptionsButton.tscn<>res://Menu/ARIAL.TTF<>res://fade_in/FadeIn.tscn<>res://Menu/Main Menu.tres<>res://Menu/title_screen.gd<>res://Menu/UISound.tscn
+Options.gd::GDScript::1662851522::0::1::::<>Control<>::
+Options.tscn::PackedScene::1662851522::0::1::::<><>::res://Menu/Main Menu.tres<>res://Menu/Options.gd<>res://Menu/ARIAL.TTF<>res://Menu/background.png<>res://fade_in/FadeIn.tscn<>res://Menu/UISound.tscn
+title_screen.gd::GDScript::1662851522::0::1::::<>Control<>::
+UISound.gd::GDScript::1662851522::0::1::::<>Node<>::
+UISound.tscn::PackedScene::1662851522::0::1::::<><>::res://Menu/Button.wav<>res://Menu/UISound.gd
+::res://Menu/Buttons/::1662851522
+OptionsButton.tscn::PackedScene::1662851522::0::1::::<><>::res://Menu/Buttons/StartButton.tscn
+StartButton.gd::GDScript::1662851522::0::1::::<>Button<>::
+StartButton.tscn::PackedScene::1662851522::0::1::::<><>::res://Menu/ARIAL.TTF<>res://Menu/Buttons/StartButton.gd
+::res://fade_in/::1662851522
+FadeIn.tscn::PackedScene::1662851522::0::1::::<><>::res://fade_in/fade_in.gd
+fade_in.gd::GDScript::1662851522::0::1::::<>ColorRect<>::

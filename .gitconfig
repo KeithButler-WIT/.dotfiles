@@ -1,0 +1,19 @@
+[user]
+	email = 20089137@mail.wit.ie
+	name = Keith Butler
+	signingkey = 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEY68QkXxmwNqWTBiPOgiB6XVFRaycRWVqmJXAK/No9S 20089137@mail.wit.ie'
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[gpg]
+	format = ssh
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[init]
+	defaultBranch = main

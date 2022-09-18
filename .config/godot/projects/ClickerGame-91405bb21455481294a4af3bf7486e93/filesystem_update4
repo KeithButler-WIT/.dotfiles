@@ -1,0 +1,7 @@
+res://Scenes/CurrencySprite.tscn
+res://Scenes/Main.tscn
+res://Scripts/Currency.gd
+res://Scripts/CurrencySpawner.gd
+res://Scripts/Main.gd
+res://Scripts/util.gd
+res://default_env.tres

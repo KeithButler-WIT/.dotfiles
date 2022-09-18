@@ -1,0 +1,9 @@
+679959e7917290c4d1380dafd36febcc
+::res://::1663429571
+default_env.tres::Environment::1663429465::0::1::::<><>::
+icon.png::StreamTexture::1663428854::1663428858::1::::<><>::
+Player.gd::GDScript::1663429548::0::1::::<>Node<>::
+Terrain.tscn::PackedScene::1663429465::0::1::::<><>::res://Models/Terrain.fbx
+::res://Models/::1663429411
+Terrain.fbx::PackedScene::1663429384::1663429411::1::::<><>::
+::res://Scripts/::1663429571

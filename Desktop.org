@@ -1,0 +1,2585 @@
+#+TITLE: System Configs Setup
+
+#+PROPERTY: header-args :mkdirp yes
+#+PROPERTY: header-args:sh   :tangle-mode (identity #o555)
+#+PROPERTY: header-args:conf :tangle-mode (identity #o555)
+
+This file contains configuration for my overall desktop environment.  My workflow is driven by Emacs but there are still a number of applications, tools, themes, and fonts that I must install to have a complete desktop experience.
+
+* Table of Contents
+:PROPERTIES:
+:TOC:      :include all :ignore this
+:END:
+:CONTENTS:
+- [[#shell][Shell]]
+  - [[#zsh][Zsh]]
+    - [[#zshrc][.zshrc]]
+    - [[#aliasrc][aliasrc]]
+    - [[#shortcutrc][shortcutrc]]
+    - [[#inputrc][inputrc]]
+- [[#x11][x11]]
+  - [[#xinitrc][xinitrc]]
+  - [[#xprofile][xprofile]]
+  - [[#xresources][xresources]]
+    - [[#defaults][Defaults]]
+- [[#applications][Applications]]
+  - [[#qutebrowser][Qutebrowser]]
+- [[#mail][Mail]]
+- [[#media-players][Media Players]]
+  - [[#mpv][mpv]]
+    - [[#input][Input]]
+    - [[#scripts][Scripts]]
+      - [[#blacklist-entensions][blacklist-entensions]]
+      - [[#blur-edges][blur-edges]]
+      - [[#crop][crop]]
+      - [[#encode][encode]]
+      - [[#misc][misc]]
+      - [[#modules][modules]]
+      - [[#mpvsockets][mpvSockets]]
+      - [[#seek-to][seek-to]]
+      - [[#trueautosub][trueautosub]]
+  - [[#syncing-passwords][Syncing Passwords]]
+:END:
+
+
+* Shell
+** Zsh
+*** .zshrc
+#+begin_src sh :tangle .config/zsh/.zshrc
+# Luke's config for the Zoomer Shell
+
+# Enable colors and change prompt:
+autoload -U colors && colors	# Load colors
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+setopt autocd		# Automatically cd into typed directory.
+stty stop undef		# Disable ctrl-s to freeze terminal.
+setopt interactive_comments
+
+# History in cache directory:
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE=~/.cache/zsh/history
+
+# Load aliases and shortcuts if existent.
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
+
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
+
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';;      # block
+        viins|main) echo -ne '\e[5 q';; # beam
+    esac
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp" >/dev/null
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' 'lfcd\n'
+
+bindkey -s '^a' 'bc -lq\n'
+
+bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+
+bindkey '^[[P' delete-char
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+# Load syntax highlighting; should be last.
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+
+#colorscript random
+#+end_src
+
+*** aliasrc
+#+begin_src sh :tangle .config/shell/aliasrc
+#!/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# Always use emacsclient instead of regular emacs
+alias emacs="emacsclient -c -a 'emacs'" \
+
+# Replace ls with exa
+alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
+alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+
+# Replace some more things with better alternatives
+alias cat='bat --style header --style rules --style snip --style changes --style header'
+[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru --bottomup'
+
+# Colorize commands when possible.
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	fgrep="fgrep --color=auto" \
+	egrep="egrep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi"
+	dir="dir --color=auto" \
+	vdir="vdir --color=auto" \
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	mkd="mkdir -pv" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner" \
+	yt="youtube-dl --add-metadata -ic" \
+	yta="youtube-dl -f bestaudio/best --add-metadata -xic" \
+	ping="ping -c 5" \
+	fastping="ping -c 100 -s 2" \
+	ghis="history|grep" \
+	count="find . -type f | wc -l" \
+	cpv="rsync -ah --info=progress2" \
+	mpv="mpv --sub-auto=fuzzy" \
+	paru="paru --bottomup" \
+
+	# mnt="mount | awk -F" " "{ printf \"%s\t%s\n\",\$1,\$3; }" | column -t | egrep ^/dev/ | sort" \
+	# alert="notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e "\""s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//"\"")"" \
+
+# These common commands are just too long! Abbreviate them.
+alias \
+	f="$FILE" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	ka="killall" \
+	g="git" \
+	trem="transmission-remote" \
+	YT="youtube-viewer" \
+	sdn="sudo shutdown -h now" \
+	p="doas pacman" \
+	xi="doas xbps-install" \
+	xr="doas xbps-remove -R" \
+	xq="xbps-query" \
+	z="zathura" \
+	h="history" \
+	myip="curl ipinfo.io/ip" \
+	cl="clear" \
+	sdn="doas shutdown -h now" \
+	nv="nvim" \
+	snv="sudo nvim" \
+	reboot="doas reboot"\
+
+alias \
+	cleanup="sudo pacman -Rns (pacman -Qtdq)" \
+	aup="pamac upgrade --aur" \
+	grubup="sudo update-grub" \
+	fixpacman="sudo rm /var/lib/pacman/db.lck" \
+	tarnow="tar -acf" \
+	untar="tar -zxvf" \
+	wget="wget -c" \
+	rmpkg="sudo pacman -Rdd" \
+	mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
+	mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist" \
+	mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist" \
+	mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist" \
+	updateWebsite="rsync -vrP --delete-after ~/org/html/* root@keithbutler.xyz:/var/www/keithbutler/" \
+	unrealEngine="/home/keith/Documents/UnrealEngine/Engine/Binaries/Linux/UE4Editor" \
+
+alias \
+	magit="nvim -c MagitOnly" \
+	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
+	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
+#+end_src
+
+*** shortcutrc
+#+begin_src sh :tangle .config/shell/shortcutrc
+# vim: filetype=sh
+alias cac="cd /home/keith/.cache && ls -a" \
+cf="cd /home/keith/.config && ls -a" \
+D="cd /home/keith/Downloads && ls -a" \
+d="cd /home/keith/Documents && ls -a" \
+dt="cd /home/keith/.local/share && ls -a" \
+h="cd /home/keith && ls -a" \
+m="cd /home/keith/Music && ls -a" \
+mn="cd /mnt && ls -a" \
+pp="cd /home/keith/Pictures && ls -a" \
+sc="cd /home/keith/.local/bin && ls -a" \
+src="cd /home/keith/.local/src && ls -a" \
+vv="cd /home/keith/Videos && ls -a" \
+1tb="cd /run/media/keith/1TB-BACKUP && ls -a" \
+4tb="cd /run/media/keith/4TB-BACKUP && ls -a" \
+bf="$EDITOR /home/keith/.config/shell/bm-files" \
+bd="$EDITOR /home/keith/.config/shell/bm-dirs" \
+cfx="$EDITOR /home/keith/.config/x11/xresources" \
+cfb="$EDITOR ~/.local/src/dwmblocks/config.h" \
+cfv="$EDITOR /home/keith/.config/nvim/init.vim" \
+cfz="$EDITOR /home/keith/.config/zsh/.zshrc" \
+cfa="$EDITOR /home/keith/.config/shell/aliasrc" \
+cfp="$EDITOR /home/keith/.config/shell/profile" \
+cfm="$EDITOR /home/keith/.config/mutt/muttrc" \
+cfn="$EDITOR /home/keith/.config/newsboat/config" \
+cfu="$EDITOR /home/keith/.config/newsboat/urls" \
+cfmb="$EDITOR /home/keith/.config/ncmpcpp/bindings" \
+cfmc="$EDITOR /home/keith/.config/ncmpcpp/config" \
+cfl="$EDITOR /home/keith/.config/lf/lfrc" \
+cfL="$EDITOR /home/keith/.config/lf/scope" \
+cfX="$EDITOR /home/keith/.config/sxiv/exec/key-handler" \
+#+end_src
+
+*** inputrc
+#+begin_src sh :tangle .config/shell/shortcutrc
+$include /etc/inputrc
+set editing-mode vi
+$if mode=vi
+
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\e[6 q\2
+set vi-cmd-mode-string \1\e[2 q\2
+
+set keymap vi-command
+# these are for vi-command mode
+Control-l: clear-screen
+Control-a: beginning-of-line
+
+set keymap vi-insert
+# these are for vi-insert mode
+Control-l: clear-screen
+Control-a: beginning-of-line
+
+$endif
+#+end_src
+
+* x11
+** xinitrc
+#+begin_src conf .config/shell/xinitrc
+#!/bin/sh
+
+# xinitrc runs automatically when you run startx.
+
+# There are some small but important commands that need to be run when we start
+# the graphical environment. There is a link to this file in ~/.xprofile
+# because that file is run automatically if someone uses a display manager
+# (login screen) and so they are needed there. To prevent doubling up commands,
+# I source them here with the line below.
+
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
+	. "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
+else
+	. "$HOME/.xprofile"
+fi
+
+ssh-agent dwm
+#+end_src
+
+** xprofile
+#+begin_src conf :tangle .config/shell/xprofile
+#!/bin/sh
+
+# This file runs when a DM logs you into a graphical session.
+# If you use startx/xinit like a Chad, this file will also be sourced.
+
+mpd &			# music player daemon-you might prefer it as a service though
+remaps &		# run the remaps script, switching caps/esc and more; check it for more info
+setbg &			# set the background with the `setbg` script
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xresources colors/settings on startup
+xcompmgr &		# xcompmgr for transparency
+dunst &			# dunst for notifications
+xset r rate 300 50 &	# Speed xrate up
+unclutter &		# Remove mouse when idle
+/usr/bin/emacs --daemon &	# starts emacsclient in the background
+# Temp fix
+xrandr --output eDP-1 --brightness 1 &		# Sets the brightness of laptop screen on launch
+
+
+# This line autostarts an instance of Pulseaudio that does not exit on idle.
+# This is "necessary" on Artix due to a current bug between PA and
+# Chromium-based browsers where they fail to start PA and use dummy output.
+# pidof -s runit &&
+# 	pidof -s ! pidof -s pulseaudio >/dev/null 2>&1 &&
+# 	setsid -f pulseaudio --start --exit-idle-time=-1 >/dev/null 2>&1
+#+end_src
+** xresources
+*** Defaults
+#+begin_src conf :tangle .config/x11/xresources
+!! Transparency (0-1):
+*.alpha: 0.9
+
+!! Set a default font and font size as below:
+*.font: monospace:size=10
+
+/* name		dark	light */
+/* black	0	8 */
+/* red		1	9 */
+/* green	2	10 */
+/* yellow	3	11 */
+/* blue		4	12 */
+/* purple	5	13 */
+/* cyan		6	14 */
+/* white	7	15 */
+#+end_src
+
+*** COMMENT Doom-One
+#+begin_src conf :tangle .config/x11/xresources
+!! Doom-One
+*.color0: #1E2127
+*.color8: #5C6370
+*.color1: #CC626A
+*.color9: #E06C75
+*.color2: #98C379
+*.color10: #A7D685
+*.color3:  #da8548
+*.color11: #ECBE7B
+*.color4: #3E86B8
+*.color12: #51afef
+*.color5: #a9a1e1
+*.color13: #C678DD
+*.color6: #4db5bd
+*.color14: #56B6C2
+*.color7: #ABB2BF
+*.color15: #FFFFFF
+*.foreground: #FFFFFF
+*.cursorColor: #5C6370
+*.background: #eeeeee
+#+end_src
+
+*** COMMENT Rezza
+#+begin_src conf :tangle .config/x11/xresources
+! special
+*.foreground:   #dddddd
+*.background:   #222222
+*.cursorColor:  #dddddd
+! black
+*.color0:       #191919
+*.color8:       #252525
+! red
+*.color1:       #803232
+*.color9:       #982b2b
+! green
+*.color2:       #5b762f
+*.color10:      #89b83f
+! yellow
+*.color3:       #aa9943
+*.color11:      #efef60
+! blue
+*.color4:       #324c80
+*.color12:      #2b4f98
+! magenta
+*.color5:       #706c9a
+*.color13:      #826ab1
+! cyan
+*.color6:       #92b19e
+*.color14:      #a1cdcd
+! white
+*.color7:       #ffffff
+*.color15:      #dddddd
+#+end_src
+
+*** COMMENT Hybrid
+#+begin_src conf :tangle .config/x11/xresources
+*.color0: #282a2e
+*.color1: #a54242
+*.color2: #8c9440
+*.color3: #de935f
+*.color4: #5f819d
+*.color5: #85678f
+*.color6: #5e8d87
+*.color7: #707880
+*.color8: #373b41
+*.color9: #cc6666
+*.color10: #b5bd68
+*.color11: #f0c674
+*.color12: #81a2be
+*.color13: #b294bb
+*.color14: #8abeb7
+*.color15: #c5c8c6
+*.background: #1d1f21
+*.foreground: #c5c8c6
+st.alpha: 0.8
+#+end_src
+
+*** COMMENT Gruvbox
+#+begin_src conf :tangle .config/x11/xresources
+*.color0: #1d2021
+*.color1: #cc241d
+*.color2: #98971a
+*.color3: #d79921
+*.color4: #458588
+*.color5: #b16286
+*.color6: #689d6a
+*.color7: #a89984
+*.color8: #928374
+*.color9: #fb4934
+*.color10: #b8bb26
+*.color11: #fabd2f
+*.color12: #83a598
+*.color13: #d3869b
+*.color14: #8ec07c
+*.color15: #ebdbb2
+*.color256: #1d2021
+*.color257: #ebdbb2
+#+end_src
+
+*** COMMENT Gruvbox light
+#+begin_src conf :tangle .config/x11/xresources
+*.color0: #fbf1c7
+*.color1: #cc241d
+*.color2: #98971a
+*.color3: #d79921
+*.color4: #458588
+*.color5: #b16286
+*.color6: #689d6a
+*.color7: #7c6f64
+*.color8: #928374
+*.color9: #9d0006
+*.color10: #79740e
+*.color11: #b57614
+*.color12: #076678
+*.color13: #8f3f71
+*.color14: #427b58
+*.color15: #3c3836
+*.background: #fbf1c7
+*.foreground: #282828
+st.alpha: 0.9
+#+end_src
+
+*** COMMENT brogrammer
+#+begin_src conf :tangle .config/x11/xresources
+*.foreground:  #d6dbe5
+*.background:  #131313
+*.color0:      #1f1f1f
+*.color8:      #d6dbe5
+*.color1:      #f81118
+*.color9:      #de352e
+*.color2:      #2dc55e
+*.color10:     #1dd361
+*.color3:      #ecba0f
+*.color11:     #f3bd09
+*.color4:      #2a84d2
+*.color12:     #1081d6
+*.color5:      #4e5ab7
+*.color13:     #5350b9
+*.color6:      #1081d6
+*.color14:     #0f7ddb
+*.color7:      #d6dbe5
+*.color15:     #ffffff
+*.colorBD:     #d6dbe5
+#+end_src
+
+*** COMMENT Base16
+#+begin_src conf :tangle .config/x11/xresources
+*.color0:       #181818
+*.color1:       #ab4642
+*.color2:       #a1b56c
+*.color3:       #f7ca88
+*.color4:       #7cafc2
+*.color5:       #ba8baf
+*.color6:       #86c1b9
+*.color7:       #d8d8d8
+*.color8:       #585858
+*.color9:       #ab4642
+*.color10:      #a1b56c
+*.color11:      #f7ca88
+*.color12:      #7cafc2
+*.color13:      #ba8baf
+*.color14:      #86c1b9
+*.color15:      #f8f8f8
+#+end_src
+
+*** COMMENT Solarized
+#+begin_src conf :tangle .config/x11/xresources
+*.color0:	#073642
+*.color1:	#dc322f
+*.color2:	#859900
+*.color3:	#b58900
+*.color4:	#268bd2
+*.color5:	#d33682
+*.color6:	#2aa198
+*.color7:	#eee8d5
+*.color9:	#cb4b16
+*.color8:	#fdf6e3
+*.color10:	#586e75
+*.color11:	#657b83
+*.color12:	#839496
+*.color13:	#6c71c4
+*.color14:	#93a1a1
+*.color15:	#fdf6e3
+#+end_src
+
+*** COMMENT Xterm
+#+begin_src conf :tangle .config/x11/xresources
+*.color0:   #000000
+*.color1:   #cd0000
+*.color2:   #00cd00
+*.color3:   #cdcd00
+*.color4:   #0000cd
+*.color5:   #cd00cd
+*.color6:   #00cdcd
+*.color7:   #e5e5e5
+*.color8:   #4d4d4d
+*.color9:   #ff0000
+*.color10:  #00ff00
+*.color11:  #ffff00
+*.color12:  #0000ff
+*.color13:  #ff00ff
+*.color14:  #00ffff
+*.color15:  #aabac8
+*.background:   #000000
+#+end_src
+
+*** COMMENT Dracula
+#+begin_src conf :tangle .config/x11/xresources
+*.foreground: #F8F8F2
+*.background: #282A36
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
+
+*.background: .color0
+*.color256: 0#1d2021
+*.color257: 15#ebdbb2
+#+end_src
+
+* Applications
+** Neovim
+It's always nice to have a backup text editor just in case.
+#+begin_src conf .config/nvim/init.vim
+let mapleader =","
+
+if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
+
+call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+Plug 'junegunn/goyo.vim'
+Plug 'jreybert/vimagit'
+Plug 'lukesmithxyz/vimling'
+Plug 'vimwiki/vimwiki'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-commentary'
+Plug 'ap/vim-css-color'
+call plug#end()
+
+set title
+set bg=light
+set go=a
+set mouse=a
+set nohlsearch
+set clipboard+=unnamedplus
+set noshowmode
+set noruler
+set laststatus=0
+set noshowcmd
+
+" Some basics:
+	nnoremap c "_c
+	set nocompatible
+	filetype plugin on
+	syntax on
+	set encoding=utf-8
+	set number relativenumber
+" Enable autocompletion:
+	set wildmode=longest,list,full
+" Disables automatic commenting on newline:
+	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Perform dot commands over visual blocks:
+	vnoremap . :normal .<CR>
+" Goyo plugin makes text more readable when writing prose:
+	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+" Spell-check set to <leader>o, 'o' for 'orthography':
+	map <leader>o :setlocal spell! spelllang=en_us<CR>
+" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+	set splitbelow splitright
+
+" Nerd tree
+	map <leader>n :NERDTreeToggle<CR>
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    if has('nvim')
+        let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
+    else
+        let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
+    endif
+
+" vimling:
+	nm <leader><leader>d :call ToggleDeadKeys()<CR>
+	imap <leader><leader>d <esc>:call ToggleDeadKeys()<CR>a
+	nm <leader><leader>i :call ToggleIPA()<CR>
+	imap <leader><leader>i <esc>:call ToggleIPA()<CR>a
+	nm <leader><leader>q :call ToggleProse()<CR>
+
+" Shortcutting split navigation, saving a keypress:
+	map <C-h> <C-w>h
+	map <C-j> <C-w>j
+	map <C-k> <C-w>k
+	map <C-l> <C-w>l
+
+" Replace ex mode with gq
+	map Q gq
+
+" Check file in shellcheck:
+	map <leader>s :!clear && shellcheck -x %<CR>
+
+" Open my bibliography file in split
+	map <leader>b :vsp<space>$BIB<CR>
+	map <leader>r :vsp<space>$REFER<CR>
+
+" Replace all is aliased to S.
+	nnoremap S :%s//g<Left><Left>
+
+" Compile document, be it groff/LaTeX/markdown/etc.
+	map <leader>c :w! \| !compiler "<c-r>%"<CR>
+
+" Open corresponding .pdf/.html or preview
+	map <leader>p :!opout <c-r>%<CR><CR>
+
+" Runs a script that cleans out tex build files whenever I close out of a .tex file.
+	autocmd VimLeave *.tex !texclear %
+
+" Ensure files are read as what I want:
+	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+	map <leader>v :VimwikiIndex
+	let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
+	autocmd BufRead,BufNewFile *.tex set filetype=tex
+
+" Save file as sudo on files that require root permission
+	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" Enable Goyo by default for mutt writing
+	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
+	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=light
+	autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
+	autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
+
+" Automatically deletes all trailing whitespace and newlines at end of file on save.
+	autocmd BufWritePre * %s/\s\+$//e
+	autocmd BufWritePre * %s/\n\+\%$//e
+
+" When shortcut files are updated, renew bash and ranger configs with new material:
+	autocmd BufWritePost bm-files,bm-dirs !shortcuts
+" Run xrdb whenever Xdefaults or Xresources are updated.
+	autocmd BufRead,BufNewFile xresources,xdefaults set filetype=xdefaults
+	autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
+" Recompile dwmblocks on config edit.
+	autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
+
+" Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
+if &diff
+    highlight! link DiffText MatchParen
+endif
+
+" Function for toggling the bottom statusbar:
+let s:hidden_all = 1
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+    endif
+endfunction
+nnoremap <leader>h :call ToggleHiddenAll()<CR>
+#+end_src
+
+** COMMENT Qutebrowser
+
+[[https://github.com/qutebrowser/qutebrowser][Qutebrowser]] is a great keyboard-centric browser which uses the Chromium rendering engine via QT 5's WebEngine component.  I've configured it to act more like Vimb for window-per-tab behavior that integrates well into Emacs.  One thing I like about this browser is that it does a much better job of remembering what windows you had open when it exits so that you can maintain your session more easily.  I also like that when you reopen a tab/window, the history of that window is still present.
+
+#+begin_src python :tangle .config/qutebrowser/config.py :noweb yes
+
+# Open every tab as a new window, Vimb style
+c.tabs.tabs_are_windows = True
+c.tabs.show = "multiple"
+c.tabs.last_close = "close"
+
+c.auto_save.session = True
+c.scrolling.smooth = True
+c.session.lazy_restore = True
+c.content.autoplay = False
+
+# Scale pages and UI better for hidpi
+c.zoom.default = "<<get-setting(name="qutebrowser/default-zoom")>>%"
+c.fonts.hints = "bold 20pt monospace"
+
+# Better default fonts
+c.fonts.web.family.standard = "Bitstream Vera Sans"
+c.fonts.web.family.serif = "Bitstream Vera Serif"
+c.fonts.web.family.sans_serif = "Bitstream Vera Sans"
+c.fonts.web.family.fixed = "Fira Mono"
+c.fonts.statusbar = "18pt Cantarell"
+
+# Use dark mode where possible
+c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.policy.images = "never"
+c.colors.webpage.bg = "black"
+
+# Automatically turn on insert mode when a loaded page focuses a text field
+c.input.insert_mode.auto_load = True
+
+# Edit fields in Emacs with Ctrl+E
+c.editor.command = ["emacsclient", "+{line}:{column}", "{file}"]
+
+# Make Ctrl+g quit everything like in Emacs
+config.bind('<Ctrl-g>', 'leave-mode', mode='insert')
+config.bind('<Ctrl-g>', 'leave-mode', mode='command')
+config.bind('<Ctrl-g>', 'leave-mode', mode='prompt')
+config.bind('<Ctrl-g>', 'leave-mode', mode='hint')
+config.bind('v', 'spawn ~/.dotfiles/bin/umpv {url}')
+config.bind('V', 'hint links spawn ~/.dotfiles/bin/umpv {hint-url}')
+
+# Tweak some keybindings
+config.unbind('d') # Don't close window on lower-case 'd'
+config.bind('yy', 'yank')
+
+# Vim-style movement keys in command mode
+config.bind('<Ctrl-j>', 'completion-item-focus --history next', mode='command')
+config.bind('<Ctrl-k>', 'completion-item-focus --history prev', mode='command')
+
+# More binding hints here: https://gitlab.com/Kaligule/qutebrowser-emacs-config/blob/far/config.py
+
+# Load the autoconfig file (quteconfig.py)
+config.load_autoconfig()
+#+end_src
+
+#+begin_src conf :tangle .config/qutebrowser/quickmarks
+1p https://my.1password.com/vaults/kyxq62du37adb3lpjh2sphdq4i/allitems/tkr5tuo4gqyuco4x25upt6iaia
+gn https://github.com/notifications
+dot https://github.com/daviwil/dotfiles
+efs https://github.com/daviwil/emacs-from-scratch
+sc https://github.com/SystemCrafters
+scv https://github.com/SystemCrafters/video-planning
+ddg https://duckduckgo.com/?q $0
+gh https://github.com/$0
+gm https://www.iro.umontreal.ca/~gambit/doc/gambit.html
+gam https://github.com/gambit/gambit
+zig https://github.com/ziglang/zig
+zigd https://ziglang.org/documentation/far/
+zigl https://ziglang.org/documentation/far/std
+sub https://github.com/substratic/
+sube https://github.com/substratic/engine
+subb https://github.com/substratic/build
+subf https://github.com/substratic/forge
+subc https://github.com/substratic/crash-the-stack
+tspl https://scheme.com/tspl4/
+mail https://fastmail.com
+cups http://localhost:631
+az https://portal.azure.com
+azdo https://dev.azure.com/azure-sdk/
+ajs https://github.com/Azure/azure-sdk-for-js
+adl https://github.com/Azure/adl
+dajs https://github.com/daviwil/azure-sdk-for-js
+anet https://github.com/Azure/azure-sdk-for-net
+aja https://github.com/Azure/azure-sdk-for-java
+apy https://github.com/Azure/azure-sdk-for-python
+ats https://github.com/Azure/autorest.typescript
+ats3 https://github.com/Azure/autorest.typescript.v3
+atest https://github.com/Azure/autorest.testserver
+amf https://github.com/Azure/autorest.modelerfour
+ar https://github.com/Azure/autorest
+arpy https://github.com/Azure/autorest.python
+arc https://github.com/Azure/autorest.csharp
+are https://github.com/Azure/autorest/tree/far/docs/extensions
+arp https://github.com/orgs/Azure/projects/48
+ac https://github.com/Azure/autorest.compare
+ap https://github.com/Azure/perks
+specs https://github.com/Azure/azure-rest-api-specs
+oai2 https://github.com/OAI/OpenAPI-Specification/blob/far/versions/2.0.md
+oai3 https://github.com/OAI/OpenAPI-Specification/blob/far/versions/3.0.3.md
+npm https://www.npmjs.com/search?q $0
+oms https://outlook.com/microsoft.com
+msw https://microsoft.sharepoint.com
+
+#+end_src
+
+*Guix Packages*
+
+#+begin_src scheme :noweb-ref packages :noweb-sep ""
+"qutebrowser"
+#+end_src
+
+* Mail
+Passwords have to be setup using =pass=.
+
+*~/.mbsyncrc*
+
+** mu init
+#+begin_src sh
+mu init --maildir=~/.local/share/mail --my-address=keithbutler2001@gmail.com --my-address=20089137@mail.wit.ie --my-address=keith@keithbutler.xyz
+mu index
+#+end_src
+
+** Personal Email
+#+begin_src conf :tangle .mbsyncrc :noweb yes
+IMAPStore keithbutler2001@gmail.com-remote
+Host imap.gmail.com
+Port 993
+User keithbutler2001@gmail.com
+PassCmd "pass Email/keithbutler2001@gmail.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore keithbutler2001@gmail.com-local
+Subfolders Verbatim
+Path /home/keith/.local/share/mail/keithbutler2001@gmail.com/
+Inbox /home/keith/.local/share/mail/keithbutler2001@gmail.com/INBOX
+
+Channel keithbutler2001@gmail.com
+Expunge Both
+Far :keithbutler2001@gmail.com-remote:
+Near :keithbutler2001@gmail.com-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+#+end_src
+
+** College Email
+#+begin_src conf :tangle .mbsyncrc :noweb yes
+IMAPStore 20089137@mail.wit.ie-remote
+Host imap.gmail.com
+Port 993
+User 20089137@mail.wit.ie
+PassCmd "pass Email/20089137@mail.wit.ie"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore 20089137@mail.wit.ie-local
+Subfolders Verbatim
+Path /home/keith/.local/share/mail/20089137@mail.wit.ie/
+Inbox /home/keith/.local/share/mail/20089137@mail.wit.ie/INBOX
+
+Channel 20089137@mail.wit.ie
+Expunge Both
+Far :20089137@mail.wit.ie-remote:
+Near :20089137@mail.wit.ie-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+#+end_src
+
+** Work Email
+#+begin_src conf :tangle .mbsyncrc :noweb yes
+IMAPStore keith@keithbutler.xyz-remote
+Host mail.keithbutler.xyz
+Port 993
+User keith@keithbutler.xyz
+PassCmd "pass Email/keith@keithbutler.xyz"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore keith@keithbutler.xyz-local
+Subfolders Verbatim
+Path /home/keith/.local/share/mail/keith@keithbutler.xyz/
+Inbox /home/keith/.local/share/mail/keith@keithbutler.xyz/INBOX
+Flatten .
+
+Channel keith@keithbutler.xyz
+Expunge Both
+Far :keith@keithbutler.xyz-remote:
+Near :keith@keithbutler.xyz-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+#+end_src
+
+* Media Players
+** mpv
+
+[[https://mpv.io/][mpv]] is a simple yet powerful video player.  Paired with [[http://ytdl-org.github.io/youtube-dl/][youtube-dl]] it can even stream YouTube videos.  [[https://github.com/hoyon/mpv-mpris][mpv-mpris]] allows playback control via [[https://github.com/altdesktop/playerctl][playerctl]].
+
+*.config/mpv/mpv.conf*
+
+#+begin_src conf :tangle .config/mpv/mpv.conf :noweb yes
+[extension.webm]
+loop-file=inf
+
+##################
+# video settings #
+##################
+
+# Start in fullscreen mode by default.
+fs=yes
+
+# Specify high quality video rendering preset (for --vo=gpu only)
+# Can cause performance problems with some drivers and GPUs.
+#profile=gpu-hq
+
+# Force video to lock on the display's refresh rate, and change video and audio
+# speed to some degree to ensure synchronous playback - can cause problems
+# with some drivers and desktop environments.
+#video-sync=display-resample
+
+# Enable hardware decoding if available. Often, this does not work with all
+# video outputs, but should work well with default settings on most systems.
+# If performance or energy usage is an issue, forcing the vdpau or vaapi VOs
+# may or may not help.
+hwdec=auto
+#vo=gpu
+#gpu-context=wayland
+##################
+# audio settings #
+##################
+
+# Specify default audio device. You can list devices with: --audio-device=help
+# The option takes the device string (the stuff between the '...').
+#audio-device=alsa/default
+
+# Do not filter audio to keep pitch when changing playback speed.
+#audio-pitch-correction=no
+
+# Output 5.1 audio natively, and upmix/downmix audio with a different format.
+#audio-channels=5.1
+# Disable any automatic remix, _if_ the audio output accepts the audio format.
+# of the currently played file. See caveats mentioned in the manpage.
+# (The default is "auto-safe", see manpage.)
+#audio-channels=auto
+volume-max=250
+##################
+# other settings #
+##################
+# A cycle-values video-aspect "16:0" "4:3" "2.35:1" "-1"
+# Pretend to be a web browser. Might fix playback with some streaming sites,
+# but also will break with shoutcast streams.
+#user-agent="Mozilla/5.0"
+
+# cache settings
+#
+# Use 150MB input cache by default. The cache is enabled for network streams only.
+#cache-default=153600
+#
+# Use 150MB input cache for everything, even local files.
+#cache=153600
+#
+# Disable the behavior that the player will pause if the cache goes below a
+# certain fill size.
+#cache-pause=no
+#
+# Read ahead about 5 seconds of audio and video packets.
+#demuxer-readahead-secs=5.0
+#
+# Raise readahead from demuxer-readahead-secs to this value if a cache is active.
+#cache-secs=50.0
+
+# Display English subtitles if available.
+#slang=en
+
+# Play Finnish audio if available, fall back to English otherwise.
+#alang=fi,en
+
+# Change subtitle encoding. For Arabic subtitles use 'cp1256'.
+# If the file seems to be valid UTF-8, prefer UTF-8.
+# (You can add '+' in front of the codepage to force it.)
+#sub-codepage=cp1256
+
+# You can also include other configuration files.
+#include=/path/to/the/file/you/want/to/include
+
+############
+# Profiles #
+############
+
+# The options declared as part of profiles override global default settings,
+# but only take effect when the profile is active.
+
+# The following profile can be enabled on the command line with: --profile=eye-cancer
+
+#[eye-cancer]
+#sharpen=5
+
+# Limit the resolution of YouTube videos
+ytdl=yes
+ytdl-format=bestvideo[height<=?720]+bestaudio/best
+
+keepaspect=no
+save-position-on-quit
+#+end_src
+
+*** Input
+#+begin_src conf :tangle .config/mpv/input.conf :noweb yes
+# crop.lua
+# ==========
+# start cropping
+c script-message-to crop start-crop
+# remove the crop
+d vf del -1
+
+# or use the ready-make "toggle" binding
+C script-message-to crop toggle-crop
+
+# encode.lua
+# ============
+# use default profile (makes vp8 webms)
+e script-message-to encode set-timestamp
+
+# use custom webm profile, the argument name must correspond to an existing .conf file (see script-opts/)
+alt+e script-message-to encode set-timestamp encode_webm
+
+# use custom profile
+E script-message-to encode set-timestamp encode_slice
+
+# blur-edges.lua
+# ================
+b script-message-to blur_edges toggle-blur
+
+# seek-to.lua
+# =============
+t script-message-to seek_to toggle-seeker
+#+end_src
+
+*** Scripts
+**** blacklist-entensions
+#+begin_src lua :tangle .config/mpv/scripts/blacklist-extensions.lua :noweb yes
+opts = {
+blacklist="",
+whitelist="",
+remove_files_without_extension = false,
+oneshot = true,
+}
+(require 'mp.options').read_options(opts)
+local msg = require 'mp.msg'
+
+function split(input)
+local ret = {}
+for str in string.gmatch(input, "([^,]+)") do
+    ret[#ret + 1] = str
+end
+return ret
+end
+
+opts.blacklist = split(opts.blacklist)
+opts.whitelist = split(opts.whitelist)
+
+local exclude
+if #opts.whitelist > 0 then
+exclude = function(extension)
+    for _, ext in pairs(opts.whitelist) do
+        if extension == ext then
+            return false
+        end
+    end
+    return true
+end
+elseif #opts.blacklist > 0 then
+exclude = function(extension)
+    for _, ext in pairs(opts.blacklist) do
+        if extension == ext then
+            return true
+        end
+    end
+    return false
+end
+else
+return
+end
+
+function should_remove(filename)
+if string.find(filename, "://") then
+    return false
+end
+local extension = string.match(filename, "%.([^./]+)$")
+if not extension and opts.remove_file_without_extension then
+    return true
+end
+if extension and exclude(string.lower(extension)) then
+    return true
+end
+return false
+end
+
+function process(playlist_count)
+if playlist_count < 2 then return end
+if opts.oneshot then
+    mp.unobserve_property(observe)
+end
+local playlist = mp.get_property_native("playlist")
+local removed = 0
+for i = #playlist, 1, -1 do
+    if should_remove(playlist[i].filename) then
+        mp.commandv("playlist-remove", i-1)
+        removed = removed + 1
+    end
+end
+if removed == #playlist then
+    msg.warn("Removed eveything from the playlist")
+end
+end
+
+function observe(k,v) process(v) end
+
+mp.observe_property("playlist-count", "number", observe)
+#+end_src
+#+begin_src conf :tangle .config/mpv/script-opts/blacklist_extensions.conf :noweb yes
+# only one of blacklist, whitelist should be defined at a time
+
+# only allow video and image formats
+whitelist=mkv,webm,png,jpg,mp4,avi,jpeg
+
+# alternatively, blacklist formats commonly found near videos
+#blacklist=srt,ass,mks,mka
+
+remove_files_without_extension=yes
+
+# if the script should be applied only at the beginning, or anytime the playlist changes
+oneshot=yes
+#+end_src
+
+**** blur-edges
+#+begin_src lua :tangle .config/mpv/scripts/blur-edges.lua :noweb yes
+local options = require 'mp.options'
+
+local opts = {
+blur_radius = 10,
+blur_power = 10,
+minimum_black_bar_size = 3,
+mode = "all",
+active = true,
+reapply_delay = 0.5,
+watch_later_fix = false,
+only_fullscreen = true,
+}
+options.read_options(opts)
+
+local active = opts.active
+local applied = false
+
+function set_lavfi_complex(filter)
+if not filter and mp.get_property("lavfi-complex") == "" then return end
+local force_window = mp.get_property("force-window")
+local sub = mp.get_property("sub")
+mp.set_property("force-window", "yes")
+if not filter then
+    mp.set_property("lavfi-complex", "")
+    mp.set_property("vid", "1")
+else
+    if not opts.watch_later_fix then
+        mp.set_property("vid", "no")
+    end
+    mp.set_property("lavfi-complex", filter)
+end
+mp.set_property("sub", "no")
+mp.set_property("force-window", force_window)
+mp.set_property("sub", sub)
+end
+
+function set_blur()
+if applied then return end
+if not mp.get_property("video-out-params") then return end
+if opts.only_fullscreen and not mp.get_property_bool("fullscreen") then return end
+local video_aspect = mp.get_property_number("video-aspect")
+local ww, wh = mp.get_osd_size()
+
+if math.abs(ww/wh - video_aspect) < 0.05 then return end
+if opts.mode == "horizontal" and ww/wh < video_aspect then return end
+if opts.mode == "vertical" and ww/wh > video_aspect then return end
+
+local par = mp.get_property_number("video-params/par")
+local height = mp.get_property_number("video-params/h")
+local width = mp.get_property_number("video-params/w")
+
+local split = "[vid1] split=3 [a] [v] [b]"
+local crop_format = "crop=%s:%s:%s:%s"
+local scale_format = "scale=width=%s:height=%s:flags=neighbor"
+
+local stack_direction, cropped_scaled_1, cropped_scaled_2, blur_size
+
+if ww/wh > video_aspect then
+    blur_size = math.floor((ww/wh)*height/par-width)
+    local nudge = blur_size % 2
+    blur_size = blur_size / 2
+
+    local height_with_maximized_width = height / width * ww
+    local visible_height = math.floor(height * par * wh / height_with_maximized_width)
+    local visible_width = math.floor(blur_size * wh / height_with_maximized_width)
+
+    local cropped_1 = string.format(crop_format, visible_width, visible_height, "0", (height - visible_height)/2)
+    local scaled_1 = string.format(scale_format, blur_size + nudge, height)
+    cropped_scaled_1 = cropped_1 .. "," .. scaled_1
+
+    local cropped_2 = string.format(crop_format, visible_width, visible_height, width - visible_width, (height - visible_height)/2)
+    local scaled_2 = string.format(scale_format, blur_size, height)
+    cropped_scaled_2 = cropped_2 .. "," .. scaled_2
+    stack_direction = "h"
+else
+    blur_size = math.floor((wh/ww)*width*par-height)
+    local nudge = blur_size % 2
+    blur_size = blur_size / 2
+
+    local width_with_maximized_height = width / height * wh
+    local visible_width = math.floor(width * ww / width_with_maximized_height)
+    local visible_height = math.floor(blur_size * ww / width_with_maximized_height)
+
+    local cropped_1 = string.format(crop_format, visible_width, visible_height, (width - visible_width)/2, "0")
+    local scaled_1 = string.format(scale_format, width, blur_size + nudge)
+    cropped_scaled_1 = cropped_1 .. "," .. scaled_1
+
+    local cropped_2 = string.format(crop_format, visible_width, visible_height, (width - visible_width)/2, height - visible_height)
+    local scaled_2 = string.format(scale_format, width, blur_size)
+    cropped_scaled_2 = cropped_2 .. "," .. scaled_2
+    stack_direction = "v"
+end
+
+if blur_size < math.max(1, opts.minimum_black_bar_size) then return end
+local lr = math.min(opts.blur_radius, math.floor(blur_size/2)-1)
+local cr = math.min(opts.blur_radius, math.floor(blur_size/4)-1)
+local blur = string.format("boxblur=lr=%i:lp=%i:cr=%i:cp=%i",
+    lr, opts.blur_power, cr, opts.blur_power)
+
+zone_1 = string.format("[a] %s,%s [a_fin]", cropped_scaled_1, blur)
+zone_2 = string.format("[b] %s,%s [b_fin]", cropped_scaled_2, blur)
+
+local par_fix = "setsar=ratio=" .. tostring(par) .. ":max=10000"
+
+stack = string.format("[a_fin] [v] [b_fin] %sstack=3,%s [vo]", stack_direction, par_fix)
+filter = string.format("%s;%s;%s;%s", split, zone_1, zone_2, stack)
+set_lavfi_complex(filter)
+applied = true
+end
+
+function unset_blur()
+set_lavfi_complex()
+applied = false
+end
+
+local reapplication_timer = mp.add_timeout(opts.reapply_delay, set_blur)
+reapplication_timer:kill()
+
+function reset_blur(k,v)
+unset_blur()
+reapplication_timer:kill()
+reapplication_timer:resume()
+end
+
+function toggle()
+if active then
+    active = false
+    unset_blur()
+    mp.unobserve_property(reset_blur)
+else
+    active = true
+    set_blur()
+    local properties = { "osd-width", "osd-height", "path", "fullscreen" }
+    for _, p in ipairs(properties) do
+        mp.observe_property(p, "native", reset_blur)
+    end
+end
+end
+
+if active then
+active = false
+toggle()
+end
+
+mp.add_key_binding(nil, "toggle-blur", toggle)
+mp.add_key_binding(nil, "set-blur", set_blur)
+mp.add_key_binding(nil, "unset-blur", unset_blur)
+#+end_src
+#+begin_src conf :tangle .config/mpv/script-opts/blur_edges.conf :noweb yes
+# whether the script is active by default
+active=yes
+
+# which black bars to replace with blur
+# can be "all", "horizontal" or "vertical"
+mode=all
+
+# intensity of the blur
+# see the ffmpeg filter doc https://ffmpeg.org/ffmpeg-filters.html#boxblur
+# tl;dr higher means blurrier
+blur_radius=10
+blur_power=10
+
+# the minimum size of the black bars for the effect to apply
+minimum_black_bar_size=3
+
+# if the aspect ratio of the video changes, we need to reapply the filter
+# since this can happen very quickly, wait a short delay before doing it
+reapply_delay=0.5
+
+# until recently, resuming files that had the script active would unselect the video
+# if your mpv version is more recent than feb 2 2018, you can set this to yes
+watch_later_fix=no
+
+# only apply the blur effect when mpv is set to fullscreen
+only_fullscreen=yes
+#+end_src
+
+**** crop
+#+begin_src lua :tangle .config/mpv/scripts/crop.lua :noweb yes
+local opts = {
+draw_shade = true,
+shade_opacity = "77",
+draw_crosshair = true,
+draw_text = true,
+mouse_support=true,
+coarse_movement=30,
+left_coarse="LEFT",
+right_coarse="RIGHT",
+up_coarse="UP",
+down_coarse="DOWN",
+fine_movement=1,
+left_fine="ALT+LEFT",
+right_fine="ALT+RIGHT",
+up_fine="ALT+UP",
+down_fine="ALT+DOWN",
+accept="ENTER,MOUSE_BTN0",
+cancel="ESC",
+}
+(require 'mp.options').read_options(opts)
+
+function split(input)
+local ret = {}
+for str in string.gmatch(input, "([^,]+)") do
+    ret[#ret + 1] = str
+end
+return ret
+end
+opts.accept = split(opts.accept)
+opts.cancel = split(opts.cancel)
+
+local assdraw = require 'mp.assdraw'
+local msg = require 'mp.msg'
+local needs_drawing = false
+local dimensions_changed = false
+local crop_first_corner = nil -- in video space
+local crop_cursor = {
+x = -1,
+y = -1
+}
+
+function get_video_dimensions()
+if not dimensions_changed then return _video_dimensions end
+-- this function is very much ripped from video/out/aspect.c in mpv's source
+local video_params = mp.get_property_native("video-out-params")
+if not video_params then return nil end
+dimensions_changed = false
+local keep_aspect = mp.get_property_bool("keepaspect")
+local w = video_params["w"]
+local h = video_params["h"]
+local dw = video_params["dw"]
+local dh = video_params["dh"]
+if mp.get_property_number("video-rotate") % 180 == 90 then
+    w, h = h,w
+    dw, dh = dh, dw
+end
+_video_dimensions = {
+    top_left = {},
+    bottom_right = {},
+    ratios = {},
+}
+if keep_aspect then
+    local unscaled = mp.get_property_native("video-unscaled")
+    local panscan = mp.get_property_number("panscan")
+    local window_w, window_h = mp.get_osd_size()
+
+    local fwidth = window_w
+    local fheight = math.floor(window_w / dw * dh)
+    if fheight > window_h or fheight < h then
+        local tmpw = math.floor(window_h / dh * dw)
+        if tmpw <= window_w then
+            fheight = window_h
+            fwidth = tmpw
+        end
+    end
+    local vo_panscan_area = window_h - fheight
+    local f_w = fwidth / fheight
+    local f_h = 1
+    if vo_panscan_area == 0 then
+        vo_panscan_area = window_h - fwidth
+        f_w = 1
+        f_h = fheight / fwidth
+    end
+    if unscaled or unscaled == "downscale-big" then
+        vo_panscan_area = 0
+        if unscaled or (dw <= window_w and dh <= window_h) then
+            fwidth = dw
+            fheight = dh
+        end
+    end
+
+    local scaled_width = fwidth + math.floor(vo_panscan_area * panscan * f_w)
+    local scaled_height = fheight + math.floor(vo_panscan_area * panscan * f_h)
+
+    local split_scaling = function (dst_size, scaled_src_size, zoom, align, pan)
+        scaled_src_size = math.floor(scaled_src_size * 2 ^ zoom)
+        align = (align + 1) / 2
+        local dst_start = math.floor((dst_size - scaled_src_size) * align + pan * scaled_src_size)
+        if dst_start < 0 then
+            --account for C int cast truncating as opposed to flooring
+            dst_start = dst_start + 1
+        end
+        local dst_end = dst_start + scaled_src_size;
+        if dst_start >= dst_end then
+            dst_start = 0
+            dst_end = 1
+        end
+        return dst_start, dst_end
+    end
+    local zoom = mp.get_property_number("video-zoom")
+
+    local align_x = mp.get_property_number("video-align-x")
+    local pan_x = mp.get_property_number("video-pan-x")
+    _video_dimensions.top_left.x, _video_dimensions.bottom_right.x = split_scaling(window_w, scaled_width, zoom, align_x, pan_x)
+
+    local align_y = mp.get_property_number("video-align-y")
+    local pan_y = mp.get_property_number("video-pan-y")
+    _video_dimensions.top_left.y, _video_dimensions.bottom_right.y = split_scaling(window_h,  scaled_height, zoom, align_y, pan_y)
+else
+    _video_dimensions.top_left.x = 0
+    _video_dimensions.bottom_right.x = window_w
+    _video_dimensions.top_left.y = 0
+    _video_dimensions.bottom_right.y = window_h
+end
+_video_dimensions.ratios.w = w / (_video_dimensions.bottom_right.x - _video_dimensions.top_left.x)
+_video_dimensions.ratios.h = h / (_video_dimensions.bottom_right.y - _video_dimensions.top_left.y)
+return _video_dimensions
+end
+
+function sort_corners(c1, c2)
+local r1, r2 = {}, {}
+if c1.x < c2.x then r1.x, r2.x = c1.x, c2.x else r1.x, r2.x = c2.x, c1.x end
+if c1.y < c2.y then r1.y, r2.y = c1.y, c2.y else r1.y, r2.y = c2.y, c1.y end
+return r1, r2
+end
+
+function clamp(low, value, high)
+if value <= low then
+    return low
+elseif value >= high then
+    return high
+else
+    return value
+end
+end
+
+function clamp_point(top_left, point, bottom_right)
+return {
+    x = clamp(top_left.x, point.x, bottom_right.x),
+    y = clamp(top_left.y, point.y, bottom_right.y)
+}
+end
+
+function screen_to_video(point, video_dim)
+return {
+    x = math.floor(video_dim.ratios.w * (point.x - video_dim.top_left.x) + 0.5),
+    y = math.floor(video_dim.ratios.h * (point.y - video_dim.top_left.y) + 0.5)
+}
+end
+
+function video_to_screen(point, video_dim)
+return {
+    x = math.floor(point.x / video_dim.ratios.w + video_dim.top_left.x + 0.5),
+    y = math.floor(point.y / video_dim.ratios.h + video_dim.top_left.y + 0.5)
+}
+end
+
+function draw_shade(ass, unshaded, video)
+ass:new_event()
+ass:pos(0, 0)
+ass:append("{\\bord0}")
+ass:append("{\\shad0}")
+ass:append("{\\c&H000000&}")
+ass:append("{\\1a&H" .. opts.shade_opacity .. "}")
+ass:append("{\\2a&HFF}")
+ass:append("{\\3a&HFF}")
+ass:append("{\\4a&HFF}")
+local c1, c2 = unshaded.top_left, unshaded.bottom_right
+local v = video
+--          c1.x   c2.x
+--     +-----+------------+
+--     |     |     ur     |
+-- c1.y| ul  +-------+----+
+--     |     |       |    |
+-- c2.y+-----+-------+ lr |
+--     |     ll      |    |
+--     +-------------+----+
+ass:draw_start()
+ass:rect_cw(v.top_left.x, v.top_left.y, c1.x, c2.y) -- ul
+ass:rect_cw(c1.x, v.top_left.y, v.bottom_right.x, c1.y) -- ur
+ass:rect_cw(v.top_left.x, c2.y, c2.x, v.bottom_right.y) -- ll
+ass:rect_cw(c2.x, c1.y, v.bottom_right.x, v.bottom_right.y) -- lr
+ass:draw_stop()
+-- also possible to draw a rect over the whole video
+-- and \iclip it in the middle, but seemingy slower
+end
+
+function draw_crosshair(ass, center, window_size)
+ass:new_event()
+ass:append("{\\bord0}")
+ass:append("{\\shad0}")
+ass:append("{\\c&HBBBBBB&}")
+ass:append("{\\1a&H00&}")
+ass:append("{\\2a&HFF&}")
+ass:append("{\\3a&HFF&}")
+ass:append("{\\4a&HFF&}")
+ass:pos(0, 0)
+ass:draw_start()
+ass:rect_cw(center.x - 0.5, 0, center.x + 0.5, window_size.h)
+ass:rect_cw(0, center.y - 0.5, window_size.w, center.y + 0.5)
+ass:draw_stop()
+end
+
+function draw_position_text(ass, text, position, window_size, offset)
+ass:new_event()
+local align = 1
+local ofx = 1
+local ofy = -1
+if position.x > window_size.w / 2 then
+    align = align + 2
+    ofx = -1
+end
+if position.y < window_size.h / 2 then
+    align = align + 6
+    ofy = 1
+end
+ass:append("{\\an"..align.."}")
+ass:append("{\\fs26}")
+ass:append("{\\bord1.5}")
+ass:pos(ofx*offset + position.x, ofy*offset + position.y)
+ass:append(text)
+end
+
+function draw_crop_zone()
+if needs_drawing then
+    local video_dim = get_video_dimensions()
+    if not video_dim then
+        cancel_crop()
+        return
+    end
+
+    local window_size = {}
+    window_size.w, window_size.h = mp.get_osd_size()
+    crop_cursor = clamp_point(video_dim.top_left, crop_cursor, video_dim.bottom_right)
+    local ass = assdraw.ass_new()
+
+    if opts.draw_shade and crop_first_corner then
+        local first_corner = video_to_screen(crop_first_corner, video_dim)
+        local unshaded = {}
+        unshaded.top_left, unshaded.bottom_right = sort_corners(first_corner, crop_cursor)
+        -- don't draw shade over non-visible video parts
+        local window = {
+            top_left = { x = 0, y = 0 },
+            bottom_right = { x = window_size.w, y = window_size.h },
+        }
+        local video_visible = {
+            top_left = clamp_point(window.top_left, video_dim.top_left, window.bottom_right),
+            bottom_right = clamp_point(window.top_left, video_dim.bottom_right, window.bottom_right),
+        }
+        draw_shade(ass, unshaded, video_visible)
+    end
+
+    if opts.draw_crosshair then
+        draw_crosshair(ass, crop_cursor, window_size)
+    end
+
+    if opts.draw_text then
+        cursor_video = screen_to_video(crop_cursor, video_dim)
+        local text = string.format("%d, %d", cursor_video.x, cursor_video.y)
+        if crop_first_corner then
+            text = string.format("%s (%dx%d)", text,
+                math.abs(cursor_video.x - crop_first_corner.x),
+                math.abs(cursor_video.y - crop_first_corner.y)
+            )
+        end
+        draw_position_text(ass, text, crop_cursor, window_size, 6)
+    end
+
+    mp.set_osd_ass(window_size.w, window_size.h, ass.text)
+    needs_drawing = false
+end
+end
+
+function crop_video(x, y, w, h)
+local vf_table = mp.get_property_native("vf")
+vf_table[#vf_table + 1] = {
+    name="crop",
+    params= {
+        x = tostring(x),
+        y = tostring(y),
+        w = tostring(w),
+        h = tostring(h)
+    }
+}
+mp.set_property_native("vf", vf_table)
+end
+
+function update_crop_zone_state()
+local dim = get_video_dimensions()
+if not dim then
+    cancel_crop()
+    return
+end
+crop_cursor = clamp_point(dim.top_left, crop_cursor, dim.bottom_right)
+corner_video = screen_to_video(crop_cursor, dim)
+if crop_first_corner == nil then
+    crop_first_corner = corner_video
+    needs_drawing = true
+else
+    local c1, c2 = sort_corners(crop_first_corner, corner_video)
+    crop_video(c1.x, c1.y, c2.x - c1.x, c2.y - c1.y)
+    cancel_crop()
+end
+end
+
+function reset_crop()
+dimensions_changed = true
+needs_drawing = true
+end
+
+local bindings = {}
+local bindings_repeat = {}
+
+function cancel_crop()
+needs_drawing = false
+crop_first_corner = nil
+for key, _ in pairs(bindings) do
+    mp.remove_key_binding("crop-"..key)
+end
+for key, _ in pairs(bindings_repeat) do
+    mp.remove_key_binding("crop-"..key)
+end
+mp.unobserve_property(reset_crop)
+mp.unregister_idle(draw_crop_zone)
+mp.set_osd_ass(1280, 720, '')
+end
+
+-- bindings
+if opts.mouse_support then
+bindings["MOUSE_MOVE"] = function() crop_cursor.x, crop_cursor.y = mp.get_mouse_pos(); needs_drawing = true end
+end
+for _, key in ipairs(opts.accept) do
+bindings[key] = update_crop_zone_state
+end
+for _, key in ipairs(opts.cancel) do
+bindings[key] = cancel_crop
+end
+function movement_func(move_x, move_y)
+return function()
+    crop_cursor.x = crop_cursor.x + move_x
+    crop_cursor.y = crop_cursor.y + move_y
+    needs_drawing = true
+end
+end
+bindings_repeat[opts.left_coarse]  = movement_func(-opts.coarse_movement, 0)
+bindings_repeat[opts.right_coarse] = movement_func(opts.coarse_movement, 0)
+bindings_repeat[opts.up_coarse]    = movement_func(0, -opts.coarse_movement)
+bindings_repeat[opts.down_coarse]  = movement_func(0, opts.coarse_movement)
+bindings_repeat[opts.left_fine]    = movement_func(-opts.fine_movement, 0)
+bindings_repeat[opts.right_fine]   = movement_func(opts.fine_movement, 0)
+bindings_repeat[opts.up_fine]      = movement_func(0, -opts.fine_movement)
+bindings_repeat[opts.down_fine]    = movement_func(0, opts.fine_movement)
+
+local properties = {
+"keepaspect",
+"video-out-params",
+"video-unscaled",
+"panscan",
+"video-zoom",
+"video-align-x",
+"video-pan-x",
+"video-align-y",
+"video-pan-y",
+"osd-width",
+"osd-height",
+}
+
+function start_crop()
+if not mp.get_property("video-out-params", nil) then return end
+local hwdec = mp.get_property("hwdec-current")
+if hwdec and hwdec ~= "no" and not string.find(hwdec, "-copy$") then
+    msg.error("Cannot crop with hardware decoding active (see manual)")
+    return
+end
+
+crop_cursor.x, crop_cursor.y = mp.get_mouse_pos()
+needs_drawing = true
+dimensions_changed = true
+for key, func in pairs(bindings) do
+    mp.add_forced_key_binding(key, "crop-"..key, func)
+end
+for key, func in pairs(bindings_repeat) do
+    mp.add_forced_key_binding(key, "crop-"..key, func, { repeatable = true })
+end
+mp.register_idle(draw_crop_zone)
+for _, p in ipairs(properties) do
+    mp.observe_property(p, "native", reset_crop)
+end
+end
+
+function toggle_crop()
+local vf_table = mp.get_property_native("vf")
+if #vf_table > 0 then
+    for i = #vf_table, 1, -1 do
+        if vf_table[i].name == "crop" then
+            for j = i, #vf_table-1 do
+                vf_table[j] = vf_table[j+1]
+            end
+            vf_table[#vf_table] = nil
+            mp.set_property_native("vf", vf_table)
+            return
+        end
+    end
+end
+start_crop()
+end
+
+mp.add_key_binding(nil, "start-crop", start_crop)
+mp.add_key_binding(nil, "toggle-crop", toggle_crop)
+#+end_src
+#+begin_src conf :tangle .config/mpv/script-opts/crop.conf :noweb yes
+draw_crosshair=yes
+draw_text=yes
+draw_shade=yes
+# hexadecimal: 00 is opaque, FF is transparent
+shade_opacity=77
+mouse_support=yes
+
+# movement is defined in pixels in the window
+# which explains the mismatch with the text (in video space)
+coarse_movement=30
+left_coarse=LEFT
+right_coarse=RIGHT
+up_coarse=UP
+down_coarse=DOWN
+fine_movement=1
+left_fine=ALT+LEFT
+right_fine=ALT+RIGHT
+up_fine=ALT+UP
+down_fine=ALT+DOWN
+
+# these two options accept comma separated list of keys
+accept=ENTER,MOUSE_BTN0
+cancel=ESC
+#+end_src
+
+**** encode
+#+begin_src lua :tangle .config/mpv/scripts/encode.lua :noweb yes
+local utils = require "mp.utils"
+local msg = require "mp.msg"
+local options = require "mp.options"
+
+local ON_WINDOWS = (package.config:sub(1,1) ~= "/")
+
+local start_timestamp = nil
+local profile_start = ""
+
+-- implementation detail of the osd message
+local timer = nil
+local timer_duration = 2
+
+function append_table(lhs, rhs)
+for i = 1,#rhs do
+    lhs[#lhs+1] = rhs[i]
+end
+return lhs
+end
+
+function file_exists(name)
+local f = io.open(name, "r")
+if f ~= nil then
+    io.close(f)
+    return true
+else
+    return false
+end
+end
+
+function get_extension(path)
+local candidate = string.match(path, "%.([^.]+)$")
+if candidate then
+    for _, ext in ipairs({ "mkv", "webm", "mp4", "avi" }) do
+        if candidate == ext then
+            return candidate
+        end
+    end
+end
+return "mkv"
+end
+
+function get_output_string(dir, format, input, extension, title, from, to, profile)
+local res = utils.readdir(dir)
+if not res then
+    return nil
+end
+local files = {}
+for _, f in ipairs(res) do
+    files[f] = true
+end
+local output = format
+output = string.gsub(output, "$f", input)
+output = string.gsub(output, "$t", title)
+output = string.gsub(output, "$s", seconds_to_time_string(from, true))
+output = string.gsub(output, "$e", seconds_to_time_string(to, true))
+output = string.gsub(output, "$d", seconds_to_time_string(to-from, true))
+output = string.gsub(output, "$x", extension)
+output = string.gsub(output, "$p", profile)
+if ON_WINDOWS then
+    output = string.gsub(output, "[/\\|<>?:\"*]", "_")
+end
+if not string.find(output, "$n") then
+    return files[output] and nil or output
+end
+local i = 1
+while true do
+    local potential_name = string.gsub(output, "$n", tostring(i))
+    if not files[potential_name] then
+        return potential_name
+    end
+    i = i + 1
+end
+end
+
+function get_video_filters()
+local filters = {}
+for _, vf in ipairs(mp.get_property_native("vf")) do
+    local name = vf["name"]
+    local filter
+    if name == "crop" then
+        local p = vf["params"]
+        filter = string.format("crop=%d:%d:%d:%d", p.w, p.h, p.x, p.y)
+    elseif name == "mirror" then
+        filter = "hflip"
+    elseif name == "flip" then
+        filter = "vflip"
+    elseif name == "rotate" then
+        local rotation = vf["params"]["angle"]
+        -- rotate is NOT the filter we want here
+        if rotation == "90" then
+            filter = "transpose=clock"
+        elseif rotation == "180" then
+            filter = "transpose=clock,transpose=clock"
+        elseif rotation == "270" then
+            filter = "transpose=cclock"
+        end
+    end
+    filters[#filters + 1] = filter
+end
+return filters
+end
+
+function get_input_info(default_path, only_active)
+local accepted = {
+    video = true,
+    audio = not mp.get_property_bool("mute"),
+    sub = mp.get_property_bool("sub-visibility")
+}
+local ret = {}
+for _, track in ipairs(mp.get_property_native("track-list")) do
+    local track_path = track["external-filename"] or default_path
+    if not only_active or (track["selected"] and accepted[track["type"]]) then
+        local tracks = ret[track_path]
+        if not tracks then
+            ret[track_path] = { track["ff-index"] }
+        else
+            tracks[#tracks + 1] = track["ff-index"]
+        end
+    end
+end
+return ret
+end
+
+function seconds_to_time_string(seconds, full)
+local ret = string.format("%02d:%02d.%03d"
+    , math.floor(seconds / 60) % 60
+    , math.floor(seconds) % 60
+    , seconds * 1000 % 1000
+)
+if full or seconds > 3600 then
+    ret = string.format("%d:%s", math.floor(seconds / 3600), ret)
+end
+return ret
+end
+
+function start_encoding(from, to, settings)
+local args = {
+    settings.ffmpeg_command,
+    "-loglevel", "panic", "-hide_banner",
+}
+local append_args = function(table) args = append_table(args, table) end
+
+local path = mp.get_property("path")
+local is_stream = not file_exists(path)
+if is_stream then
+    path = mp.get_property("stream-path")
+end
+
+local track_args = {}
+local start = seconds_to_time_string(from, false)
+local input_index = 0
+for input_path, tracks in pairs(get_input_info(path, settings.only_active_tracks)) do
+    append_args({
+        "-ss", start,
+        "-i", input_path,
+    })
+    if settings.only_active_tracks then
+        for _, track_index in ipairs(tracks) do
+            track_args = append_table(track_args, { "-map", string.format("%d:%d", input_index, track_index)})
+        end
+    else
+        track_args = append_table(track_args, { "-map", tostring(input_index)})
+    end
+    input_index = input_index + 1
+end
+
+append_args({"-to", tostring(to-from)})
+append_args(track_args)
+
+-- apply some of the video filters currently in the chain
+local filters = {}
+if settings.preserve_filters then
+    filters = get_video_filters()
+end
+if settings.append_filter ~= "" then
+    filters[#filters + 1] = settings.append_filter
+end
+if #filters > 0 then
+    append_args({ "-filter:v", table.concat(filters, ",") })
+end
+
+-- split the user-passed settings on whitespace
+for token in string.gmatch(settings.codec, "[^%s]+") do
+    args[#args + 1] = token
+end
+
+-- path of the output
+local output_directory = settings.output_directory
+if output_directory == "" then
+    if is_stream then
+        output_directory = "."
+    else
+        output_directory, _ = utils.split_path(path)
+    end
+else
+    output_directory = string.gsub(output_directory, "^~", os.getenv("HOME") or "~")
+end
+local input_name = mp.get_property("filename/no-ext") or "encode"
+local title = mp.get_property("media-title")
+local extension = get_extension(path)
+local output_name = get_output_string(output_directory, settings.output_format, input_name, extension, title, from, to, settings.profile)
+if not output_name then
+    mp.osd_message("Invalid path " .. output_directory)
+    return
+end
+args[#args + 1] = utils.join_path(output_directory, output_name)
+
+if settings.print then
+    local o = ""
+    -- fuck this is ugly
+    for i = 1, #args do
+        local fmt = ""
+        if i == 1 then
+            fmt = "%s%s"
+        elseif i >= 2 and i <= 4 then
+            fmt = "%s"
+        elseif args[i-1] == "-i" or i == #args or args[i-1] == "-filter:v" then
+            fmt = "%s '%s'"
+        else
+            fmt = "%s %s"
+        end
+        o = string.format(fmt, o, args[i])
+    end
+    print(o)
+end
+if settings.detached then
+    utils.subprocess_detached({ args = args })
+else
+    local res = utils.subprocess({ args = args, max_size = 0, cancellable = false })
+    if res.status == 0 then
+        mp.osd_message("Finished encoding succesfully")
+    else
+        mp.osd_message("Failed to encode, check the log")
+    end
+end
+end
+
+function clear_timestamp()
+timer:kill()
+start_timestamp = nil
+profile_start = ""
+mp.remove_key_binding("encode-ESC")
+mp.remove_key_binding("encode-ENTER")
+mp.osd_message("", 0)
+end
+
+function set_timestamp(profile)
+if not mp.get_property("path") then
+    mp.osd_message("No file currently playing")
+    return
+end
+if not mp.get_property_bool("seekable") then
+    mp.osd_message("Cannot encode non-seekable media")
+    return
+end
+
+if not start_timestamp or profile ~= profile_start then
+    profile_start = profile
+    start_timestamp = mp.get_property_number("time-pos")
+    local msg = function()
+        mp.osd_message(
+            string.format("encode [%s]: waiting for end timestamp", profile or "default"),
+            timer_duration
+        )
+    end
+    msg()
+    timer = mp.add_periodic_timer(timer_duration, msg)
+    mp.add_forced_key_binding("ESC", "encode-ESC", clear_timestamp)
+    mp.add_forced_key_binding("ENTER", "encode-ENTER", function() set_timestamp(profile) end)
+else
+    local from = start_timestamp
+    local to = mp.get_property_number("time-pos")
+    if to <= from then
+        mp.osd_message("Second timestamp cannot be before the first", timer_duration)
+        timer:kill()
+        timer:resume()
+        return
+    end
+    clear_timestamp()
+    mp.osd_message(string.format("Encoding from %s to %s"
+        , seconds_to_time_string(from, false)
+        , seconds_to_time_string(to, false)
+    ), timer_duration)
+    -- include the current frame into the extract
+    local fps = mp.get_property_number("container-fps") or 30
+    to = to + 1 / fps / 2
+    local settings = {
+        detached = true,
+        container = "",
+        only_active_tracks = false,
+        preserve_filters = true,
+        append_filter = "",
+        codec = "-an -sn -c:v libvpx -crf 10 -b:v 1000k",
+        output_format = "$f_$n.webm",
+        output_directory = "",
+        ffmpeg_command = "ffmpeg",
+        print = true,
+    }
+    if profile then
+        options.read_options(settings, profile)
+        if settings.container ~= "" then
+            msg.warn("The 'container' setting is deprecated, use 'output_format' now")
+            settings.output_format = settings.output_format .. "." .. settings.container
+        end
+        settings.profile = profile
+    else
+        settings.profile = "default"
+    end
+    start_encoding(from, to, settings)
+end
+end
+
+mp.add_key_binding(nil, "set-timestamp", set_timestamp)
+#+end_src
+#+begin_src conf :tangle .config/mpv/script-opts/encode_slice.conf :noweb yes
+# profile to slice the current video without reencoding it
+# watch out that the extract will be snapped to keyframes; this is unavoidable when copying streams
+# see encode_webm.conf for a detailed explanations of all the options
+
+only_active_tracks=yes
+preserve_filters=no
+append_filter=
+codec=-c copy
+output_format=$f_$n.$x
+output_directory=
+detached=yes
+ffmpeg_command=ffmpeg
+print=yes
+#+end_src
+#+begin_src conf :tangle .config/mpv/script-opts/encode_webm.conf :noweb yes
+# if yes, only encode the currently active tracks
+# for example, mute the player / hide the subtitles if you don't want audio / subs to be part of the extract
+only_active_tracks=no
+
+# whether to preserve some of the applied filters (crop, rotate, flip and mirror) into the extract
+# this is pretty useful in combination with crop.lua
+# note that you cannot copy video streams and apply filters at the same time
+preserve_filters=yes
+
+# apply another filter after the ones from the previous option if any
+# can be used to limit the resolution of the output, for example with
+# append_filter=scale=2*trunc(iw/max(1\,sqrt((iw*ih)/(960*540)))/2):-2
+append_filter=
+
+# additional parameters passed to ffmpeg
+codec=-an -sn -c:v libvpx -crf 10 -b:v 1000k
+
+# format of the output filename
+# Does basic interpolation on the following variables: $f, $x, $t, $s, $e, $d, $p, $n which respectively represent
+# input filename, input extension, title, start timestamp, end timestamp, duration, profile name and an incrementing number in case of conflicts
+# if the extension is not among the recognized ones, it will default to mkv
+output_format=$f_$n.webm
+
+# the directory in which to create the extract
+# empty means the same directory as the input file
+# relative paths are relative to mpv's working directory, absolute ones work like you would expect
+output_directory=
+
+# if yes, the ffmpeg process will run detached from mpv and we won't know if it succeeded or not
+# if no, we know the result of calling ffmpeg, but we can only encode one extract at a time and mpv will block on exit
+detached=yes
+
+# executable to run when encoding (or its full path if not in PATH)
+# for example, this can be used with a wrapper script that calls ffmpeg and triggers a notification when finished
+# note that the executable gets the ffmpeg arguments as-is, and is expected to call ffmpeg itself
+ffmpeg_command=ffmpeg
+
+# if yes, print the ffmpeg call before executing it
+print=yes
+#+end_src
+
+**** misc
+#+begin_src lua :tangle .config/mpv/scripts/misc.lua :noweb yes
+function rotate(inc)
+if (360 + inc) % 90 ~= 0 then
+    return
+end
+local vf_table = mp.get_property_native("vf")
+local previous_angle = 0
+local rotation_index = #vf_table + 1
+if #vf_table ~= 0 and vf_table[#vf_table]["name"] == "rotate" then
+    rotation_index = #vf_table
+    previous_angle = vf_table[#vf_table]["params"]["angle"]
+end
+local new_angle = (previous_angle + 360 + inc) % 360
+if new_angle == 0 then
+    vf_table[rotation_index] = nil
+else
+    vf_table[rotation_index] = {
+        name = "rotate",
+        params = { angle = tostring(new_angle) }
+    }
+end
+mp.set_property_native("vf", vf_table)
+end
+
+function toggle(filter)
+local vf_table = mp.get_property_native("vf")
+if #vf_table ~= 0 and vf_table[#vf_table]["name"] == filter then
+    vf_table[#vf_table] = nil
+else
+    vf_table[#vf_table + 1] = { name = filter }
+end
+mp.set_property_native("vf", vf_table)
+end
+
+local filters_undo_stack = {}
+
+function remove_last_filter()
+local vf_table = mp.get_property_native("vf")
+if #vf_table == 0 then
+    return
+end
+filters_undo_stack[#filters_undo_stack + 1] = vf_table[#vf_table]
+vf_table[#vf_table] = nil
+mp.set_property_native("vf", vf_table)
+end
+
+function undo_filter_removal()
+if #filters_undo_stack == 0 then
+    return
+end
+local vf_table = mp.get_property_native("vf")
+vf_table[#vf_table + 1] = filters_undo_stack[#filters_undo_stack]
+filters_undo_stack[#filters_undo_stack] = nil
+mp.set_property_native("vf", vf_table)
+end
+
+function clear_filters()
+local vf_table = mp.get_property_native("vf")
+if #vf_table == 0 then
+    return
+end
+for i = 1, #vf_table do
+    filters_undo_stack[#filters_undo_stack + 1] = vf_table[#vf_table + 1 - i]
+end
+mp.set_property_native("vf", {})
+end
+
+function ab_loop(operation, timestamp)
+if not mp.get_property("seekable") then return end
+if timestamp ~= "a" and timestamp ~= "b" then return end
+timestamp = "ab-loop-" .. timestamp
+if operation == "set" then
+    mp.set_property_number(timestamp, mp.get_property_number("time-pos"))
+elseif operation == "jump" then
+    local t = tonumber(mp.get_property(timestamp))
+    if t then mp.set_property_number("time-pos", t) end
+elseif operation == "clear" then
+    mp.set_property(timestamp, "no")
+end
+end
+
+mp.add_key_binding(nil, "rotate", rotate)
+mp.add_key_binding(nil, "toggle-filter", toggle)
+mp.add_key_binding(nil, "clear-filters", clear_filters)
+mp.add_key_binding(nil, "remove-last-filter", remove_last_filter)
+mp.add_key_binding(nil, "undo-filter-removal", undo_filter_removal)
+mp.add_key_binding(nil, "ab-loop", ab_loop)
+#+end_src
+
+**** modules
+#+begin_src lua :tangle .config/mpv/scripts/modules.lua :noweb yes
+local mpv_scripts_dir_path = os.getenv("HOME") ..  "/.config/mpv/scripts/"
+function load(relative_path) dofile(mpv_scripts_dir_path .. relative_path) end
+load("mpvSockets/mpvSockets.lua")
+#+end_src
+
+**** mpvSockets
+#+begin_src lua :tangle .config/mpv/scripts/mpvSockets.lua :noweb yes
+-- mpvSockets, one socket per instance, removes socket on exit
+
+local utils = require 'mp.utils'
+
+local function get_temp_path()
+local directory_seperator = package.config:match("([^\n]*)\n?")
+local example_temp_file_path = os.tmpname()
+
+-- remove generated temp file
+pcall(os.remove, example_temp_file_path)
+
+local seperator_idx = example_temp_file_path:reverse():find(directory_seperator)
+local temp_path_length = #example_temp_file_path - seperator_idx
+
+return example_temp_file_path:sub(1, temp_path_length)
+end
+
+tempDir = get_temp_path()
+
+function join_paths(...)
+local arg={...}
+path = ""
+for i,v in ipairs(arg) do
+    path = utils.join_path(path, tostring(v))
+end
+return path;
+end
+
+ppid = utils.getpid()
+os.execute("mkdir " .. join_paths(tempDir, "mpvSockets") .. " 2>/dev/null")
+mp.set_property("options/input-ipc-server", join_paths(tempDir, "mpvSockets", ppid))
+
+function shutdown_handler()
+    os.remove(join_paths(tempDir, "mpvSockets", ppid))
+end
+mp.register_event("shutdown", shutdown_handler)
+#+end_src
+
+**** seek-to
+#+begin_src lua :tangle .config/mpv/scripts/seek-to.lua :noweb yes
+local assdraw = require 'mp.assdraw'
+local active = false
+local cursor_position = 1
+local time_scale = {60*60*10, 60*60, 60*10, 60, 10, 1, 0.1, 0.01, 0.001}
+
+local ass_begin = mp.get_property("osd-ass-cc/0")
+local ass_end = mp.get_property("osd-ass-cc/1")
+
+local history = { {} }
+for i = 1, 9 do
+history[1][i] = 0
+end
+local history_position = 1
+
+-- timer to redraw periodically the message
+-- to avoid leaving bindings when the seeker disappears for whatever reason
+-- pretty hacky tbh
+local timer = nil
+local timer_duration = 3
+
+function show_seeker()
+local prepend_char = {'','',':','',':','','.','',''}
+local str = ''
+for i = 1, 9 do
+    str = str .. prepend_char[i]
+    if i == cursor_position then
+        str = str .. '{\\b1}' .. history[history_position][i] .. '{\\r}'
+    else
+        str = str .. history[history_position][i]
+    end
+end
+mp.osd_message("Seek to: " .. ass_begin .. str .. ass_end, timer_duration)
+end
+
+function copy_history_to_last()
+if history_position ~= #history then
+    for i = 1, 9 do
+        history[#history][i] = history[history_position][i]
+    end
+    history_position = #history
+end
+end
+
+function change_number(i)
+-- can't set above 60 minutes or seconds
+if (cursor_position == 3 or cursor_position == 5) and i >= 6 then
+    return
+end
+if history[history_position][cursor_position] ~= i then
+    copy_history_to_last()
+    history[#history][cursor_position] = i
+end
+shift_cursor(false)
+end
+
+function shift_cursor(left)
+if left then
+    cursor_position = math.max(1, cursor_position - 1)
+else
+    cursor_position = math.min(cursor_position + 1, 9)
+end
+end
+
+function current_time_as_sec(time)
+local sec = 0
+for i = 1, 9 do
+    sec = sec + time_scale[i] * time[i]
+end
+return sec
+end
+
+function time_equal(lhs, rhs)
+for i = 1, 9 do
+    if lhs[i] ~= rhs[i] then
+        return false
+    end
+end
+return true
+end
+
+function seek_to()
+copy_history_to_last()
+mp.commandv("osd-bar", "seek", current_time_as_sec(history[history_position]), "absolute")
+--deduplicate consecutive timestamps
+if #history == 1 or not time_equal(history[history_position], history[#history - 1]) then
+    history[#history + 1] = {}
+    history_position = #history
+end
+for i = 1, 9 do
+    history[#history][i] = 0
+end
+end
+
+function backspace()
+if cursor_position ~= 9 or current_time[9] == 0 then
+    shift_cursor(true)
+end
+if history[history_position][cursor_position] ~= 0 then
+    copy_history_to_last()
+    history[#history][cursor_position] = 0
+end
+end
+
+function history_move(up)
+if up then
+    history_position = math.max(1, history_position - 1)
+else
+    history_position = math.min(history_position + 1, #history)
+end
+end
+
+local key_mappings = {
+LEFT  = function() shift_cursor(true) show_seeker() end,
+RIGHT = function() shift_cursor(false) show_seeker() end,
+UP    = function() history_move(true) show_seeker() end,
+DOWN  = function() history_move(false) show_seeker() end,
+BS    = function() backspace() show_seeker() end,
+ESC   = function() set_inactive() end,
+ENTER = function() seek_to() set_inactive() end
+}
+for i = 0, 9 do
+local func = function() change_number(i) show_seeker() end
+key_mappings[string.format("KP%d", i)] = func
+key_mappings[string.format("%d", i)] = func
+end
+
+function set_active()
+if not mp.get_property("seekable") then return end
+-- find duration of the video and set cursor position accordingly
+local duration = mp.get_property_number("duration")
+if duration ~= nil then
+    for i = 1, 9 do
+        if duration > time_scale[i] then
+            cursor_position = i
+            break
+        end
+    end
+end
+for key, func in pairs(key_mappings) do
+    mp.add_forced_key_binding(key, "seek-to-"..key, func)
+end
+show_seeker()
+timer = mp.add_periodic_timer(timer_duration, show_seeker)
+active = true
+end
+
+function set_inactive()
+mp.osd_message("")
+for key, _ in pairs(key_mappings) do
+    mp.remove_key_binding("seek-to-"..key)
+end
+timer:kill()
+active = false
+end
+
+mp.add_key_binding(nil, "toggle-seeker", function() if active then set_inactive() else set_active() end end)
+#+end_src
+
+**** trueautosub
+#+begin_src lua :tangle .config/mpv/scripts/trueautosub.lua :noweb yes
+-- requires subliminal, version 1.0 or newer
+-- default keybinding: b
+local utils = require 'mp.utils'
+
+--sleep function, so that subs aren't downloaded the instant a file is loaded
+--taken from:http://lua-users.org/wiki/SleepFunction
+function sleep(s)
+local ntime = os.time() + s
+repeat until os.time() > ntime
+end
+
+--original function, pressing b will trigger this and download the subtitle manually
+function load_sub_fn()
+subl = "/usr/local/bin/subliminal" -- use 'which subliminal' to find the path
+mp.msg.info("Searching subtitle")
+mp.osd_message("Searching subtitle")
+t = {}
+
+t.args = {subl, "download", "-s", "-f", "-l", "en", mp.get_property("path")}
+res = utils.subprocess(t)
+if res.status == 0 then
+    mp.commandv("rescan_external_files", "reselect")
+    mp.msg.info("Subtitle download succeeded")
+    mp.osd_message("Subtitle download succeeded")
+else
+    mp.msg.warn("Subtitle download failed")
+    mp.osd_message("Subtitle download failed")
+end
+end
+
+--added function, auto search for subs and download if not present, the way god intended :P
+function autosubs()
+sleep(10)
+subl = "/usr/local/bin/subliminal" -- use 'which subliminal' to find the path
+mp.msg.info("Searching subtitle")
+mp.osd_message("Searching subtitle")
+t = {}
+t.args = {subl, "download", "-s", "-l", "en", mp.get_property("path")}
+res = utils.subprocess(t)
+if res.status == 0 then
+    mp.commandv("rescan_external_files", "reselect")
+    mp.msg.info("Subtitle download succeeded")
+    mp.osd_message("Subtitle download succeeded")
+else
+    mp.msg.warn("Subtitle download failed")
+    mp.osd_message("Subtitle download failed")
+end
+end
+
+mp.add_key_binding("b", "auto_load_subs", load_sub_fn)
+mp.register_event("file-loaded", autosubs)
+#+end_src
+
+* Password Management
+** COMMENT Syncing Passwords
+
+#+begin_src sh :tangle .bin/sync-passwords :shebang #!/bin/sh
+
+pass git pull
+pass git push
+
+notify-send -i "emblem-synchronizing" "Passwords synced!"
+
+#+end_src
+
+* Document Readers
+#+begin_src conf :tangle .config/zathura/zathurarc
+
+# Automatically adjust the document to full width
+set adjust-open width
+
+# Set the title to the filename
+set window-title-basename true
+
+# Larger scroll steps with j/k
+set scroll-step 150
+
+# Adjusting the document
+map [normal] E adjust_window best-fit
+map [fullscreen] E adjust_window best-fit
+map [normal] e adjust_window width
+map [fullscreen] e adjust_window width
+
+# Toggling the inverted colours
+map <C-i> recolor
+map <C-g> abort
+
+#+end_src
