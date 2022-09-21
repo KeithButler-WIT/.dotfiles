@@ -421,6 +421,9 @@ capture was not aborted."
 
 (add-to-list 'org-src-lang-modes '("Kotlin" . "kotlin-mode"))
 
+(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+(org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
+
 (setq erc-prompt (lambda () (concat "[" (buffer-name)"]"))
       erc-server "irc.libera.chat"
       erc-autojoin-channels-alist '(("irc.libera.chat" "#emacs" "#linux"))

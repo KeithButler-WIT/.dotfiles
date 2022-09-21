@@ -238,7 +238,7 @@ This code is written to the init.el to select which modules to load. Written her
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
-       (:if IS-MAC macos)  ; improve compatibility with macOS
+       ;;(:if IS-MAC macos)  ; improve compatibility with macOS
        ;;tty               ; improve the terminal Emacs experience
 
        :lang
@@ -295,6 +295,7 @@ This code is written to the init.el to select which modules to load. Written her
        (python            ; beautiful is better than ugly
         +poetry
         +lsp
+        +conda
         +pyright)
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
@@ -950,6 +951,12 @@ So these packages help alot when righting reports.
 
 #+begin_src  emacs-lisp :results none
 (add-to-list 'org-src-lang-modes '("Kotlin" . "kotlin-mode"))
+#+end_src
+
+** Plantuml
+#+begin_src emacs-lisp
+(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+(org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
 #+end_src
 
 * Applications
