@@ -389,6 +389,9 @@ capture was not aborted."
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
 
+(after! org
+  (setq org-clock-sound "~/.doom.d/ding.mp3"))
+
 (add-hook! org-mode :append #'org-appear-mode)
 
 (setq org-publish-use-timestamps-flag nil)

@@ -1,12 +1,12 @@
 679959e7917290c4d1380dafd36febcc
-::res://::1663514280
-default_env.tres::Environment::1663449085::0::1::::<><>::
+::res://::1663954810
+default_env.tres::Environment::1663514287::0::1::::<><>::
 icon.png::StreamTexture::1662750044::1663184096::1::::<><>::
 ::res://Builds/::1663072109
-::res://Scenes/::1663449085
+::res://Scenes/::1663514287
 AutoClickerScene.tscn::PackedScene::1663435599::0::1::::<><>::res://Scripts/AutoClickerScene.gd<>res://Sprites/Duck.png
 CurrencySprite.tscn::PackedScene::1663449085::0::1::::<><>::res://Sprites/egg.png<>res://Scripts/Currency.gd
-Main.tscn::PackedScene::1663449085::0::1::::<><>::res://Scripts/MenuPopup.gd<>res://Scenes/AutoClickerScene.tscn<>res://Scripts/Main.gd<>res://Scripts/CurrencySpawner.gd<>res://Sprites/WindowLayout.png
+Main.tscn::PackedScene::1663514287::0::1::::<><>::res://Scripts/MenuPopup.gd<>res://Scenes/AutoClickerScene.tscn<>res://Scripts/Main.gd<>res://Scripts/CurrencySpawner.gd<>res://Sprites/WindowLayout.png
 ::res://Scripts/::1663448940
 AutoClickerScene.gd::GDScript::1663072741::0::1::::<>Control<>::
 Currency.gd::GDScript::1663445283::0::1::::<>Node2D<>::

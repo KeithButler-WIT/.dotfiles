@@ -884,6 +884,11 @@ Obtained from the [[https://github.com/org-roam/org-roam][org-roam]] github.
 (package! org-pomodoro)
 #+end_src
 
+#+begin_src  emacs-lisp :results none
+(after! org
+  (setq org-clock-sound "~/.doom.d/ding.mp3"))
+#+end_src
+
 ** org-appear
 Use [[https://github.com/awth13/org-appear][org-appear]] to reveal emphasis markers when moving the cursor over them.
 #+begin_src  emacs-lisp :results none :tangle packages.el
@@ -961,6 +966,9 @@ So these packages help alot when righting reports.
 
 * Applications
 ** COMMENT Mail
+:LOGBOOK:
+CLOCK: [2022-09-23 Fri 15:45]--[2022-09-23 Fri 15:50] =>  0:05
+:END:
 #+begin_src  emacs-lisp :results none :tangle packages.el
 (unpin! mu4e)
 #+end_src
