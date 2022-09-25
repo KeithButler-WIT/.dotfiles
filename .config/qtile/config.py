@@ -24,7 +24,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
 import os
 import re
 import socket
@@ -65,7 +64,6 @@ def window_to_next_group(qtile):
     if qtile.currentWindow is not None:
         i = qtile.groups.index(qtile.currentGroup)
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
-
 
 # My Programs
 myTerm = "alacritty"  # My terminal of choice
@@ -351,7 +349,6 @@ keys.extend(
     ]
 )
 
-
 def init_layout_theme():
     return {
         "margin": 0,
@@ -429,7 +426,6 @@ colors = init_colors()
 
 def base(fg="text", bg="dark"):
     return {"foreground": colors[14], "background": colors[15]}
-
 
 # WIDGETS FOR THE BAR
 
@@ -706,7 +702,6 @@ def assign_app_group(client):
 
 # END
 # ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
-
 
 main = None
 

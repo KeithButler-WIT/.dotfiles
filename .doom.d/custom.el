@@ -8,7 +8,7 @@
  '(org-agenda-files nil)
  '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(package-selected-packages
-   '(anaconda-mode conda flycheck-cython cython-mode plantuml-mode))
+   '(org-present anaconda-mode conda flycheck-cython cython-mode plantuml-mode))
  '(warning-suppress-types '(((yasnippet zombie)) (defvaralias))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

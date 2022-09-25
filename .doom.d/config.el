@@ -180,7 +180,8 @@
 (setq org-directory "/home/keith/workspace/org")
 (after! org
     ;; (setq org-agenda-files '("~/workspace/org/roam/*.org"))
-    (setq org-agenda-files (directory-files-recursively org-directory ".org$"))
+    ;; (setq org-agenda-files (directory-files-recursively org-directory ".org$"))
+    (setq org-agenda-files (list "/home/keith/workspace/org/roam"))
     (setq org-log-done 'time)
 )
 
@@ -203,7 +204,7 @@
       org-agenda-block-separator nil
       org-agenda-compact-blocks t
       org-agenda-start-day nil ;; i.e. today
-      org-agenda-span 1
+      org-agenda-span 7
       org-agenda-start-on-weekday nil)
   (setq org-agenda-custom-commands
         '(("c" "Super view"
@@ -413,7 +414,7 @@ capture was not aborted."
  '((emacs-lisp . t)
    (python . t)
    (Kotlin . t)
-   (shell . t)
+   (bash . t)
    (sql . t)
    ))
 
