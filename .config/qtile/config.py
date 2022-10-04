@@ -287,7 +287,7 @@ group_layouts = [
     "monadtall",
     "monadtall",
     "monadtall",
-    "treetab",
+    "monadtall",
     "floating",
 ]
 # group_layouts = ["monadtall", "matrix", "monadtall", "bsp", "monadtall", "matrix", "monadtall", "bsp", "monadtall", "monadtall",]

@@ -5,11 +5,12 @@
  ;; If there is more than one, they won't work right.
  '(android-mode-avd "AVD")
  '(android-mode-sdk-dir "/opt/android-sdk/")
- '(org-agenda-files nil)
+ '(org-agenda-files '("~/workspace/org/roam/Inbox.org"))
+ '(org-safe-remote-resources
+   '("\\`https://fniessen\\.github\\.io/org-html-themes/org/theme-readtheorg\\.setup\\'"))
  '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(package-selected-packages
-   '(org-present anaconda-mode conda flycheck-cython cython-mode plantuml-mode))
- '(warning-suppress-types '(((yasnippet zombie)) (defvaralias))))
+   '(simple-httpd plantuml-mode org-present flycheck-cython cython-mode conda anaconda-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

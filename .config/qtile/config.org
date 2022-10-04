@@ -49,6 +49,7 @@
 
 * Imports
 #+begin_src python :tangle config.py
+
 import os
 import re
 import socket
@@ -69,10 +70,12 @@ from libqtile.config import (
 from libqtile.command import lazy
 
 from libqtile.widget import Spacer
+
 #+end_src
 
 * Header
 #+begin_src python :tangle config.py
+j
 # mod4 or mod = super key
 mod = "mod4"
 mod1 = "alt"
@@ -96,7 +99,10 @@ def window_to_next_group(qtile):
 #+end_src
 
 * Setting default Applications to use
+Adding various applications to variables so only one place has to be changed if a program is changed.
+
 #+begin_src python :tangle config.py
+
 # My Programs
 myTerm = "alacritty"  # My terminal of choice
 myFileManager = "pcmanfm"
@@ -327,7 +333,7 @@ group_layouts = [
     "monadtall",
     "monadtall",
     "monadtall",
-    "treetab",
+    "monadtall",
     "floating",
 ]
 # group_layouts = ["monadtall", "matrix", "monadtall", "bsp", "monadtall", "matrix", "monadtall", "bsp", "monadtall", "monadtall",]

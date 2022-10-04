@@ -550,10 +550,10 @@ change `org-directory'. It must be set before org loads!
 (after! org
     ;; (setq org-agenda-files '("~/workspace/org/roam/*.org"))
     ;; (setq org-agenda-files (directory-files-recursively org-directory ".org$"))
-    (setq org-agenda-files (list "/home/keith/workspace/org/roam"))
+    ;; (setq org-agenda-files (list "/home/keith/workspace/org/roam"))
     (setq org-log-done 'time)
 )
-
+(set-file-template! "/roam/.+\\.org$" 'org-mode :ignore t)
 ;; https://github.com/bradydonald/.emacs.d
 ;; (defun my/org-agenda-files ()
 ;;   ;; org files for agenda

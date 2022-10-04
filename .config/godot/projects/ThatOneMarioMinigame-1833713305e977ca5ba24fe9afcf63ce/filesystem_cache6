@@ -1,0 +1,17 @@
+679959e7917290c4d1380dafd36febcc
+::res://::1664368224
+default_env.tres::Environment::1664321294::0::1::::<><>::
+icon.png::StreamTexture::1664219336::1664219343::1::::<><>::
+::res://Scenes/::1664321294
+Main.tscn::PackedScene::1664321294::0::1::::<><>::res://Scenes/Wall.tscn<>res://Scenes/Player.tscn<>res://Sprites/Background.png<>res://Scripts/ScrollingBG.gd
+Player.tscn::PackedScene::1664321255::0::1::::<><>::res://Scripts/Player.gd<>res://Sprites/Player.png
+Wall.tscn::PackedScene::1664321293::0::1::::<><>::res://Scripts/ScrollingBG.gd<>res://Sprites/Wall.png
+::res://Scripts/::1664318200
+Player.gd::GDScript::1664284565::0::1::::<>KinematicBody2D<>::
+ScrollingBG.gd::GDScript::1664317712::0::1::::<>Node<>::
+::res://Sprites/::1664321291
+Background.png::StreamTexture::1664317515::1664317516::1::::<><>::
+Player.png::StreamTexture::1664317450::1664317452::1::::<><>::
+Wall.png::StreamTexture::1664321267::1664321291::1::::<><>::
+::res://android/::1664219367
+::res://android/plugins/::1664219367

@@ -34,8 +34,8 @@ asset_library/available_urls = {
 "godotengine.org (Official)": "https://godotengine.org/asset-library/api"
 }
 asset_library/use_threads = true
-export/android/android_sdk_path = ""
-export/android/debug_keystore = ""
+export/android/android_sdk_path = "/home/keith/Android/Sdk"
+export/android/debug_keystore = "/home/keith/.android/debug.keystore"
 export/android/debug_keystore_user = "androiddebugkey"
 export/android/debug_keystore_pass = "android"
 export/android/force_system_user = false
@@ -146,3 +146,4 @@ projects/::home::keith::Documents::godot_projects::GodotMono-InfiniteTerrain = "
 "projects/::home::keith::Documents::godot_projects::Top Down" = "/home/keith/Documents/godot_projects/Top Down"
 "projects/::home::keith::Documents::godot_projects::Movement Mechanics" = "/home/keith/Documents/godot_projects/Movement Mechanics"
 projects/::home::keith::Documents::godot_projects::RigidbodyDemo = "/home/keith/Documents/godot_projects/RigidbodyDemo"
+projects/::home::keith::Documents::godot_projects::ThatOneMarioMinigame = "/home/keith/Documents/godot_projects/ThatOneMarioMinigame"
