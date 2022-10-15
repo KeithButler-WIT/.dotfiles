@@ -1,8 +1,0 @@
-679959e7917290c4d1380dafd36febcc
-::res://::1663937591
-default_env.tres::Environment::1663867537::0::1::::<><>::
-icon.png::StreamTexture::1663865753::1663865757::1::::<><>::
-Main.tscn::PackedScene::1663867537::0::1::::<><>::res://Turret.tscn
-Material.material::SpatialMaterial::1663867446::0::1::::<><>::
-Turret.fbx::PackedScene::1663867431::1663867431::1::::<><>::res://Material.material
-Turret.tscn::PackedScene::1663867533::0::1::::<><>::res://Turret.fbx

@@ -966,6 +966,11 @@ So these packages help alot when righting reports.
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
 #+end_src
 
+** COMMENT gdscript
+#+begin_src  emacs-lisp :results none :tangle packages.el
+(package! gdscript-mode)
+#+end_src
+
 * Applications
 ** COMMENT Mail
 :LOGBOOK:

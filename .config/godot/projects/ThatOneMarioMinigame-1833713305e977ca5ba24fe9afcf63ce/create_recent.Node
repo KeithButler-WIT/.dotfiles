@@ -1,7 +1,0 @@
-TextureRect
-Control
-CollisionShape2D
-RigidBody2D
-Node2D
-KinematicBody2D
-TouchScreenButton
