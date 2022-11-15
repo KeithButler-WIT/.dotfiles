@@ -44,9 +44,9 @@ set backup  " create backup for files
 set backupcopy=yes  " copy the original file to backupdir and overwrite it
 
 " General tab settings
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " number of spaces to use for autoindent
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set shiftwidth=2    " number of spaces to use for autoindent
 set expandtab       " expand tab to spaces so that tabs are spaces
 
 " Set matching pairs of characters and highlight matching brackets
@@ -75,6 +75,7 @@ set scrolloff=3
 " Use mouse to select and resize windows, etc.
 set mouse=nic  " Enable mouse in several mode
 set mousemodel=popup  " Set the behaviour of mouse
+set mousescroll=ver:1,hor:6
 
 " Disable showing current mode on command line since statusline plugins can show it.
 set noshowmode
@@ -112,6 +113,9 @@ set shortmess+=c
 " choice, IMHO.
 set shortmess+=S
 
+" Disable showing intro message (:intro)
+set shortmess+=I
+
 " Completion behaviour
 " set completeopt+=noinsert  " Auto select the first completion entry
 set completeopt+=menuone  " Show menu even if there is only one item
@@ -120,7 +124,7 @@ set completeopt-=preview  " Disable the preview window
 set pumheight=10  " Maximum number of items to show in popup menu
 set pumblend=10  " pseudo transparency for completion menu
 
-set winblend=5  " pseudo transparency for floating window
+set winblend=0  " pseudo transparency for floating window
 
 " Insert mode key word completion setting
 set complete+=kspell complete-=w complete-=b complete-=u complete-=t
@@ -141,7 +145,7 @@ set formatoptions+=mM
 " Tilde (~) is an operator, thus must be followed by motions like `e` or `w`.
 set tildeop
 
-set synmaxcol=200  " Text after this column number is not highlighted
+set synmaxcol=250  " Text after this column number is not highlighted
 set nostartofline
 
 " External program to use for grep command
@@ -159,7 +163,7 @@ set termguicolors
 " https://github.com/neovim/neovim/wiki/FAQ#how-to-change-cursor-color-in-the-terminal
 set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor20
 
-set signcolumn=auto:2
+set signcolumn=yes:1
 
 " Remove certain character from file name pattern matching
 set isfname-==
@@ -174,3 +178,4 @@ set diffopt+=context:3  " context for diff
 set diffopt+=internal,indent-heuristic,algorithm:histogram
 
 set nowrap  " do no wrap
+set noruler

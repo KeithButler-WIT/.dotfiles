@@ -41,6 +41,13 @@ if test -d ~/.emacs.d/bin
     end
 end
 
+# Add ~/.cargo/bin  to PATH
+if test -d ~/.cargo/bin
+    if not contains -- ~/.cargo/bin $PATH
+        set -p PATH ~/.cargo/bin
+    end
+end
+
 ## Starship prompt
 if status --is-interactive
    source ("/usr/bin/starship" init fish --print-full-init | psub)

@@ -26,6 +26,7 @@ run volumeicon &
 run /usr/bin/emacs --daemon &
 run onedrivegui &
 run discord &
+run thunderbird &
 #nitrogen --random --set-zoom-fill &
 #run caffeine -a &
 #run vivaldi-stable &

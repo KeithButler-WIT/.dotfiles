@@ -416,6 +416,7 @@ capture was not aborted."
    (Kotlin . t)
    (bash . t)
    (sql . t)
+   (rust . t)
    ))
 
 (require 'android-mode)
