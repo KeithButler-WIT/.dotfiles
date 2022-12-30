@@ -17,3 +17,5 @@
 	helper = !/usr/bin/gh auth git-credential
 [init]
 	defaultBranch = main
+[safe]
+	directory = /opt/flutter

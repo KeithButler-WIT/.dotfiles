@@ -10,7 +10,7 @@
    '("\\`https://fniessen\\.github\\.io/org-html-themes/org/theme-readtheorg\\.setup\\'"))
  '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(package-selected-packages
-   '(gdscript-mode simple-httpd plantuml-mode org-present flycheck-cython cython-mode conda anaconda-mode)))
+   '(python-mode gdscript-mode simple-httpd plantuml-mode org-present flycheck-cython cython-mode conda anaconda-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
