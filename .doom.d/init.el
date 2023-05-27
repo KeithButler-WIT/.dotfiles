@@ -164,7 +164,6 @@
        (python            ; beautiful is better than ugly
         +poetry
         +lsp
-        +conda
         +pyright)
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs

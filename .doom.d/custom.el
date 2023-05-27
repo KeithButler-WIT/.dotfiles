@@ -5,12 +5,13 @@
  ;; If there is more than one, they won't work right.
  '(android-mode-avd "AVD")
  '(android-mode-sdk-dir "/opt/android-sdk/")
- '(org-agenda-files '("~/workspace/org/roam/Inbox.org"))
+ '(custom-safe-themes
+   '("02f57ef0a20b7f61adce51445b68b2a7e832648ce2e7efb19d217b6454c1b644" "5963c22b5f105090a406f6a9eff7e61aa4c64b564cabf195f3021e4752b35132" default))
  '(org-safe-remote-resources
    '("\\`https://fniessen\\.github\\.io/org-html-themes/org/theme-readtheorg\\.setup\\'"))
  '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(package-selected-packages
-   '(python-mode gdscript-mode simple-httpd plantuml-mode org-present flycheck-cython cython-mode conda anaconda-mode)))
+   '(compat catppuccin-theme unicode-fonts python-mode json-mode gpr-mode db)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

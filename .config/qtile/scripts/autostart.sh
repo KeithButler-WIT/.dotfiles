@@ -27,6 +27,7 @@ run /usr/bin/emacs --daemon &
 run onedrivegui &
 run discord &
 run thunderbird &
+run pcmanfm -d & # auto mount removeable media
 #nitrogen --random --set-zoom-fill &
 #run caffeine -a &
 #run vivaldi-stable &

@@ -295,7 +295,6 @@ This code is written to the init.el to select which modules to load. Written her
        (python            ; beautiful is better than ugly
         +poetry
         +lsp
-        +conda
         +pyright)
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
@@ -1004,12 +1003,13 @@ CLOCK: [2022-09-23 Fri 15:45]--[2022-09-23 Fri 15:50] =>  0:05
   (setq mu4e-change-filenames-when-moving t)
 
   (set-email-account! "Personal"
-  '((mu4e-sent-folder       . "/keithbutler2001@gmail.com/[Gmail]/Sent Mail")
-    (mu4e-drafts-folder     . "/keithbutler2001@gmail.com/[Gmail]/Drafts")
-    (mu4e-trash-folder      . "/keithbutler2001@gmail.com/[Gmail]/Bin")
-    (mu4e-refile-folder     . "/keithbutler2001@gmail.com/[Gmail]/All Mail")
+  '((mu4e-sent-folder       . "/keithbutler2001-gmail/[Gmail]/Sent Mail")
+    (mu4e-drafts-folder     . "/keithbutler2001-gmail/[Gmail]/Drafts")
+    (mu4e-trash-folder      . "/keithbutler2001-gmail/[Gmail]/Bin")
+    (mu4e-refile-folder     . "/keithbutler2001-gmail/[Gmail]/All Mail")
     (smtpmail-smtp-user     . "smtp.gmail.com")
-    (user-mail-address      . "keithbutler2001@gmail.com"))    ;; only needed for mu < 1.4
+    (user-mail-address      . "keithbutler2001@gmail.com")    ;; only needed for mu < 1.4
+    (mu4e-compose-signature . "Regards\nKeith Butler"))
   t)
   (set-email-account! "College"
   '((mu4e-sent-folder       . "/20089137@mail.wit.ie/[Gmail]/Sent Mail")
@@ -1017,82 +1017,20 @@ CLOCK: [2022-09-23 Fri 15:45]--[2022-09-23 Fri 15:50] =>  0:05
     (mu4e-trash-folder      . "/20089137@mail.wit.ie/[Gmail]/Bin")
     (mu4e-refile-folder     . "/20089137@mail.wit.ie/[Gmail]/All Mail")
     (smtpmail-smtp-user     . "smtp.gmail.com")
-    (user-mail-address      . "20089137@mail.wit.ie"))    ;; only needed for mu < 1.4
+    (user-mail-address      . "20089137@mail.wit.ie")    ;; only needed for mu < 1.4
+    (mu4e-compose-signature . "Regards\nKeith Butler"))
   t)
-  (set-email-account! "Work"
-  '((mu4e-sent-folder       . "/keith@keithbutler.xyz/Sent")
-    (mu4e-drafts-folder     . "/keith@keithbutler.xyz/Drafts")
-    (mu4e-trash-folder      . "/keith@keithbutler.xyz/Trash")
-    (mu4e-refile-folder     . "/keith@keithbutler.xyz/Archive")
-    (smtpmail-smtp-user     . "smtp.gmail.com")
-    (user-mail-address      . "keith@keithbutler.xyz"))    ;; only needed for mu < 1.4
-  t)
+  ;; (set-email-account! "Work"
+  ;; '((mu4e-sent-folder       . "/keith@keithbutler.xyz/Sent")
+  ;;   (mu4e-drafts-folder     . "/keith@keithbutler.xyz/Drafts")
+  ;;   (mu4e-trash-folder      . "/keith@keithbutler.xyz/Trash")
+  ;;   (mu4e-refile-folder     . "/keith@keithbutler.xyz/Archive")
+  ;;   (smtpmail-smtp-user     . "smtp.gmail.com")
+  ;;   (user-mail-address      . "keith@keithbutler.xyz"))    ;; only needed for mu < 1.4
+  ;; t)
 
-  ;;                   (user-full-name . "Keith Butler")
-  ;;                   (user-mail-address . "keith@keithbutler.xyz")
-  ;;                   (mu4e-sent-folder . "/keith@keithbutler.xyz/Sent")
-  ;;                   (mu4e-trash-folder . "/keith@keithbutler.xyz/Trash")
-  ;;                   (mu4e-drafts-folder . "/keith@keithbutler.xyz/Drafts")
-  ;;                   (mu4e-refile-folder . "/keith@keithbutler.xyz/Archive")
-  ;;                   (smtpmail-smtp-server . "mail.keithbutler.xyz")
-  ;;                   (mu4e-sent-messages-behavior . sent)
-
-  ;;                   (user-full-name . "Keith Butler")
-  ;;                   (user-mail-address . "20089137@mail.wit.ie")
-  ;;                   (mu4e-sent-folder . "/20089137@mail.wit.ie/[Gmail]/Sent Mail")
-  ;;                   (mu4e-trash-folder . "/20089137@mail.wit.ie/[Gmail]/Bin")
-  ;;                   (mu4e-drafts-folder . "/20089137@mail.wit.ie/[Gmail]/Drafts")
-  ;;                   (mu4e-refile-folder . "/20089137@mail.wit.ie/[Gmail]/All Mail")
-  ;;                   (smtpmail-smtp-server . "smtp.gmail.com")
-  ;;                   (mu4e-sent-messages-behavior . sent)
-
-  ;; Set up contexts for email accounts
-  ;; (setq mu4e-contexts
-  ;;       `(,(make-mu4e-context
-  ;;           :name "Personal"
-  ;;           :match-func (lambda (msg) (when msg
-  ;;                                       (string-prefix-p "/keithbutler2001@gmail.com" (mu4e-message-field msg :maildir))))
-  ;;           :vars '(
-  ;;                   (user-full-name . "Keith Butler")
-  ;;                   (user-mail-address . "keithbutler2001@gmail.com")
-  ;;                   (mu4e-sent-folder . "/keithbutler2001@gmail.com/[Gmail]/Sent Mail")
-  ;;                   (mu4e-trash-folder . "/keithbutler2001@gmail.com/[Gmail]/Bin")
-  ;;                   (mu4e-drafts-folder . "/keithbutler2001@gmail.com/[Gmail]/Drafts")
-  ;;                   (mu4e-refile-folder . "/keithbutler2001@gmail.com/[Gmail]/All Mail")
-  ;;                   (smtpmail-smtp-server . "smtp.gmail.com")
-  ;;                   (mu4e-sent-messages-behavior . delete)
-  ;;                   ))
-  ;;         ,(make-mu4e-context
-  ;;           :name "Work"
-  ;;           :match-func (lambda (msg) (when msg
-  ;;                                       (string-prefix-p "/keith@keithbutler.xyz" (mu4e-message-field msg :maildir))))
-  ;;           :vars '(
-  ;;                   (user-full-name . "Keith Butler")
-  ;;                   (user-mail-address . "keith@keithbutler.xyz")
-  ;;                   (mu4e-sent-folder . "/keith@keithbutler.xyz/Sent")
-  ;;                   (mu4e-trash-folder . "/keith@keithbutler.xyz/Trash")
-  ;;                   (mu4e-drafts-folder . "/keith@keithbutler.xyz/Drafts")
-  ;;                   (mu4e-refile-folder . "/keith@keithbutler.xyz/Archive")
-  ;;                   (smtpmail-smtp-server . "mail.keithbutler.xyz")
-  ;;                   (mu4e-sent-messages-behavior . sent)
-  ;;                   ))
-  ;;         ,(make-mu4e-context
-  ;;           :name "College"
-  ;;           :match-func (lambda (msg) (when msg
-  ;;                                       (string-prefix-p "/20089137@mail.wit.ie" (mu4e-message-field msg :maildir))))
-  ;;           :vars '(
-  ;;                   (user-full-name . "Keith Butler")
-  ;;                   (user-mail-address . "20089137@mail.wit.ie")
-  ;;                   (mu4e-sent-folder . "/20089137@mail.wit.ie/[Gmail]/Sent Mail")
-  ;;                   (mu4e-trash-folder . "/20089137@mail.wit.ie/[Gmail]/Bin")
-  ;;                   (mu4e-drafts-folder . "/20089137@mail.wit.ie/[Gmail]/Drafts")
-  ;;                   (mu4e-refile-folder . "/20089137@mail.wit.ie/[Gmail]/All Mail")
-  ;;                   (smtpmail-smtp-server . "smtp.gmail.com")
-  ;;                   (mu4e-sent-messages-behavior . sent)
-  ;;                   ))
-  ;;         ))
-
- (setq mu4e-context-policy 'ask-if-none)
+(setq mu4e-context-policy 'ask-if-none
+      mu4e-compose-context-policy 'always-ask)
 
   ;; Prevent mu4e from permanently deleting trashed items
   ;; This snippet was taken from the following article:
@@ -1147,11 +1085,11 @@ CLOCK: [2022-09-23 Fri 15:45]--[2022-09-23 Fri 15:50] =>  0:05
           (:maildir "/keithbutler2001@gmail.com/[Gmail]/Sent Mail"   . ?s)
           (:maildir "/keithbutler2001@gmail.com/[Gmail]/Trash"       . ?t)))
 
-  (add-to-list 'mu4e-bookmarks
-               (make-mu4e-bookmark
-                :name "All Inboxes"
-                :query "maildir:/keithbutler2001@gmail.com/[Gmail]/INBOX OR maildir:/keith@keithbutler.xyz/INBOX OR maildir:/20089137@mail.wit.ie/[Gmail]/INBOX"
-                :key ?i))
+  ;; (add-to-list 'mu4e-bookmarks
+  ;;              (make-mu4e-bookmark
+  ;;               :name "All Inboxes"
+  ;;               :query "maildir:/keithbutler2001@gmail.com/[Gmail]/INBOX OR maildir:/keith@keithbutler.xyz/INBOX OR maildir:/20089137@mail.wit.ie/[Gmail]/INBOX"
+  ;;               :key ?i))
 
   ;; don't keep message buffers around
   (setq message-kill-buffer-on-exit t)
