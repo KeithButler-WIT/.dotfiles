@@ -442,3 +442,9 @@ capture was not aborted."
 (require 'org-trello)
 (setq org-trello-consumer-key "5dd059929da10daa9f650c01e28412f5")  ;; 32 characters string
 (setq org-trello-access-token "63885c05cfaf717356c4dd89b40e11203d799e7f33a64a2585c7d62fee6873ad")  ;; 64 characters string
+
+(require 'vterm-module)
+(setq vterm-shell "/bin/fish")          ;; default shell
+(setq vterm-always-compile-module t)    ;; skip asking to compile
+(setq vterm-max-scrollback 100000)
+(setq vterm-kill-buffer-on-exit t)

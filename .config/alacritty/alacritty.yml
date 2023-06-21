@@ -1,5 +1,12 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+# import:
+  # uncomment the flavour you want below:
+  # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
@@ -26,8 +33,7 @@ window:
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
   #position:
-  #  x: 0
-  #  y: 0
+  #  x: 0 y: 0
 
   # Window padding (changes require restart)
   #

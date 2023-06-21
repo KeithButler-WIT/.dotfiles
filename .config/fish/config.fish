@@ -108,6 +108,49 @@ function copy
     end
 end
 
+# Emacs
+function vterm_printf;
+    if begin; [  -n "$TMUX" ]  ; and  string match -q -r "screen|tmux" "$TERM"; end
+        # tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$argv"
+    else if string match -q -- "screen*" "$TERM"
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$argv"
+    else
+        printf "\e]%s\e\\" "$argv"
+    end
+end
+
+function vterm_cmd --description 'Run an Emacs command among the ones been defined in vterm-eval-cmds.'
+    set -l vterm_elisp ()
+    for arg in $argv
+        set -a vterm_elisp (printf '"%s" ' (string replace -a -r '([\\\\"])' '\\\\\\\\$1' $arg))
+    end
+    vterm_printf '51;E'(string join '' $vterm_elisp)
+end
+
+function find_file
+    set -q argv[1]; or set argv[1] "."
+    vterm_cmd find-file (realpath "$argv")
+end
+
+function say
+    vterm_cmd message "%s" "$argv"
+end
+
+# if [[ "$INSIDE_EMACS" = 'vterm' ]] \
+#     && [[ -n ${EMACS_VTERM_PATH} ]] \
+#     && [[ -f ${EMACS_VTERM_PATH}/etc/emacs-vterm-bash.sh ]]; then
+# 	source ${EMACS_VTERM_PATH}/etc/emacs-vterm-bash.sh
+# fi
+
+if [ "$INSIDE_EMACS" = 'vterm' ]
+    function clear
+        vterm_printf "51;Evterm-clear-scrollback";
+        tput clear;
+    end
+end
+
 ## Useful aliases
 # Replace ls with exa
 alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing

@@ -167,7 +167,7 @@ keys = [
     Key(["mod1", "control"], "u", lazy.spawn("pavucontrol")),
     #+end_src
 
-** ALT + ... KEYS
+** TODO ALT + ... KEYS
     #+begin_src python :tangle config.py
     Key(["mod1"], "e", lazy.spawn("emacsclient -c -a ''")),
     Key(["mod1"], "p", lazy.spawn("pamac-manager")),
@@ -578,8 +578,8 @@ def init_colors():
         ["#b48ead", "#b48ead"],  # 20
         ["#e06c75", "#e06c75"],  # 21
         ["#fb9f7f", "#fb9f7f"],  # 22
-        ["#ffd47e", "#ffd47e"],
-    ]  # 23
+        ["#ffd47e", "#ffd47e"],  # 23
+    ]
 
 
 colors = init_colors()
@@ -805,8 +805,6 @@ def assign_app_group(client):
         "telegramDesktop",
         "discord",
     ]
-    # d["2"] = ["Inkscape", "Nomacs", "Ristretto", "Nitrogen", "Feh",
-    #           "inkscape", "nomacs", "ristretto", "nitrogen", "feh", ]
     d["2"] = [
         "Steam",
         "steam",

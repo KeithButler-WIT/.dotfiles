@@ -8,7 +8,6 @@ function run {
 }
 
 
-
 #starting utility applications at boot time
 lxsession &
 run nm-applet &
