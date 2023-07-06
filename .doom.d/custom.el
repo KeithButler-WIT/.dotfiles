@@ -6,14 +6,12 @@
  '(android-mode-avd "AVD")
  '(android-mode-sdk-dir "/opt/android-sdk/")
  '(custom-safe-themes
-   '("02f57ef0a20b7f61adce51445b68b2a7e832648ce2e7efb19d217b6454c1b644" "5963c22b5f105090a406f6a9eff7e61aa4c64b564cabf195f3021e4752b35132" default))
- '(org-agenda-files
-   '("~/OneDrive_20089137@wit.ie/Non-College-Stuff/org/roam/Inbox.org"))
+   '("02f57ef0a20b7f61adce51445b68b2a7e832648ce2e7efb19d217b6454c1b644" "944d52450c57b7cbba08f9b3d08095eb7a5541b0ecfb3a0a9ecd4a18f3c28948" default))
  '(org-safe-remote-resources
    '("\\`https://fniessen\\.github\\.io/org-html-themes/org/theme-readtheorg\\.setup\\'"))
  '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(package-selected-packages
-   '(compat catppuccin-theme unicode-fonts python-mode json-mode gpr-mode db)))
+   '(vterm unicode-fonts python-mode json-mode gpr-mode db compat catppuccin-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -1,0 +1,16 @@
+game:
+  appid: '1656780'
+game_slug: heros-hour
+name: Hero's Hour
+requires: null
+script:
+  game:
+    appid: '1656780'
+service: steam
+service_id: '1656780'
+slug: heros-hour-steam
+steam: {}
+system: {}
+variables: {}
+version: Steam
+year: null

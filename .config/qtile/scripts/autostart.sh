@@ -37,3 +37,4 @@ run pcmanfm -d & # auto mount removeable media
 #run spotify &
 #run atom &
 #run telegram-desktop &
+#run signal-desktop &
