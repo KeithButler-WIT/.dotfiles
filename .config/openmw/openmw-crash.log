@@ -1,0 +1,543 @@
+*** Fatal Error ***
+ (signal 6)
+Address: 0x3e800013285
+
+System: Linux garuda 6.2.1-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Sun, 26 Feb 2023 03:39:25 +0000 x86_64
+
+Executing: gdb --quiet --batch --command=/tmp/gdb-respfile-enrsuw
+Registered pretty printers for UE classes
+[New LWP 78470]
+[New LWP 78471]
+[New LWP 78472]
+[New LWP 78473]
+[New LWP 78474]
+[New LWP 78476]
+[New LWP 78477]
+[New LWP 78478]
+[New LWP 78479]
+[New LWP 78480]
+[New LWP 78481]
+[New LWP 78482]
+[New LWP 78483]
+[New LWP 78484]
+[New LWP 78485]
+[New LWP 78486]
+[New LWP 78516]
+[New LWP 78517]
+[New LWP 78803]
+[New LWP 78804]
+[New LWP 78805]
+[New LWP 78806]
+[New LWP 78807]
+[New LWP 78808]
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.archlinux.org>
+Enable debuginfod for this session? (y or [n]) [answered N; input not from terminal]
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+0x00007f68260ea747 in wait4 () from /usr/lib/libc.so.6
+
+* Loaded Libraries
+From                To                  Syms Read   Shared Object Library
+0x00007f682908a020  0x00007f68290b466d  Yes (*)     /usr/lib/libosgParticle.so.161
+0x00007f6828fae020  0x00007f68290337a3  Yes (*)     /usr/lib/libosgViewer.so.161
+0x00007f6828e72020  0x00007f6828f25f63  Yes (*)     /usr/lib/libosgDB.so.161
+0x00007f6828cdb020  0x00007f6828dd82a0  Yes (*)     /usr/lib/libosgUtil.so.161
+0x00007f68288b5020  0x00007f6828aa56f0  Yes (*)     /usr/lib/libosg.so.161
+0x00007f6828c59020  0x00007f6828c6d9e3  Yes (*)     /usr/lib/libboost_filesystem.so.1.81.0
+0x00007f6828c18020  0x00007f6828c3e815  Yes (*)     /usr/lib/libboost_program_options.so.1.81.0
+0x00007f682867e020  0x00007f682871fbe9  Yes (*)     /usr/lib/libopenal.so.1
+0x00007f682727b020  0x00007f6827d18dfb  Yes (*)     /usr/lib/libavcodec.so.59
+0x00007f6826e3c020  0x00007f6826ffdfb3  Yes (*)     /usr/lib/libavformat.so.59
+0x00007f6826a16020  0x00007f6826ac81ba  Yes (*)     /usr/lib/libavutil.so.57
+0x00007f6828b6b020  0x00007f6828bed567  Yes (*)     /usr/lib/libswscale.so.6
+0x00007f6828b49020  0x00007f6828b5d39c  Yes (*)     /usr/lib/libswresample.so.4
+0x00007f682666d020  0x00007f682682a988  Yes (*)     /usr/lib/libMyGUIEngine.so.3.4.1
+0x00007f6826c50020  0x00007f6826d7b703  Yes (*)     /usr/lib/libSDL2-2.0.so.0
+0x00007f6827197020  0x00007f68271e3a98  Yes (*)     /usr/lib/libosgShadow.so.161
+0x00007f6827101020  0x00007f68271459be  Yes (*)     /usr/lib/libosgAnimation.so.161
+0x00007f6826999020  0x00007f68269c8f8f  Yes (*)     /usr/lib/libosgGA.so.161
+0x00007f68268fd020  0x00007f6826933c6e  Yes (*)     /usr/lib/libosgText.so.161
+0x00007f68270bd020  0x00007f68270bebec  Yes (*)     /usr/lib/libOpenThreads.so.21
+0x00007f6826c1a020  0x00007f6826c2216f  Yes (*)     /usr/lib/libboost_iostreams.so.1.81.0
+0x00007f68265bc020  0x00007f68265beca1  Yes (*)     /usr/lib/libGL.so.1
+0x00007f68268ca020  0x00007f68268e43c9  Yes (*)     /usr/lib/liblz4.so.1
+0x00007f682629a020  0x00007f68263afec3  Yes         /usr/lib/libstdc++.so.6
+0x00007f68264a0020  0x00007f6826519ef3  Yes (*)     /usr/lib/libm.so.6
+0x00007f68268aa020  0x00007f68268c0705  Yes         /usr/lib/libgcc_s.so.1
+0x00007f682603b440  0x00007f68261935fd  Yes (*)     /usr/lib/libc.so.6
+0x00007f6829103000  0x00007f68291286e5  Yes (*)     /lib64/ld-linux-x86-64.so.2
+0x00007f6825ef2020  0x00007f6825f7c81e  Yes (*)     /usr/lib/libX11.so.6
+0x00007f68270b3020  0x00007f68270b3988  Yes (*)     /usr/lib/libXinerama.so.1
+0x00007f682689c020  0x00007f68268a2bca  Yes (*)     /usr/lib/libXrandr.so.2
+0x00007f682647b020  0x00007f682648884c  Yes (*)     /usr/lib/libz.so.1
+0x00007f682646f020  0x00007f68264702b3  Yes (*)     /usr/lib/libboost_atomic.so.1.81.0
+0x00007f6825c05040  0x00007f6825e7a931  Yes (*)     /usr/lib/libvpx.so.8
+0x00007f6826463020  0x00007f68264691e3  Yes (*)     /usr/lib/libwebpmux.so.3
+0x00007f6825b96020  0x00007f6825bebae8  Yes (*)     /usr/lib/libwebp.so.7
+0x00007f6825b64020  0x00007f6825b847fa  Yes (*)     /usr/lib/liblzma.so.5
+0x00007f6825988020  0x00007f6825ae8671  Yes (*)     /usr/lib/libdav1d.so.6
+0x00007f682644c020  0x00007f6826457294  Yes (*)     /usr/lib/libopencore-amrwb.so.0
+0x00007f68250e2050  0x00007f6825597d07  Yes (*)     /usr/lib/librsvg-2.so.2
+0x00007f682592c020  0x00007f682595f407  Yes (*)     /usr/lib/libgobject-2.0.so.0
+0x00007f6824ede020  0x00007f6824f70ee3  Yes (*)     /usr/lib/libglib-2.0.so.0
+0x00007f6824da2020  0x00007f6824e82cee  Yes (*)     /usr/lib/libcairo.so.2
+0x00007f6824415020  0x00007f6824b15039  Yes (*)     /usr/lib/libaom.so.3
+0x00007f682643e020  0x00007f6826446eb0  Yes (*)     /usr/lib/libgsm.so.1
+0x00007f6824d1e020  0x00007f6824d4d251  Yes (*)     /usr/lib/libmp3lame.so.0
+0x00007f68258f5020  0x00007f682590fb19  Yes (*)     /usr/lib/libopencore-amrnb.so.0
+0x00007f6824cb3020  0x00007f6824d0382e  Yes (*)     /usr/lib/libopenjp2.so.7
+0x00007f68243a9020  0x00007f68243ec412  Yes (*)     /usr/lib/libopus.so.0
+0x00007f6824020050  0x00007f68242348ce  Yes (*)     /usr/lib/librav1e.so.0
+0x00007f68258da020  0x00007f68258ebe7a  Yes (*)     /usr/lib/libspeex.so.1
+0x00007f681b61e020  0x00007f681b9f2433  Yes (*)     /usr/lib/libSvtAv1Enc.so.1
+0x00007f682436f020  0x00007f6824390b7a  Yes (*)     /usr/lib/libtheoraenc.so.1
+0x00007f6824c94020  0x00007f6824ca5f84  Yes (*)     /usr/lib/libtheoradec.so.1
+0x00007f6824343020  0x00007f68243597e8  Yes (*)     /usr/lib/libvorbis.so.0
+0x00007f6823f69020  0x00007f6823f6b63f  Yes (*)     /usr/lib/libvorbisenc.so.2
+0x00007f681b206020  0x00007f681b392317  Yes (*)     /usr/lib/libx264.so.164
+0x00007f6819e68020  0x00007f681b02b4d1  Yes (*)     /usr/lib/libx265.so.199
+0x00007f681b4f3020  0x00007f681b5780a9  Yes (*)     /usr/lib/libxvidcore.so.4
+0x00007f6824312020  0x00007f682432b61c  Yes (*)     /usr/lib/libva.so.2
+0x00007f6825ecb020  0x00007f6825ed0941  Yes (*)     /usr/lib/libmfx.so.1
+0x00007f6819ccb020  0x00007f6819dab8f0  Yes (*)     /usr/lib/libxml2.so.2
+0x00007f68258c6020  0x00007f68258d25f3  Yes (*)     /usr/lib/libbz2.so.1.0
+0x00007f6819b11020  0x00007f6819b4a581  Yes (*)     /usr/lib/libmodplug.so.1
+0x00007f6823efd020  0x00007f6823f40b41  Yes (*)     /usr/lib/libbluray.so.2
+0x00007f681b16e080  0x00007f681b1e5abd  Yes (*)     /usr/lib/libgmp.so.10
+0x00007f6819942040  0x00007f6819a739fd  Yes (*)     /usr/lib/libgnutls.so.30
+0x00007f681985f020  0x00007f68198e3926  Yes (*)     /usr/lib/libsrt.so.1.5
+0x00007f6823e9a020  0x00007f6823eda853  Yes (*)     /usr/lib/libssh.so.4
+0x00007f6826896020  0x00007f6826896666  Yes (*)     /usr/lib/libva-drm.so.2
+0x00007f6824c8d020  0x00007f6824c8ed64  Yes (*)     /usr/lib/libva-x11.so.2
+0x00007f68258c0020  0x00007f68258c0e62  Yes (*)     /usr/lib/libvdpau.so.1
+0x00007f68242fd020  0x00007f68243080e4  Yes (*)     /usr/lib/libdrm.so.2
+0x00007f68242d0020  0x00007f68242e80de  Yes (*)     /usr/lib/libOpenCL.so.1
+0x00007f681b0fe020  0x00007f681b11f3e3  Yes (*)     /usr/lib/libsoxr.so.0
+0x00007f6824c87020  0x00007f6824c870f5  Yes (*)     /usr/lib/libdl.so.2
+0x00007f6819775020  0x00007f6819802f5c  Yes (*)     /usr/lib/libfreetype.so.6
+0x00007f6819720020  0x00007f681974c19e  Yes (*)     /usr/lib/libfontconfig.so.1
+0x00007f6819654040  0x00007f6819701372  Yes (*)     /usr/lib/libzstd.so.1
+0x00007f68195d1020  0x00007f68195d30e7  Yes (*)     /usr/lib/libGLdispatch.so.0
+0x00007f6819561020  0x00007f681957aa32  Yes (*)     /usr/lib/libGLX.so.0
+0x00007f681953f020  0x00007f6819552590  Yes (*)     /usr/lib/libxcb.so.1
+0x00007f6823e7b020  0x00007f6823e852de  Yes (*)     /usr/lib/libXext.so.6
+0x00007f6824c7b020  0x00007f6824c8132a  Yes (*)     /usr/lib/libXrender.so.1
+0x00007f6823e70020  0x00007f6823e726d2  Yes (*)     /usr/lib/libsharpyuv.so.0
+0x00007f681b4ea020  0x00007f681b4eb199  Yes (*)     /usr/lib/libcairo-gobject.so.2
+0x00007f68194f6020  0x00007f681951ecab  Yes (*)     /usr/lib/libgdk_pixbuf-2.0.so.0
+0x00007f6819357020  0x00007f681945ecd5  Yes (*)     /usr/lib/libgio-2.0.so.0
+0x00007f681b4db020  0x00007f681b4e1382  Yes (*)     /usr/lib/libpangocairo-1.0.so.0
+0x00007f68192c9020  0x00007f68192fe204  Yes (*)     /usr/lib/libpango-1.0.so.0
+0x00007f681b4cd040  0x00007f681b4d2a5a  Yes (*)     /usr/lib/libffi.so.8
+0x00007f681921e020  0x00007f6819288c2b  Yes (*)     /usr/lib/libpcre2-8.so.0
+0x00007f68191e8020  0x00007f681920e88c  Yes (*)     /usr/lib/libpng16.so.16
+0x00007f681b0f1020  0x00007f681b0f5f20  Yes (*)     /usr/lib/libxcb-render.so.0
+0x00007f681b0e7020  0x00007f681b0e7bc8  Yes (*)     /usr/lib/libxcb-shm.so.0
+0x00007f6819140020  0x00007f68191c66a1  Yes (*)     /usr/lib/libpixman-1.so.0
+0x00007f681b0dd020  0x00007f681b0df3be  Yes (*)     /usr/lib/libogg.so.0
+0x00007f6819041f90  0x00007f6819062e20  Yes (*)     /usr/lib/libmvec.so.1
+0x00007f681b0d7020  0x00007f681b0d70f5  Yes (*)     /usr/lib/libpthread.so.0
+0x00007f6818e65020  0x00007f6818f5c409  Yes (*)     /usr/lib/libicuuc.so.72
+0x00007f6818cf6050  0x00007f6818d94630  Yes (*)     /usr/lib/libp11-kit.so.0
+0x00007f6818c2a020  0x00007f6818c79067  Yes (*)     /usr/lib/libbrotlienc.so.1
+0x00007f681902f020  0x00007f681903618a  Yes (*)     /usr/lib/libbrotlidec.so.1
+0x00007f681900e020  0x00007f68190114ba  Yes (*)     /usr/lib/libidn2.so.0
+0x00007f6818a81020  0x00007f6818ac11c9  Yes (*)     /usr/lib/libunistring.so.5
+0x00007f6818a5b020  0x00007f6818a6893a  Yes (*)     /usr/lib/libtasn1.so.6
+0x00007f6818a11020  0x00007f6818a3c05c  Yes (*)     /usr/lib/libnettle.so.8
+0x00007f68189c4020  0x00007f68189d6a3d  Yes (*)     /usr/lib/libhogweed.so.6
+0x00007f68184b2000  0x00007f6818719e23  Yes (*)     /usr/lib/libcrypto.so.3
+0x00007f6819006020  0x00007f681900863a  Yes (*)     /usr/lib/libXfixes.so.3
+0x00007f681b0d2020  0x00007f681b0d210f  Yes (*)     /usr/lib/libX11-xcb.so.1
+0x00007f68189b6020  0x00007f68189b7196  Yes (*)     /usr/lib/libxcb-dri3.so.0
+0x00007f6818975400  0x00007f68189a47b3  Yes         /usr/lib/libgomp.so.1
+0x00007f681887d020  0x00007f6818933d33  Yes (*)     /usr/lib/libharfbuzz.so.0
+0x00007f68183d9020  0x00007f68183f4721  Yes (*)     /usr/lib/libexpat.so.1
+0x00007f681886d020  0x00007f681886dd13  Yes (*)     /usr/lib/libXau.so.6
+0x00007f6818866020  0x00007f68188677d1  Yes (*)     /usr/lib/libXdmcp.so.6
+0x00007f681885f020  0x00007f68188600fc  Yes (*)     /usr/lib/libgmodule-2.0.so.0
+0x00007f6818356020  0x00007f68183a09b2  Yes (*)     /usr/lib/libjpeg.so.8
+0x00007f68182c3080  0x00007f681831876c  Yes (*)     /usr/lib/libtiff.so.6
+0x00007f6818281020  0x00007f68182ab123  Yes (*)     /usr/lib/libmount.so.1
+0x00007f6818266020  0x00007f681827078a  Yes (*)     /usr/lib/libpangoft2-1.0.so.0
+0x00007f6818241020  0x00007f6818245138  Yes (*)     /usr/lib/libfribidi.so.0
+0x00007f6818854020  0x00007f6818857a58  Yes (*)     /usr/lib/libthai.so.0
+                                        Yes (*)     /usr/lib/libicudata.so.72
+0x00007f681821d020  0x00007f681821dc13  Yes (*)     /usr/lib/libbrotlicommon.so.1
+0x00007f68181fc020  0x00007f6818213c79  Yes (*)     /usr/lib/libgraphite2.so.3
+0x00007f68163cf020  0x00007f68163edff3  Yes (*)     /usr/lib/libblkid.so.1
+0x00007f68181f2020  0x00007f68181f52c1  Yes (*)     /usr/lib/libdatrie.so.1
+0x00007f6816384020  0x00007f68163b1a64  Yes (*)     /usr/lib/libdbus-1.so.3
+0x00007f68162ab020  0x00007f6816333f01  Yes (*)     /usr/lib/libsystemd.so.0
+0x00007f68181db020  0x00007f68181df642  Yes (*)     /usr/lib/libcap.so.2
+0x00007f681615b040  0x00007f681624965e  Yes (*)     /usr/lib/libgcrypt.so.20
+0x00007f681612b020  0x00007f681613fb53  Yes (*)     /usr/lib/libgpg-error.so.0
+0x00007f681611d020  0x00007f6816121e0e  Yes (*)     /usr/lib/libXcursor.so.1
+0x00007f6816109020  0x00007f681611413d  Yes (*)     /usr/lib/libXi.so.6
+0x00007f68181d4020  0x00007f68181d4d3d  Yes (*)     /usr/lib/libXss.so.1
+0x00007f6815de6020  0x00007f6815df4628  Yes (*)     /usr/lib/libusb-1.0.so.0
+0x00007f6815db3020  0x00007f6815dd2331  Yes (*)     /usr/lib/libudev.so.1
+0x00007f68160fe020  0x00007f6816100dcc  Yes         /usr/lib/libatomic.so.1
+0x00007f6815d56020  0x00007f6815d937a3  Yes (*)     /usr/lib/libGLX_mesa.so.0
+0x00007f6815493020  0x00007f68154a0c5c  Yes (*)     /usr/lib/libglapi.so.0
+0x00007f6815475020  0x00007f681547ddda  Yes (*)     /usr/lib/libxcb-glx.so.0
+0x00007f68160f7020  0x00007f68160f830a  Yes (*)     /usr/lib/libxcb-dri2.so.0
+0x00007f68160ef020  0x00007f68160f163a  Yes (*)     /usr/lib/libXxf86vm.so.1
+0x00007f6815d39020  0x00007f6815d39310  Yes (*)     /usr/lib/libxshmfence.so.1
+0x00007f6815465020  0x00007f681546594a  Yes (*)     /usr/lib/libxcb-present.so.0
+0x00007f681545e020  0x00007f6815460356  Yes (*)     /usr/lib/libxcb-sync.so.1
+0x00007f6815455020  0x00007f6815457aba  Yes (*)     /usr/lib/libxcb-xfixes.so.0
+0x00007f6815447020  0x00007f681544c147  Yes (*)     /usr/lib/libxcb-randr.so.0
+0x00007f6813890020  0x00007f6814927193  Yes (*)     /usr/lib/dri/radeonsi_dri.so
+0x00007f680c8e3040  0x00007f681073cae3  Yes (*)     /usr/lib/libLLVM-15.so
+0x00007f6815433020  0x00007f6815439692  Yes (*)     /usr/lib/libsensors.so.5
+0x00007f6815424020  0x00007f681542993a  Yes (*)     /usr/lib/libdrm_radeon.so.1
+0x00007f681540b020  0x00007f681541bac5  Yes (*)     /usr/lib/libelf.so.1
+0x00007f68153ff020  0x00007f6815403a04  Yes (*)     /usr/lib/libdrm_amdgpu.so.1
+0x00007f68153f4020  0x00007f68153f7e7b  Yes (*)     /usr/lib/libdrm_nouveau.so.2
+0x00007f68153d0020  0x00007f68153e53bc  Yes (*)     /usr/lib/libdrm_intel.so.1
+0x00007f681539a020  0x00007f68153b8197  Yes (*)     /usr/lib/libedit.so.0
+0x00007f6815333020  0x00007f6815374169  Yes (*)     /usr/lib/libncursesw.so.6
+0x00007f6815314020  0x00007f6815318350  Yes (*)     /usr/lib/libpciaccess.so.0
+0x00007f68290f8020  0x00007f68290fb0e9  Yes (*)     /usr/lib/osgPlugins-3.6.5/osgdb_png.so
+0x00007f68290e7020  0x00007f68290ed076  Yes (*)     /usr/lib/osgPlugins-3.6.5/osgdb_dds.so
+0x00007f6808654020  0x00007f68086af316  Yes (*)     /usr/lib/libpipewire-0.3.so.0
+0x00007f68152f4020  0x00007f6815308eaf  Yes (*)     /usr/lib/spa-0.2/support/libspa-support.so
+0x00007f68290de020  0x00007f68290df84c  Yes (*)     /usr/lib/spa-0.2/support/libspa-journal.so
+0x00007f68290d7020  0x00007f68290d90bc  Yes (*)     /usr/lib/spa-0.2/support/libspa-dbus.so
+0x00007f68290d0020  0x00007f68290d2062  Yes (*)     /usr/lib/pipewire-0.3/libpipewire-module-rt.so
+0x00007f68085e8020  0x00007f680860366d  Yes (*)     /usr/lib/pipewire-0.3/libpipewire-module-protocol-native.so
+0x00007f68152ba020  0x00007f68152d931a  Yes (*)     /usr/lib/pipewire-0.3/libpipewire-module-client-node.so
+0x00007f68085ca020  0x00007f68085d1a7c  Yes (*)     /usr/lib/pipewire-0.3/libpipewire-module-client-device.so
+0x00007f68085ad020  0x00007f68085b6b42  Yes (*)     /usr/lib/pipewire-0.3/libpipewire-module-adapter.so
+0x00007f680859a020  0x00007f680859ff37  Yes (*)     /usr/lib/pipewire-0.3/libpipewire-module-metadata.so
+0x00007f6808574020  0x00007f680858e4ac  Yes (*)     /usr/lib/pipewire-0.3/libpipewire-module-session-manager.so
+0x00007f6808509020  0x00007f68085498c0  Yes (*)     /usr/lib/spa-0.2/audioconvert/libspa-audioconvert.so
+0x00007f68080be020  0x00007f68080c0e7c  Yes (*)     /usr/lib/osgPlugins-3.6.5/osgdb_tga.so
+0x00007f68152aa020  0x00007f68152aaf73  Yes (*)     /usr/lib/gconv/ISO8859-1.so
+0x00007f68080ae020  0x00007f68080b5c30  Yes (*)     /usr/lib/osgPlugins-3.6.5/osgdb_freetype.so
+0x00007f68080a1020  0x00007f68080a4e46  Yes (*)     /usr/lib/osgPlugins-3.6.5/osgdb_jpeg.so
+(*): Shared library is missing debugging information.
+
+* Threads
+  Id   Target Id                                         Frame 
+* 1    Thread 0x7f68181e9fc0 (LWP 78469) "openmw"        0x00007f68260ea747 in wait4 () from /usr/lib/libc.so.6
+  2    Thread 0x7f6815cc06c0 (LWP 78470) "libusb_event"  0x00007f68261139df in poll () from /usr/lib/libc.so.6
+  3    Thread 0x7f680bdff6c0 (LWP 78471) "openmw:cs0"    0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  4    Thread 0x7f680b5fe6c0 (LWP 78472) "openmw:disk$0" 0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  5    Thread 0x7f680adfd6c0 (LWP 78473) "openmw:sh0"    0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  6    Thread 0x7f680a5fc6c0 (LWP 78474) "openmw:shlo0"  0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  7    Thread 0x7f68099fb6c0 (LWP 78476) "openmw:gdrv0"  0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  8    Thread 0x7f6808ffa6c0 (LWP 78477) "openmw:sh1"    0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  9    Thread 0x7f67f3fff6c0 (LWP 78478) "openmw:sh2"    0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  10   Thread 0x7f67f37fe6c0 (LWP 78479) "openmw"        0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  11   Thread 0x7f67f2ffd6c0 (LWP 78480) "openmw"        0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  12   Thread 0x7f67f27fc6c0 (LWP 78481) "openmw"        0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  13   Thread 0x7f67f1ffb6c0 (LWP 78482) "openmw"        0x00007f68261211b6 in epoll_wait () from /usr/lib/libc.so.6
+  14   Thread 0x7f67f17fa6c0 (LWP 78483) "PWEventThread" 0x00007f68261211b6 in epoll_wait () from /usr/lib/libc.so.6
+  15   Thread 0x7f67f0ff96c0 (LWP 78484) "ALSoftP0"      0x00007f68261211b6 in epoll_wait () from /usr/lib/libc.so.6
+  16   Thread 0x7f67dffff6c0 (LWP 78485) "openmw"        0x00007f68261211b6 in epoll_wait () from /usr/lib/libc.so.6
+  17   Thread 0x7f67df7fe6c0 (LWP 78486) "openmw"        0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  18   Thread 0x7f67deffd6c0 (LWP 78516) "openmw"        0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  19   Thread 0x7f67de7fc6c0 (LWP 78517) "openmw"        0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  20   Thread 0x7f67dcc756c0 (LWP 78803) "openmw:sh3"    0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  21   Thread 0x7f67cffff6c0 (LWP 78804) "openmw:shlo1"  0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  22   Thread 0x7f67997f36c0 (LWP 78805) "openmw:shlo2"  0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  23   Thread 0x7f6798ff26c0 (LWP 78806) "openmw:shlo3"  0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  24   Thread 0x7f6787fff6c0 (LWP 78807) "openmw:sh4"    0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+  25   Thread 0x7f67877fe6c0 (LWP 78808) "openmw:disk$1" 0x00007f682609b766 in ?? () from /usr/lib/libc.so.6
+
+* FPU Status
+  R7: Empty   0x00000000000000000000
+  R6: Empty   0x00000000000000000000
+  R5: Empty   0x00000000000000000000
+  R4: Empty   0x00000000000000000000
+  R3: Empty   0x00000000000000000000
+  R2: Empty   0x00000000000000000000
+  R1: Empty   0x00000000000000000000
+=>R0: Empty   0x00000000000000000000
+
+Status Word:         0x0000                                            
+                       TOP: 0
+Control Word:        0x037f   IM DM ZM OM UM PM
+                       PC: Extended Precision (64-bits)
+                       RC: Round to nearest
+Tag Word:            0xffff
+Instruction Pointer: 0x00:0x00000000
+Operand Pointer:     0x00:0x00000000
+Opcode:              0x0000
+
+* Registers
+rax            0xfffffffffffffe00  -512
+rbx            0x16c18             93208
+rcx            0x7f68260ea747      140085291820871
+rdx            0x0                 0
+rsi            0x5575d21fa6ac      93964524824236
+rdi            0x16c18             93208
+rbp            0x6                 0x6
+rsp            0x5575d21fa670      0x5575d21fa670
+r8             0x0                 0
+r9             0x0                 0
+r10            0x0                 0
+r11            0x200293            2097811
+r12            0x5575d21fa6ac      93964524824236
+r13            0x5575d09810a0      93964499161248
+r14            0x5b                91
+r15            0x490               1168
+rip            0x7f68260ea747      0x7f68260ea747 <wait4+87>
+eflags         0x200293            [ CF AF SF IF ID ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+
+* Backtrace
+
+Thread 25 (Thread 0x7f67877fe6c0 (LWP 78808) "openmw:disk$1"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 24 (Thread 0x7f6787fff6c0 (LWP 78807) "openmw:sh4"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 23 (Thread 0x7f6798ff26c0 (LWP 78806) "openmw:shlo3"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 22 (Thread 0x7f67997f36c0 (LWP 78805) "openmw:shlo2"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 21 (Thread 0x7f67cffff6c0 (LWP 78804) "openmw:shlo1"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 20 (Thread 0x7f67dcc756c0 (LWP 78803) "openmw:sh3"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 19 (Thread 0x7f67de7fc6c0 (LWP 78517) "openmw"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609e597 in pthread_cond_clockwait () at /usr/lib/libc.so.6
+#2  0x00005575d059c365 in DetourNavigator::AsyncNavMeshUpdater::getNextJob() ()
+#3  0x00005575d05a2609 in DetourNavigator::AsyncNavMeshUpdater::process() ()
+#4  0x00007f68262d72c3 in std::execute_native_thread_routine(void*) (__p=0x5575d671ff70) at /usr/src/debug/gcc/gcc/libstdc++-v3/src/c++11/thread.cc:82
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 18 (Thread 0x7f67deffd6c0 (LWP 78516) "openmw"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f68262cfe51 in __gthread_cond_wait (__mutex=<optimized out>, __cond=<optimized out>) at /usr/src/debug/gcc/gcc-build/x86_64-pc-linux-gnu/libstdc++-v3/include/x86_64-pc-linux-gnu/bits/gthr-default.h:865
+        __e = <optimized out>
+#3  std::__condvar::wait(std::mutex&) (__m=<optimized out>, this=<optimized out>) at /usr/src/debug/gcc/gcc-build/x86_64-pc-linux-gnu/libstdc++-v3/include/bits/std_mutex.h:155
+        __e = <optimized out>
+#4  std::condition_variable::wait(std::unique_lock<std::mutex>&) (this=<optimized out>, __lock=<optimized out>) at /usr/src/debug/gcc/gcc/libstdc++-v3/src/c++11/condition_variable.cc:41
+#5  0x00005575d032707d in MWPhysics::PhysicsTaskScheduler::worker() ()
+#6  0x00007f68262d72c3 in std::execute_native_thread_routine(void*) (__p=0x5575d7106010) at /usr/src/debug/gcc/gcc/libstdc++-v3/src/c++11/thread.cc:82
+#7  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#8  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 17 (Thread 0x7f67df7fe6c0 (LWP 78486) "openmw"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f68260a6930 in  () at /usr/lib/libc.so.6
+#2  0x00007f682869a90d in  () at /usr/lib/libopenal.so.1
+#3  0x00007f68262d72c3 in std::execute_native_thread_routine(void*) (__p=0x5575d345ec50) at /usr/src/debug/gcc/gcc/libstdc++-v3/src/c++11/thread.cc:82
+#4  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#5  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 16 (Thread 0x7f67dffff6c0 (LWP 78485) "openmw"):
+#0  0x00007f68261211b6 in epoll_wait () at /usr/lib/libc.so.6
+#1  0x00007f6815307639 in  () at /usr/lib/spa-0.2/support/libspa-support.so
+#2  0x00007f68152f79fb in  () at /usr/lib/spa-0.2/support/libspa-support.so
+#3  0x00007f6808665237 in  () at /usr/lib/libpipewire-0.3.so.0
+#4  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#5  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 15 (Thread 0x7f67f0ff96c0 (LWP 78484) "ALSoftP0"):
+#0  0x00007f68261211b6 in epoll_wait () at /usr/lib/libc.so.6
+#1  0x00007f6815307639 in  () at /usr/lib/spa-0.2/support/libspa-support.so
+#2  0x00007f68152f79fb in  () at /usr/lib/spa-0.2/support/libspa-support.so
+#3  0x00007f68086a5efa in  () at /usr/lib/libpipewire-0.3.so.0
+#4  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#5  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 14 (Thread 0x7f67f17fa6c0 (LWP 78483) "PWEventThread"):
+#0  0x00007f68261211b6 in epoll_wait () at /usr/lib/libc.so.6
+#1  0x00007f6815307639 in  () at /usr/lib/spa-0.2/support/libspa-support.so
+#2  0x00007f68152f79fb in  () at /usr/lib/spa-0.2/support/libspa-support.so
+#3  0x00007f68086a5efa in  () at /usr/lib/libpipewire-0.3.so.0
+#4  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#5  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 13 (Thread 0x7f67f1ffb6c0 (LWP 78482) "openmw"):
+#0  0x00007f68261211b6 in epoll_wait () at /usr/lib/libc.so.6
+#1  0x00007f6815307639 in  () at /usr/lib/spa-0.2/support/libspa-support.so
+#2  0x00007f68152f79fb in  () at /usr/lib/spa-0.2/support/libspa-support.so
+#3  0x00007f6808665237 in  () at /usr/lib/libpipewire-0.3.so.0
+#4  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#5  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 12 (Thread 0x7f67f27fc6c0 (LWP 78481) "openmw"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609e597 in pthread_cond_clockwait () at /usr/lib/libc.so.6
+#2  0x00005575d01f6dc6 in  ()
+#3  0x00007f68262d72c3 in std::execute_native_thread_routine(void*) (__p=0x5575d227a910) at /usr/src/debug/gcc/gcc/libstdc++-v3/src/c++11/thread.cc:82
+#4  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#5  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 11 (Thread 0x7f67f2ffd6c0 (LWP 78480) "openmw"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f68262cfe51 in __gthread_cond_wait (__mutex=<optimized out>, __cond=<optimized out>) at /usr/src/debug/gcc/gcc-build/x86_64-pc-linux-gnu/libstdc++-v3/include/x86_64-pc-linux-gnu/bits/gthr-default.h:865
+        __e = <optimized out>
+#3  std::__condvar::wait(std::mutex&) (__m=<optimized out>, this=<optimized out>) at /usr/src/debug/gcc/gcc-build/x86_64-pc-linux-gnu/libstdc++-v3/include/bits/std_mutex.h:155
+        __e = <optimized out>
+#4  std::condition_variable::wait(std::unique_lock<std::mutex>&) (this=<optimized out>, __lock=<optimized out>) at /usr/src/debug/gcc/gcc/libstdc++-v3/src/c++11/condition_variable.cc:41
+#5  0x00005575d045a90a in SceneUtil::WorkQueue::removeWorkItem() ()
+#6  0x00005575d045af4d in SceneUtil::WorkThread::run() ()
+#7  0x00007f68262d72c3 in std::execute_native_thread_routine(void*) (__p=0x5575d31bbcc0) at /usr/src/debug/gcc/gcc/libstdc++-v3/src/c++11/thread.cc:82
+#8  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#9  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 10 (Thread 0x7f67f37fe6c0 (LWP 78479) "openmw"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f68270be683 in OpenThreads::Condition::wait(OpenThreads::Mutex*) () at /usr/lib/libOpenThreads.so.21
+#3  0x00007f6828fe118c in osgViewer::Renderer::ThreadSafeQueue::takeFront() () at /usr/lib/libosgViewer.so.161
+#4  0x00007f6828fe9071 in osgViewer::Renderer::draw() () at /usr/lib/libosgViewer.so.161
+#5  0x00007f68289487c9 in osg::GraphicsContext::runOperations() () at /usr/lib/libosg.so.161
+#6  0x00007f68289c0fb6 in osg::OperationThread::run() () at /usr/lib/libosg.so.161
+#7  0x00007f682894a922 in non-virtual thunk to osg::GraphicsThread::run() () at /usr/lib/libosg.so.161
+#8  0x00007f68270be1d7 in OpenThreads::ThreadPrivateActions::StartThread(void*) () at /usr/lib/libOpenThreads.so.21
+#9  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#10 0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 9 (Thread 0x7f67f3fff6c0 (LWP 78478) "openmw:sh2"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 8 (Thread 0x7f6808ffa6c0 (LWP 78477) "openmw:sh1"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 7 (Thread 0x7f68099fb6c0 (LWP 78476) "openmw:gdrv0"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 6 (Thread 0x7f680a5fc6c0 (LWP 78474) "openmw:shlo0"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 5 (Thread 0x7f680adfd6c0 (LWP 78473) "openmw:sh0"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 4 (Thread 0x7f680b5fe6c0 (LWP 78472) "openmw:disk$0"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 3 (Thread 0x7f680bdff6c0 (LWP 78471) "openmw:cs0"):
+#0  0x00007f682609b766 in  () at /usr/lib/libc.so.6
+#1  0x00007f682609df90 in pthread_cond_wait () at /usr/lib/libc.so.6
+#2  0x00007f681390c4ee in  () at /usr/lib/dri/radeonsi_dri.so
+#3  0x00007f68138bc8bc in  () at /usr/lib/dri/radeonsi_dri.so
+#4  0x00007f681390c41c in  () at /usr/lib/dri/radeonsi_dri.so
+#5  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#6  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 2 (Thread 0x7f6815cc06c0 (LWP 78470) "libusb_event"):
+#0  0x00007f68261139df in poll () at /usr/lib/libc.so.6
+#1  0x00007f6815deda95 in  () at /usr/lib/libusb-1.0.so.0
+#2  0x00007f682609ebb5 in  () at /usr/lib/libc.so.6
+#3  0x00007f6826120d90 in  () at /usr/lib/libc.so.6
+
+Thread 1 (Thread 0x7f68181e9fc0 (LWP 78469) "openmw"):
+#0  0x00007f68260ea747 in wait4 () at /usr/lib/libc.so.6
+#1  0x00005575d0592f2d in  ()
+#2  0x00007f6826051f50 in <signal handler called> () at /usr/lib/libc.so.6
+#3  0x00007f68260a08ec in  () at /usr/lib/libc.so.6
+#4  0x00007f6826051ea8 in raise () at /usr/lib/libc.so.6
+#5  0x00007f682603b53d in abort () at /usr/lib/libc.so.6
+#6  0x00007f68262d30e2 in std::__glibcxx_assert_fail(char const*, int, char const*, char const*) (file=<optimized out>, line=<optimized out>, function=<optimized out>, condition=<optimized out>) at /usr/src/debug/gcc/gcc/libstdc++-v3/src/c++11/debug.cc:60
+#7  0x00005575d03936e5 in  ()
+#8  0x00005575d0394bcd in MWMechanics::PathFinder::buildPathByNavigatorImpl(MWWorld::ConstPtr const&, osg::Vec3f const&, osg::Vec3f const&, osg::Vec3f const&, unsigned short, DetourNavigator::AreaCosts const&, std::back_insert_iterator<std::deque<osg::Vec3f, std::allocator<osg::Vec3f> > >) ()
+#9  0x00005575d03954ac in MWMechanics::PathFinder::buildPath(MWWorld::ConstPtr const&, osg::Vec3f const&, osg::Vec3f const&, MWWorld::CellStore const*, MWMechanics::PathgridGraph const&, osg::Vec3f const&, unsigned short, DetourNavigator::AreaCosts const&) ()
+#10 0x00005575d0376acf in MWMechanics::AiPackage::pathTo(MWWorld::Ptr const&, osg::Vec3f const&, float, float) ()
+#11 0x00005575d0388221 in MWMechanics::AiFollow::execute(MWWorld::Ptr const&, MWMechanics::CharacterController&, MWMechanics::DerivedClassStorage<MWMechanics::AiTemporaryBase>&, float) ()
+#12 0x00005575d0377adb in MWMechanics::AiSequence::execute(MWWorld::Ptr const&, MWMechanics::CharacterController&, float, bool) ()
+#13 0x00005575d03c5382 in MWMechanics::Actors::update(float, bool) ()
+#14 0x00005575d03523ad in MWMechanics::MechanicsManager::update(float, bool) ()
+#15 0x00005575d03e6c82 in OMW::Engine::frame(float) ()
+#16 0x00005575d03f4715 in OMW::Engine::go() ()
+#17 0x00005575d03e0f31 in runApplication(int, char**) ()
+#18 0x00005575d053199d in wrapApplication(int (*)(int, char**), int, char**, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) ()
+#19 0x00005575cff983d8 in main ()
+[Inferior 1 (process 78469) detached]
