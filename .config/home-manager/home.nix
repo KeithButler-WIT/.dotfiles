@@ -1,7 +1,14 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
+
+  #nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1u"
+    "python-2.7.18.6"
+  ];
+  targets.genericLinux.enable = true; # Enable this on non nixos
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -21,7 +28,16 @@
     # The home.packages option allows you to install Nix packages into your
     # environment.
     packages = [
-      pkgs.alacritty
+      # Core Packages
+      pkgs.libglvnd
+      pkgs.mesa.drivers
+      pkgs.killall
+      pkgs.zip
+      pkgs.unzip
+      pkgs.light
+
+      pkgs.alacritty #requires extra setup on non-Nixos #https://nixos.org/manual/nixpkgs/unstable/#nix-on-gnulinux
+      pkgs.mcfly
       pkgs.discord
       pkgs.betterdiscordctl
       pkgs.thunderbird
@@ -33,26 +49,59 @@
       pkgs.gpodder
       pkgs.gparted
       pkgs.yt-dlp
-      pkgs.tldr
       pkgs.tor-browser-bundle-bin
       pkgs.stow
       pkgs.luarocks
+      pkgs.tldr
+      pkgs.git
+      pkgs.fzf
+      pkgs.github-desktop
+      pkgs.rsync
+      pkgs.grsync
+      pkgs.feh
+      pkgs.htop
+      pkgs.wget
+      pkgs.gnupg
+      pkgs.stow
+      pkgs.cmake
+      #pkgs.python3Full
+      (pkgs.python310.withPackages(ps: with ps; [ beautifulsoup4 requests black]))
+      #pkgs.python3.pkgs.pip
+      pkgs.trash-cli
+      #pkgs.xfce.xfce4-icon-theme
+      #pkgs.libcanberra
+      #pkgs.libcanberra-gtk3
+      #pkgs.libcanberra-gtk2
+      pkgs.dracula-theme
+
+      # VMs
+      pkgs.quickemu
+      pkgs.quickgui
 
       # Gaming
       #pkgs.steam
       #pkgs.steam-run
+      #(steam.override { extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ]; nativeOnly = true; }).run
+      #(steam.override { withPrimus = true; extraPkgs = pkgs: [ bumblebee glxinfo ]; nativeOnly = true; }).run
+      #(steam.override { withJava = true; })
       pkgs.lutris
+      #pkgs.hicolor-icon-theme
       pkgs.heroic
       pkgs.gamemode
       pkgs.protonup-ng
       #pkgs.proton-ge
+      pkgs.winetricks
+      pkgs.protontricks
+      pkgs.wine-staging
       #pkgs.wine-osu
       #pkgs.wine-tkg
+      #pkgs.openmw
 
       # Game Dev
-      pkgs.godot
+      #pkgs.godot
+      pkgs.godot_4
       pkgs.unityhub
-      pkgs.blender
+      #pkgs.blender
 
       # Torrenting
       pkgs.mullvad-vpn
@@ -65,6 +114,16 @@
       pkgs.xfce.thunar-archive-plugin
       pkgs.xfce.thunar-media-tags-plugin
 
+      # Xorg
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xorg.libX11
+      pkgs.xorg.libX11.dev
+      pkgs.xorg.libxcb
+      pkgs.xorg.libXft
+      pkgs.xorg.libXinerama
+	  pkgs.xorg.xinit
+      pkgs.xorg.xinput
+
       pkgs.syncthing
       pkgs.syncthing-tray
 
@@ -73,14 +132,26 @@
       pkgs.signal-desktop
       pkgs.zoom-us
       pkgs.slack
+      pkgs.cava
 
       pkgs.ani-cli
       pkgs.mangal
-      # pkgs.tachidesk
+      #pkgs.tachidesk
 
       pkgs.vim
       pkgs.neovim
       pkgs.emacs
+      #pkgs.nix-doom-emacs
+      pkgs.emacsPackages.lsp-pyright
+      # Doom Emacs Deps
+      pkgs.git
+      pkgs.libpng
+      pkgs.zlib
+      pkgs.poppler_gi
+      pkgs.ripgrep
+      pkgs.fd
+      pkgs.aspell
+      pkgs.aspellDicts.en
 
       # # It is sometimes useful to fine-tune packages, for example, by applying
       # # overrides. You can do that directly here, just don't forget the
@@ -122,12 +193,71 @@
     #
     # if you don't want to manage your shell through Home Manager.
     sessionVariables = {
-      # EDITOR = "emacs";
+      EDITOR = "emacs";
     };
+
+    pointerCursor = {
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+      gtk.enable = true;
+      x11.enable = true;
+      x11.defaultCursor = "X_cursor";
+      size = 64;
+    };
+
   };
 
-# services.syncthing.enable = true;
+programs.fzf = {
+  #package = pkgs.fzf;
+  enable = true;
+  enableFishIntegration = true;
+  enableBashIntegration = true;
+};
 
+programs.gh.enable = true;
+programs.git.enable = true;
+
+programs.mpv = {
+  enable = true;
+  #scripts = [ pkgs.mpvScripts.sponsorblock ];
+  scripts = [ pkgs.mpvScripts.sponsorblock pkgs.mpvScripts.webtorrent-mpv-hook pkgs.mpvScripts.thumbnail pkgs.mpvScripts.mpris ];
+};
+
+# Systemlink vi/vim/vimdiff to nvim binary
+programs.neovim.viAlias = true;
+programs.neovim.vimAlias = true;
+programs.neovim.vimdiffAlias = true;
+
+programs.starship = {
+  enable = true;
+  enableFishIntegration = true;
+  enableBashIntegration = true;
+  enableTransience = true;
+};
+
+  #xdg.portal = {
+    #enable = true;
+    # wlr.enable = true;
+    # gtk portal needed to make gtk apps happy
+    # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  #};
+
+  #virtualisation.libvirtd.enable = true;
+
+  #services.printing.enable = true;
+  services.emacs.enable = true;
+  services.syncthing.enable = true;
+  services.syncthing.tray.enable = true;
+  #services.mullvad-vpn.enable = true;
+
+  services.home-manager.autoUpgrade.frequency = "weekly";
+
+  #hardware.opengl.driSupport32Bit = true;
+  #programs.steam = {
+  #  enable = true;
+  #  remotePlay.openFirewall = true; # Open ports #in the firewall for Steam Remote Play
+  #  dedicatedServer.openFirewall = true; # Open #ports in the firewall for Source Dedicated Server
+  #};
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
