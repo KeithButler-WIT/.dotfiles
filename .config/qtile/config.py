@@ -66,8 +66,8 @@ def window_to_next_group(qtile):
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
 # My Programs
-myTerm = "alacritty"  # My terminal of choice
-myFileManager = "pcmanfm"
+myTerm = "nixGL alacritty"  # My terminal of choice
+myFileManager = "thunar"
 myBrowser = "firedragon"
 myPasswordManager = "keepassxc"
 emacsFileManager = "emacsclient -c -a '' --eval '(dired nil)'" # dired emacs file manager
@@ -464,8 +464,8 @@ def init_colors():
         ["#b48ead", "#b48ead"],  # 20
         ["#e06c75", "#e06c75"],  # 21
         ["#fb9f7f", "#fb9f7f"],  # 22
-        ["#ffd47e", "#ffd47e"],
-    ]  # 23
+        ["#ffd47e", "#ffd47e"],  # 23
+    ]
 
 
 colors = init_colors()
@@ -647,7 +647,6 @@ def init_screens():
 
 screens = init_screens()
 
-
 # MOUSE CONFIGURATION
 mouse = [
     Drag(
@@ -682,8 +681,6 @@ def assign_app_group(client):
         "telegramDesktop",
         "discord",
     ]
-    # d["2"] = ["Inkscape", "Nomacs", "Ristretto", "Nitrogen", "Feh",
-    #           "inkscape", "nomacs", "ristretto", "nitrogen", "feh", ]
     d["2"] = [
         "Steam",
         "steam",
@@ -715,8 +712,6 @@ def assign_app_group(client):
     # d["6"] = ["Vlc","vlc", "Mpv", "mpv" ]
     # d["7"] = ["VirtualBox Manager", "VirtualBox Machine", "Vmplayer",
     #           "virtualbox manager", "virtualbox machine", "vmplayer", ]
-    # d["8"] = ["pcmanfm", "Nemo", "Caja", "Nautilus", "org.gnome.Nautilus", "Pcmanfm", "Pcmanfm-qt",
-    #           "pcmanfm", "nemo", "caja", "nautilus", "org.gnome.nautilus", "pcmanfm", "pcmanfm-qt", ]
     d["8"] = ["Signal", "Signal-desktop",
               "signal", "signal-desktop"]
     d["9"] = [

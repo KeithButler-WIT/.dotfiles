@@ -1,7 +1,7 @@
 <configuration version="37">
     <folder id="66lmn-aoha2" label="Org Roam" path="/home/keith/workspace/org/roam/" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="true" autoNormalize="true">
         <filesystemType>basic</filesystemType>
-        <device id="MD7LBGN-I7NJMVA-6M6MXPA-WWLI5RS-Y3C4UUI-4QPTHXS-KCJYDWO-KAPLEQF" introducedBy="">
+        <device id="PV33LZJ-QODP24Y-DWLKXNA-3YGFVZ4-A7PTC2M-VSWINZD-KUUS5BW-337IPAI" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
         <device id="7OHO4OR-UPLLDHT-NWCQTES-WRZ2SBF-XRDLDGM-K6IHNJG-W5KT2KU-V72HOA2" introducedBy="">
@@ -46,7 +46,7 @@
     </folder>
     <folder id="ei287-qty2z" label="Phone Pictures" path="/run/media/keith/4TB-BACKUP/phone_backup/Pictures" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
-        <device id="MD7LBGN-I7NJMVA-6M6MXPA-WWLI5RS-Y3C4UUI-4QPTHXS-KCJYDWO-KAPLEQF" introducedBy="">
+        <device id="PV33LZJ-QODP24Y-DWLKXNA-3YGFVZ4-A7PTC2M-VSWINZD-KUUS5BW-337IPAI" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
         <device id="7OHO4OR-UPLLDHT-NWCQTES-WRZ2SBF-XRDLDGM-K6IHNJG-W5KT2KU-V72HOA2" introducedBy="">
@@ -90,7 +90,7 @@
     </folder>
     <folder id="ey7fb-b4opj" label="Phone Downloads" path="/run/media/keith/4TB-BACKUP/phone_backup/Downloads" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
-        <device id="MD7LBGN-I7NJMVA-6M6MXPA-WWLI5RS-Y3C4UUI-4QPTHXS-KCJYDWO-KAPLEQF" introducedBy="">
+        <device id="PV33LZJ-QODP24Y-DWLKXNA-3YGFVZ4-A7PTC2M-VSWINZD-KUUS5BW-337IPAI" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
         <device id="7OHO4OR-UPLLDHT-NWCQTES-WRZ2SBF-XRDLDGM-K6IHNJG-W5KT2KU-V72HOA2" introducedBy="">
@@ -134,7 +134,7 @@
     </folder>
     <folder id="fp4_9cv1-photos" label="Phone Camera" path="/run/media/keith/4TB-BACKUP/phone_backup/Camera" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
-        <device id="MD7LBGN-I7NJMVA-6M6MXPA-WWLI5RS-Y3C4UUI-4QPTHXS-KCJYDWO-KAPLEQF" introducedBy="">
+        <device id="PV33LZJ-QODP24Y-DWLKXNA-3YGFVZ4-A7PTC2M-VSWINZD-KUUS5BW-337IPAI" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
         <device id="7OHO4OR-UPLLDHT-NWCQTES-WRZ2SBF-XRDLDGM-K6IHNJG-W5KT2KU-V72HOA2" introducedBy="">
@@ -178,7 +178,7 @@
     </folder>
     <folder id="oq8dh-pnu9x" label="Phone Music" path="/run/media/keith/4TB-BACKUP/phone_backup/Music" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
-        <device id="MD7LBGN-I7NJMVA-6M6MXPA-WWLI5RS-Y3C4UUI-4QPTHXS-KCJYDWO-KAPLEQF" introducedBy="">
+        <device id="PV33LZJ-QODP24Y-DWLKXNA-3YGFVZ4-A7PTC2M-VSWINZD-KUUS5BW-337IPAI" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
         <device id="7OHO4OR-UPLLDHT-NWCQTES-WRZ2SBF-XRDLDGM-K6IHNJG-W5KT2KU-V72HOA2" introducedBy="">
@@ -222,7 +222,7 @@
     </folder>
     <folder id="q85yb-1i9pi" label="Phone Documents" path="/run/media/keith/4TB-BACKUP/phone_backup/Documents" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
-        <device id="MD7LBGN-I7NJMVA-6M6MXPA-WWLI5RS-Y3C4UUI-4QPTHXS-KCJYDWO-KAPLEQF" introducedBy="">
+        <device id="PV33LZJ-QODP24Y-DWLKXNA-3YGFVZ4-A7PTC2M-VSWINZD-KUUS5BW-337IPAI" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
         <device id="7OHO4OR-UPLLDHT-NWCQTES-WRZ2SBF-XRDLDGM-K6IHNJG-W5KT2KU-V72HOA2" introducedBy="">
@@ -264,7 +264,7 @@
             <maxTotalSize>4096</maxTotalSize>
         </xattrFilter>
     </folder>
-    <device id="MD7LBGN-I7NJMVA-6M6MXPA-WWLI5RS-Y3C4UUI-4QPTHXS-KCJYDWO-KAPLEQF" name="garuda" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
+    <device id="PV33LZJ-QODP24Y-DWLKXNA-3YGFVZ4-A7PTC2M-VSWINZD-KUUS5BW-337IPAI" name="garuda" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>
         <paused>false</paused>
         <autoAcceptFolders>false</autoAcceptFolders>
@@ -350,7 +350,7 @@
     <defaults>
         <folder id="" label="" path="~" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
             <filesystemType>basic</filesystemType>
-            <device id="MD7LBGN-I7NJMVA-6M6MXPA-WWLI5RS-Y3C4UUI-4QPTHXS-KCJYDWO-KAPLEQF" introducedBy="">
+            <device id="PV33LZJ-QODP24Y-DWLKXNA-3YGFVZ4-A7PTC2M-VSWINZD-KUUS5BW-337IPAI" introducedBy="">
                 <encryptionPassword></encryptionPassword>
             </device>
             <minDiskFree unit="%">1</minDiskFree>

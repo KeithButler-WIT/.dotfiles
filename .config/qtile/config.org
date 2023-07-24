@@ -18,10 +18,14 @@
   - [[#qtile-layout-keys][QTILE Layout Keys]]
   - [[#end-keybindings][End Keybindings]]
 - [[#group-settings][Group Settings]]
+  - [[#group-names][Group Names]]
+  - [[#group-labels][Group Labels]]
+  - [[#group-layouts][Group Layouts]]
 - [[#scratchpad][Scratchpad]]
 - [[#layout-themes][Layout Themes]]
 - [[#colours][Colours]]
 - [[#widgets][Widgets]]
+  - [[#mouse-configuration][Mouse Configuration]]
 - [[#assinging--application-to-a-specific-groupname][Assinging  Application to a specific groupname]]
 - [[#hooks-and-floating-window-settings][Hooks and floating window settings]]
 
@@ -111,8 +115,8 @@ Adding various applications to variables so only one place has to be changed if 
 #+begin_src python :tangle config.py
 
 # My Programs
-myTerm = "alacritty"  # My terminal of choice
-myFileManager = "pcmanfm"
+myTerm = "nixGL alacritty"  # My terminal of choice
+myFileManager = "thunar"
 myBrowser = "firedragon"
 myPasswordManager = "keepassxc"
 emacsFileManager = "emacsclient -c -a '' --eval '(dired nil)'" # dired emacs file manager
@@ -351,7 +355,10 @@ keys = [
 * Group Settings
 #+begin_src python :tangle config.py
 groups = []
+#+end_src
 
+** Group Names
+#+begin_src python :tangle config.py
 # FOR QWERTY KEYBOARDS
 group_names = [
     "1",
@@ -368,7 +375,10 @@ group_names = [
 
 # FOR AZERTY KEYBOARDS
 # group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
+#+end_src
 
+** Group Labels
+#+begin_src python :tangle config.py
 group_labels = [
     "1 ",
     "2 ",
@@ -384,7 +394,9 @@ group_labels = [
 # group_labels = ["α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ",]
 # group_labels = ["", "", "", "", "",]
 # group_labels = ["Web", "Edit/chat", "Image", "Gimp", "Meld", "Video", "Vb", "Files", "Mail", "Music",]
-
+#+end_src
+** Group Layouts
+#+begin_src python :tangle config.py
 group_layouts = [
     "monadtall",
     "monadtall",
@@ -766,7 +778,9 @@ def init_screens():
 
 screens = init_screens()
 
-
+#+end_src
+** Mouse Configuration
+#+begin_src python :tangle config.py
 # MOUSE CONFIGURATION
 mouse = [
     Drag(
@@ -831,13 +845,6 @@ def assign_app_group(client):
         "brave-browser",
         "firedragon",
     ]
-    # d["4"] = ["Gimp", "gimp" ]
-    # d["5"] = ["Meld", "meld", "org.gnome.meld" "org.gnome.Meld" ]
-    # d["6"] = ["Vlc","vlc", "Mpv", "mpv" ]
-    # d["7"] = ["VirtualBox Manager", "VirtualBox Machine", "Vmplayer",
-    #           "virtualbox manager", "virtualbox machine", "vmplayer", ]
-    # d["8"] = ["pcmanfm", "Nemo", "Caja", "Nautilus", "org.gnome.Nautilus", "Pcmanfm", "Pcmanfm-qt",
-    #           "pcmanfm", "nemo", "caja", "nautilus", "org.gnome.nautilus", "pcmanfm", "pcmanfm-qt", ]
     d["8"] = ["Signal", "Signal-desktop",
               "signal", "signal-desktop"]
     d["9"] = [

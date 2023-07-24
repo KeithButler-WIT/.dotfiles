@@ -17,13 +17,25 @@ if  [ -x /usr/bin/starship ]; then
     unset -f __main
 fi
 
+# Default Programs
+export BROWSER=firedragon
+export TERM=nixGL\ alacritty
+export MAIL=thunderbird
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export XDG_CURRENT_DESKTOP=Unity
+
+export ALTERNATE_EDITOR="nvim"
+export EDITOR="emacs"
+export VISUAL="emacs"
+
 # Advanced command-not-found hook
 source /usr/share/doc/find-the-command/ftc.bash
 
 # Aliases
 alias dir='dir --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias egrep='grep -E --color=auto'
+alias fgrep='grep -F --color=auto'
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 alias grep='grep --color=auto'
 alias grubup="sudo update-grub"
@@ -36,7 +48,6 @@ alias untar='tar -zxvf '
 alias upd='/usr/bin/update'
 alias vdir='vdir --color=auto'
 alias wget='wget -c '
-alias cl='clear'
 
 # Help people new to Arch
 alias apt-get='man pacman'
@@ -53,6 +64,3 @@ alias jctl="journalctl -p 3 -xb"
 
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-
-
-export PATH="/.local/bin:$PATH"
