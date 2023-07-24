@@ -419,11 +419,6 @@ capture was not aborted."
    (rust . t)
    ))
 
-(require 'android-mode)
-(custom-set-variables
- '(android-mode-avd "AVD")
- '(android-mode-sdk-dir "/opt/android-sdk/"))
-
 (add-to-list 'org-src-lang-modes '("Kotlin" . "kotlin-mode"))
 
 (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
@@ -438,10 +433,6 @@ capture was not aborted."
       erc-fill-column 100
       erc-fill-function 'erc-fill-static
       erc-fill-static-center 20)
-
-(require 'org-trello)
-(setq org-trello-consumer-key "5dd059929da10daa9f650c01e28412f5")  ;; 32 characters string
-(setq org-trello-access-token "63885c05cfaf717356c4dd89b40e11203d799e7f33a64a2585c7d62fee6873ad")  ;; 64 characters string
 
 (require 'vterm-module)
 (setq vterm-shell "/bin/fish")          ;; default shell

@@ -980,7 +980,7 @@ So these packages help alot when righting reports.
 (package! ob-mongo)
 #+end_src
 
-** Android
+** COMMENT Android
 #+begin_src  emacs-lisp :results none :tangle packages.el
 (package! android-mode)
 #+end_src
@@ -1152,7 +1152,7 @@ CLOCK: [2022-09-23 Fri 15:45]--[2022-09-23 Fri 15:50] =>  0:05
       erc-fill-static-center 20)
 #+end_src
 
-** Trello
+** COMMENT Trello
 #+begin_src  emacs-lisp :results none :tangle packages.el
 (package! org-trello)
 #+end_src
