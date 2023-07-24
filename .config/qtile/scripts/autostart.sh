@@ -23,6 +23,7 @@ feh --randomize --bg-fill /usr/share/wallpapers/garuda-wallpapers/*
 #starting user applications at boot time
 run volumeicon &
 #run /usr/bin/emacs --daemon &
+run emacs --daemon &
 run onedrivegui &
 run discord &
 run thunderbird &
