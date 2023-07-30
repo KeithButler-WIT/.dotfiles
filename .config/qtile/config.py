@@ -437,36 +437,33 @@ layouts = [
 ]
 
 # COLORS FOR THE BAR
-
-
 def init_colors():
     return [
-        ["#2F343F", "#2F343F"],  # color 0
-        ["#2F343F", "#2F343F"],  # color 1
-        ["#c0c5ce", "#c0c5ce"],  # color 2
-        ["#ff5050", "#ff5050"],  # color 3
-        ["#f4c2c2", "#f4c2c2"],  # color 4
-        ["#ffffff", "#ffffff"],  # color 5
-        ["#ffd47e", "#ffd47e"],  # color 6
-        ["#62FF00", "#62FF00"],  # color 7
-        ["#000000", "#000000"],  # color 8
-        ["#c40234", "#c40234"],  # color 9
-        ["#6790eb", "#6790eb"],  # color 10
-        ["#ff00ff", "#ff00ff"],  # 11
-        ["#4c566a", "#4c566a"],  # 12
+        ["#2F343F", "#2F343F"],  # 0
+        ["#2F343F", "#2F343F"],  # 1
+        ["#c0c5ce", "#c0c5ce"],  # 2 # NOT USED
+        ["#ff5050", "#ff5050"],  # 3
+        ["#f4c2c2", "#f4c2c2"],  # 4 # NOT USED
+        ["#ffffff", "#ffffff"],  # 5
+        ["#ffd47e", "#ffd47e"],  # 6
+        ["#62FF00", "#62FF00"],  # 7
+        ["#000000", "#000000"],  # 8 # NOT USED
+        ["#c40234", "#c40234"],  # 9
+        ["#6790eb", "#6790eb"],  # 10
+        ["#ff00ff", "#ff00ff"],  # 11 # NOT USED
+        ["#4c566a", "#4c566a"],  # 12 # NOT USED
         ["#282c34", "#282c34"],  # 13
         ["#212121", "#212121"],  # 14
         ["#e75480", "#e75480"],  # 15
         ["#2aa899", "#2aa899"],  # 16
-        ["#abb2bf", "#abb2bf"],  # color 17
-        ["#81a1c1", "#81a1c1"],  # 18
+        ["#abb2bf", "#abb2bf"],  # 17
+        ["#81a1c1", "#81a1c1"],  # 18 # NOT USED
         ["#56b6c2", "#56b6c2"],  # 19
         ["#b48ead", "#b48ead"],  # 20
-        ["#e06c75", "#e06c75"],  # 21
+        ["#e06c75", "#e06c75"],  # 21 # NOT USED
         ["#fb9f7f", "#fb9f7f"],  # 22
         ["#ffd47e", "#ffd47e"],  # 23
     ]
-
 
 colors = init_colors()
 
@@ -491,7 +488,8 @@ def init_widgets_list():
             linewidth=1, padding=10, foreground=colors[15], background=colors[15]
         ),  #
         widget.Image(
-            filename="~/.config/qtile/icons/garuda-red.png",
+            # filename="~/.config/qtile/icons/garuda-red.png",
+            filename="~/.config/qtile/icons/white-hamburger-menu.png",
             iconsize=9,
             background=colors[15],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("jgmenu_run")},
@@ -552,7 +550,10 @@ def init_widgets_list():
             font="Noto Sans",
             fontsize=12,
             # Here enter your network name
-            interface=["wlp6s0"],
+            # interface=["enp4s0", "wlp3s0", "wg-mullvad"],
+            interface=["enp4s0"],
+            # interface=["wlp3s0"],
+            # interface=["wg-mullvad"],
             format="{down} ↓↑ {up}",
             foreground=colors[5],
             background=colors[19],
@@ -707,11 +708,6 @@ def assign_app_group(client):
         "brave-browser",
         "firedragon",
     ]
-    # d["4"] = ["Gimp", "gimp" ]
-    # d["5"] = ["Meld", "meld", "org.gnome.meld" "org.gnome.Meld" ]
-    # d["6"] = ["Vlc","vlc", "Mpv", "mpv" ]
-    # d["7"] = ["VirtualBox Manager", "VirtualBox Machine", "Vmplayer",
-    #           "virtualbox manager", "virtualbox machine", "vmplayer", ]
     d["8"] = ["Signal", "Signal-desktop",
               "signal", "signal-desktop"]
     d["9"] = [
