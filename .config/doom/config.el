@@ -408,6 +408,11 @@ capture was not aborted."
          :headline-levels 4
          :auto-preamble t)))
 
+(use-package org-auto-tangle
+  :load-path "site-lisp/org-auto-tangle/"    ;; this line is necessary only if you cloned the repo in your site-lisp directory
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode))
+
 ;; active Babel languages
 (org-babel-do-load-languages
  'org-babel-load-languages

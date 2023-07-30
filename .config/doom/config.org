@@ -958,6 +958,18 @@ Use [[https://github.com/awth13/org-appear][org-appear]] to reveal emphasis mark
          :auto-preamble t)))
 #+end_src
 
+** org-auto-tangle
+#+begin_src  emacs-lisp :results none :tangle packages.el
+(package! org-auto-tangle)
+#+end_src
+
+#+begin_src  emacs-lisp :results none
+(use-package org-auto-tangle
+  :load-path "site-lisp/org-auto-tangle/"    ;; this line is necessary only if you cloned the repo in your site-lisp directory
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode))
+#+end_src
+
 * Languanges
 ** Org-babel-do-load-languages
 #+begin_src emacs-lisp

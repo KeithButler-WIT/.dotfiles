@@ -67,6 +67,8 @@
   :recipe (:host github
            :repo "awth13/org-appear"))
 
+(package! org-auto-tangle)
+
 (package! mongo)
 (package! ob-mongo)
 
