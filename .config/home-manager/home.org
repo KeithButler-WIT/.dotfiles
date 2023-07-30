@@ -1,6 +1,10 @@
+#+name: Home Manager Configuration
+#+PROPERTY: header-args :tangle yes
+#+auto_tangle: t
+
 
 * Start
-#+begin_src nix :tangle home.nix
+#+begin_src nix
 { config, lib, pkgs, ... }:
 
 {
@@ -15,7 +19,7 @@
 #+end_src
 
 * COMMENT Theme
-#+begin_src nix :tangle home.nix
+#+begin_src nix
 qt.enable = true;
 qt.style.name = "adwaita-dark";
 gtk.enable = true;
@@ -27,7 +31,7 @@ dconf.settings = {
 };
 #+end_src
 * Home
-#+begin_src nix :tangle home.nix
+#+begin_src nix
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "keith";
@@ -36,7 +40,7 @@ dconf.settings = {
 #+end_src
 
 ** State Version
-#+begin_src nix :tangle home.nix
+#+begin_src nix
     # This value determines the Home Manager release that your configuration is
     # compatible with. This helps avoid breakage when a new Home Manager release
     # introduces backwards incompatible changes.
@@ -48,7 +52,7 @@ dconf.settings = {
 #+end_src
 
 ** Packages
-#+begin_src nix :tangle home.nix
+#+begin_src nix
     # The home.packages option allows you to install Nix packages into your
     # environment.
     packages = [
@@ -59,17 +63,15 @@ dconf.settings = {
       pkgs.zip
       pkgs.unzip
       pkgs.light
-
       pkgs.alacritty #requires extra setup on non-Nixos #https://nixos.org/manual/nixpkgs/unstable/#nix-on-gnulinux
       pkgs.mcfly
-      pkgs.discord
-      pkgs.betterdiscordctl
       pkgs.thunderbird
       pkgs.yt-dlp
       pkgs.keepassxc
+      pkgs.pass
       pkgs.libreoffice
       pkgs.qutebrowser
-      pkgs.virt-manager
+      #pkgs.librewolf
       pkgs.gpodder
       pkgs.gparted
       pkgs.yt-dlp
@@ -89,16 +91,15 @@ dconf.settings = {
       pkgs.stow
       pkgs.cmake
       #pkgs.python3Full
-      (pkgs.python310.withPackages(ps: with ps; [ beautifulsoup4 requests black]))
+      (pkgs.python310.withPackages(ps: with ps; [ beautifulsoup4 requests black pyside6 pylint pillow ]))
       #pkgs.python3.pkgs.pip
       pkgs.trash-cli
-      #pkgs.xfce.xfce4-icon-theme
-      #pkgs.libcanberra
-      #pkgs.libcanberra-gtk3
-      #pkgs.libcanberra-gtk2
       pkgs.dracula-theme
 
       # VMs
+      #pkgs.virt-manager
+      #pkgs.libvirt
+      #pkgs.libvirt-glib
       pkgs.quickemu
       pkgs.quickgui
 
@@ -108,8 +109,30 @@ dconf.settings = {
       #(steam.override { extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ]; nativeOnly = true; }).run
       #(steam.override { withPrimus = true; extraPkgs = pkgs: [ bumblebee glxinfo ]; nativeOnly = true; }).run
       #(steam.override { withJava = true; })
-      pkgs.lutris
-      #pkgs.hicolor-icon-theme
+      #pkgs.lutris
+      #+end_src
+
+*** COMMENT Lutris
+      #+begin_src nix
+      (pkgs.lutris.override {
+        extraLibraries =  pkgs: [
+          # List library dependencies here
+          pkgs.libcanberra
+          #pkgs.libcanberra-gtk3
+          #pkgs.libcanberra-gtk2
+        ];
+        extraPkgs = pkgs: [
+          # List package dependencies here
+          pkgs.hicolor-icon-theme
+          pkgs.gnome3.adwaita-icon-theme
+          pkgs.freetype
+          pkgs.freedesktop
+          #pkgs.xfce.xfce4-icon-theme
+        ];
+      })
+      #+end_src
+*** Packages Continued
+      #+begin_src nix
       pkgs.heroic
       pkgs.gamemode
       pkgs.protonup-ng
@@ -131,7 +154,33 @@ dconf.settings = {
       pkgs.mullvad-vpn
       pkgs.qbittorrent
 
+      #+end_src
+
+*** COMMENT Thunar
+      #+begin_src nix
+      (pkgs.xfce.thunar.override {
+        extraLibraries =  pkgs: [
+          # List library dependencies here
+          pkgs.gnome.gvfs
+          pkgs.glib
+          pkgs.glibc
+        ];
+        extraPkgs = pkgs: [
+          # List package dependencies here
+          pkgs.xfce.thunar-volman
+          pkgs.xfce.thunar-dropbox-plugin
+          pkgs.xfce.thunar-archive-plugin
+          pkgs.xfce.thunar-media-tags-plugin
+        ];
+      })
+      #+end_src
+
+*** Packages Continued
+      #+begin_src nix
       # Thunar
+      pkgs.gnome.gvfs
+      pkgs.glib
+      pkgs.glibc
       pkgs.xfce.thunar
       pkgs.xfce.thunar-volman
       pkgs.xfce.thunar-dropbox-plugin
@@ -145,7 +194,7 @@ dconf.settings = {
       pkgs.xorg.libxcb
       pkgs.xorg.libXft
       pkgs.xorg.libXinerama
-	  pkgs.xorg.xinit
+	    pkgs.xorg.xinit
       pkgs.xorg.xinput
 
       pkgs.syncthing
@@ -153,6 +202,7 @@ dconf.settings = {
 
       # Socials
       pkgs.discord
+      pkgs.betterdiscordctl
       pkgs.signal-desktop
       pkgs.zoom-us
       pkgs.slack
@@ -193,7 +243,7 @@ dconf.settings = {
 #+end_src
 
 ** File
-#+begin_src nix :tangle home.nix
+#+begin_src nix
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
     file = {
@@ -211,7 +261,7 @@ dconf.settings = {
 #+end_src
 
 ** Enviroment Variables
-#+begin_src nix :tangle home.nix
+#+begin_src nix
     # You can also manage environment variables but you will have to manually
     # source
     #
@@ -228,7 +278,7 @@ dconf.settings = {
 #+end_src
 
 ** Cursor
-#+begin_src nix :tangle home.nix
+#+begin_src nix
     pointerCursor = {
       package = pkgs.vanilla-dmz;
       name = "Vanilla-DMZ";
@@ -240,12 +290,12 @@ dconf.settings = {
 #+end_src
 
 ** End Home
-#+begin_src nix :tangle home.nix
+#+begin_src nix
   };
 #+end_src
 
 * Programs
-#+begin_src nix :tangle home.nix
+#+begin_src nix
 programs.fzf = {
   #package = pkgs.fzf;
   enable = true;
@@ -258,8 +308,8 @@ programs.git.enable = true;
 
 programs.mpv = {
   enable = true;
-  #scripts = [ pkgs.mpvScripts.sponsorblock ];
-  scripts = [ pkgs.mpvScripts.sponsorblock pkgs.mpvScripts.webtorrent-mpv-hook pkgs.mpvScripts.thumbnail pkgs.mpvScripts.mpris ];
+  #scripts = [ pkgs.mpvScripts.sponsorblock pkgs.mpvScripts.webtorrent-mpv-hook pkgs.mpvScripts.thumbnail pkgs.mpvScripts.mpris ];
+  scripts = [ pkgs.mpvScripts.sponsorblock pkgs.mpvScripts.webtorrent-mpv-hook pkgs.mpvScripts.thumbfast pkgs.mpvScripts.mpris ];
 };
 
 # Systemlink vi/vim/vimdiff to nvim binary
@@ -276,7 +326,7 @@ programs.starship = {
 #+end_src
 
 * Services
-#+begin_src nix :tangle home.nix
+#+begin_src nix
   #xdg.portal = {
     #enable = true;
     # wlr.enable = true;
@@ -295,17 +345,17 @@ programs.starship = {
   services.home-manager.autoUpgrade.frequency = "weekly";
 #+end_src
 * Home-Manager Enable
-#+begin_src nix :tangle home.nix
+#+begin_src nix
   #hardware.opengl.driSupport32Bit = true;
   #programs.steam = {
   #  enable = true;
-  #  remotePlay.openFirewall = true; # Open ports #in the firewall for Steam Remote Play
-  #  dedicatedServer.openFirewall = true; # Open #ports in the firewall for Source Dedicated Server
+  #  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  #  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   #};
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 #+end_src
 * end bracket
-#+begin_src nix :tangle home.nix
+#+begin_src nix
 }
 #+end_src

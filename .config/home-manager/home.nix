@@ -35,17 +35,15 @@
       pkgs.zip
       pkgs.unzip
       pkgs.light
-
       pkgs.alacritty #requires extra setup on non-Nixos #https://nixos.org/manual/nixpkgs/unstable/#nix-on-gnulinux
       pkgs.mcfly
-      pkgs.discord
-      pkgs.betterdiscordctl
       pkgs.thunderbird
       pkgs.yt-dlp
       pkgs.keepassxc
+      pkgs.pass
       pkgs.libreoffice
       pkgs.qutebrowser
-      pkgs.virt-manager
+      #pkgs.librewolf
       pkgs.gpodder
       pkgs.gparted
       pkgs.yt-dlp
@@ -65,16 +63,15 @@
       pkgs.stow
       pkgs.cmake
       #pkgs.python3Full
-      (pkgs.python310.withPackages(ps: with ps; [ beautifulsoup4 requests black]))
+      (pkgs.python310.withPackages(ps: with ps; [ beautifulsoup4 requests black pyside6 pylint pillow ]))
       #pkgs.python3.pkgs.pip
       pkgs.trash-cli
-      #pkgs.xfce.xfce4-icon-theme
-      #pkgs.libcanberra
-      #pkgs.libcanberra-gtk3
-      #pkgs.libcanberra-gtk2
       pkgs.dracula-theme
 
       # VMs
+      #pkgs.virt-manager
+      #pkgs.libvirt
+      #pkgs.libvirt-glib
       pkgs.quickemu
       pkgs.quickgui
 
@@ -84,8 +81,8 @@
       #(steam.override { extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ]; nativeOnly = true; }).run
       #(steam.override { withPrimus = true; extraPkgs = pkgs: [ bumblebee glxinfo ]; nativeOnly = true; }).run
       #(steam.override { withJava = true; })
-      pkgs.lutris
-      #pkgs.hicolor-icon-theme
+      #pkgs.lutris
+
       pkgs.heroic
       pkgs.gamemode
       pkgs.protonup-ng
@@ -108,6 +105,9 @@
       pkgs.qbittorrent
 
       # Thunar
+      pkgs.gnome.gvfs
+      pkgs.glib
+      pkgs.glibc
       pkgs.xfce.thunar
       pkgs.xfce.thunar-volman
       pkgs.xfce.thunar-dropbox-plugin
@@ -121,7 +121,7 @@
       pkgs.xorg.libxcb
       pkgs.xorg.libXft
       pkgs.xorg.libXinerama
-	  pkgs.xorg.xinit
+	    pkgs.xorg.xinit
       pkgs.xorg.xinput
 
       pkgs.syncthing
@@ -129,6 +129,7 @@
 
       # Socials
       pkgs.discord
+      pkgs.betterdiscordctl
       pkgs.signal-desktop
       pkgs.zoom-us
       pkgs.slack
@@ -219,8 +220,8 @@ programs.git.enable = true;
 
 programs.mpv = {
   enable = true;
-  #scripts = [ pkgs.mpvScripts.sponsorblock ];
-  scripts = [ pkgs.mpvScripts.sponsorblock pkgs.mpvScripts.webtorrent-mpv-hook pkgs.mpvScripts.thumbnail pkgs.mpvScripts.mpris ];
+  #scripts = [ pkgs.mpvScripts.sponsorblock pkgs.mpvScripts.webtorrent-mpv-hook pkgs.mpvScripts.thumbnail pkgs.mpvScripts.mpris ];
+  scripts = [ pkgs.mpvScripts.sponsorblock pkgs.mpvScripts.webtorrent-mpv-hook pkgs.mpvScripts.thumbfast pkgs.mpvScripts.mpris ];
 };
 
 # Systemlink vi/vim/vimdiff to nvim binary
@@ -255,8 +256,8 @@ programs.starship = {
   #hardware.opengl.driSupport32Bit = true;
   #programs.steam = {
   #  enable = true;
-  #  remotePlay.openFirewall = true; # Open ports #in the firewall for Steam Remote Play
-  #  dedicatedServer.openFirewall = true; # Open #ports in the firewall for Source Dedicated Server
+  #  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  #  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   #};
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
