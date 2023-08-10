@@ -28,14 +28,11 @@ run onedrivegui &
 run discord &
 run thunderbird &
 run pcmanfm -d & # auto mount removeable media
+run thunar --daemon &
+run onedrive --confdir ~/.config/onedrive/accounts/20089137@wit.ie -m &
 #nitrogen --random --set-zoom-fill &
 #run caffeine -a &
-#run vivaldi-stable &
 #run firefox &
-#run thunar &
-#run dropbox &
 #run insync start &
-#run spotify &
-#run atom &
 #run telegram-desktop &
 #run signal-desktop &

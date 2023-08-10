@@ -7,6 +7,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1u"
     "python-2.7.18.6"
+    "nodejs-16.20.1"
   ];
   targets.genericLinux.enable = true; # Enable this on non nixos
 
@@ -38,11 +39,13 @@
       pkgs.alacritty #requires extra setup on non-Nixos #https://nixos.org/manual/nixpkgs/unstable/#nix-on-gnulinux
       pkgs.mcfly
       pkgs.thunderbird
+      pkgs.mpd
       pkgs.yt-dlp
       pkgs.keepassxc
       pkgs.pass
       pkgs.libreoffice
       pkgs.qutebrowser
+      pkgs.firefox
       #pkgs.librewolf
       pkgs.gpodder
       pkgs.gparted
@@ -61,12 +64,24 @@
       pkgs.wget
       pkgs.gnupg
       pkgs.stow
+      pkgs.trash-cli
+
+# Programming Languages
       pkgs.cmake
       #pkgs.python3Full
-      (pkgs.python310.withPackages(ps: with ps; [ beautifulsoup4 requests black pyside6 pylint pillow ]))
+      (pkgs.python310.withPackages(ps: with ps; [ beautifulsoup4 requests black pyside6 pylint pillow pywlroots ]))
       #pkgs.python3.pkgs.pip
-      pkgs.trash-cli
+      pkgs.nodejs_16
+      pkgs.postman
+      #pkgs.mongodb
+      #pkgs.mongodb-tools
+      #pkgs.mongosh
+
+# Theming
       pkgs.dracula-theme
+      pkgs.dracula-icon-theme
+      #pkgs.catppuccin-gtk
+      #pkgs.lxappearance
 
       # VMs
       #pkgs.virt-manager
@@ -94,20 +109,18 @@
       #pkgs.wine-tkg
       #pkgs.openmw
 
-      # Game Dev
       #pkgs.godot
       pkgs.godot_4
       pkgs.unityhub
       #pkgs.blender
 
-      # Torrenting
       pkgs.mullvad-vpn
       pkgs.qbittorrent
 
       # Thunar
       pkgs.gnome.gvfs
-      pkgs.glib
-      pkgs.glibc
+      #pkgs.glib
+      #pkgs.glibc
       pkgs.xfce.thunar
       pkgs.xfce.thunar-volman
       pkgs.xfce.thunar-dropbox-plugin
@@ -236,6 +249,18 @@ programs.starship = {
   enableTransience = true;
 };
 
+programs.ncmpcpp = {
+  enable = true;
+  #mpdMusicDir= "~/Music";
+  bindings = [
+    { key = "j"; command = "scroll_down"; }
+    { key = "k"; command = "scroll_up"; }
+    { key = "J"; command = [ "select_item" "scroll_down" ]; }
+    { key = "K"; command = [ "select_item" "scroll_up" ]; }
+    { key = "v"; command = "show_visualizer"; }
+  ];
+};
+
   #xdg.portal = {
     #enable = true;
     # wlr.enable = true;
@@ -244,6 +269,11 @@ programs.starship = {
   #};
 
   #virtualisation.libvirtd.enable = true;
+
+  services.mpd = {
+    enable = true;
+    musicDirectory = "~/Music";
+  };
 
   #services.printing.enable = true;
   #services.emacs.enable = true;

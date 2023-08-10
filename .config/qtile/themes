@@ -1,0 +1,50 @@
+#!/bin/sh
+
+declare -a options=(
+    "onedark"
+    "gruvbox"
+    "everforest"
+    "nord"
+)
+
+themes=(
+    "onedark"
+    "gruvbox"
+    "everforest"
+    "nord"
+)
+
+dmenu_colors=(
+    "#1c1c1c"
+    "#282828"
+    "#2f343f"
+    "#2e3440"
+)
+
+choice=$(printf '%s\n' "${options[@]}" | sort | dmenu -i -l 10 -fn 'RobotoMono Nerd Font-15' -nb "${dmenu_colors[0]}" -nf "#ebdbb2" -sb "${dmenu_colors[1]}" -sf "#ebdbb2")
+
+for i in "${!options[@]}"; do
+    if [[ "$choice" == "${options[$i]}" ]]; then
+        theme=${themes[$i]}
+        dmenu_color="${dmenu_colors[$i+4]}"
+        break
+    fi
+done
+
+if [ -n "$theme" ]; then
+    sed -i "\$d" ~/.config/qtile/colors.py
+    echo "num = $i" >> ~/.config/qtile/colors.py
+    pkill -SIGUSR1 qtile
+    sed -i "\$d" ~/.config/kitty/kitty.conf
+    echo "include ${theme}.conf" >> ~/.config/kitty/kitty.conf
+    sed -i "\$d" ~/.config/alacritty/alacritty.yml
+    echo " - ~/.config/alacritty/themes/themes/${theme}.yaml" >> ~/.config/alacritty/alacritty.yml
+	sed -i "s/^let g:airline_theme=.*/let g:airline_theme=\"$theme\"/" ~/.vimrc
+	sed -i "s/^colorscheme .*/colorscheme $theme/" ~/.vimrc
+    # Change dmenu colors
+    sed -i "s/\"normbg = .*/\"normbg = $dmenu_color/" ~/.Xresources
+    sed -i "s/\"normfg = .*/\"normfg = #ebdbb2/" ~/.Xresources
+    sed -i "s/\"selbg = .*/\"selbg = $dmenu_color/" ~/.Xresources
+    sed -i "s/\"selfg = .*/\"selfg = #ebdbb2/" ~/.Xresources
+    xrdb -merge ~/.Xresources
+fi

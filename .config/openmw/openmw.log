@@ -1,76 +1,249 @@
-[08:24:35.926 I] Crash handler installed
-[08:24:36.025 I] Loading config file: /home/keith/.config/openmw/openmw.cfg
-[08:24:36.029 I] Loading config file: /etc/openmw/openmw.cfg
-[08:24:36.034 I] OpenMW version 0.47.0
-[08:24:36.034 I] Using default (English) font encoding.
-[08:24:36.036 I] OSG version: 3.6.5
-[08:24:36.037 I] SDL version: 2.28.1
-[08:24:36.039 I] Loading settings file: /etc/openmw/defaults.bin
-[08:24:36.040 I] Loading settings file: /home/keith/.config/openmw/settings.cfg
-[08:24:36.408 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Morrowind.bsa
-[08:24:36.430 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Tribunal.bsa
-[08:24:36.436 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Bloodmoon.bsa
-[08:24:36.443 I] Adding data directory /usr/share/games/openmw/resources/vfs
-[08:24:36.443 I] Adding data directory /usr/share/games/openmw/data
-[08:24:36.444 I] Adding data directory /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files
-[08:24:36.925 I] Loading keybindings file: /home/keith/.config/openmw/input_v3.xml
-[08:24:36.985 I] Initializing OpenAL...
-[08:24:37.000 I] Opened "Family 17h/19h HD Audio Controller Analog Stereo"
-[08:24:37.000 I]   ALC Version: 1.1
-[08:24:37.000 I]   ALC Extensions: ALC_ENUMERATE_ALL_EXT ALC_ENUMERATION_EXT ALC_EXT_CAPTURE ALC_EXT_DEDICATED ALC_EXT_disconnect ALC_EXT_EFX ALC_EXT_thread_local_context ALC_SOFT_device_clock ALC_SOFT_HRTF ALC_SOFT_loopback ALC_SOFT_loopback_bformat ALC_SOFT_output_limiter ALC_SOFT_output_mode ALC_SOFT_pause_device ALC_SOFT_reopen_device
-[08:24:37.031 I]   Vendor: OpenAL Community
-[08:24:37.031 I]   Renderer: OpenAL Soft
-[08:24:37.031 I]   Version: 1.1 ALSOFT 1.23.1
-[08:24:37.031 I]   Extensions: AL_EXT_ALAW AL_EXT_BFORMAT AL_EXT_DOUBLE AL_EXT_EXPONENT_DISTANCE AL_EXT_FLOAT32 AL_EXT_IMA4 AL_EXT_LINEAR_DISTANCE AL_EXT_MCFORMATS AL_EXT_MULAW AL_EXT_MULAW_BFORMAT AL_EXT_MULAW_MCFORMATS AL_EXT_OFFSET AL_EXT_source_distance_model AL_EXT_SOURCE_RADIUS AL_EXT_STATIC_BUFFER AL_EXT_STEREO_ANGLES AL_LOKI_quadriphonic AL_SOFT_bformat_ex AL_SOFTX_bformat_hoa AL_SOFT_block_alignment AL_SOFT_buffer_length_query AL_SOFT_callback_buffer AL_SOFTX_convolution_reverb AL_SOFT_deferred_updates AL_SOFT_direct_channels AL_SOFT_direct_channels_remix AL_SOFT_effect_target AL_SOFT_events AL_SOFT_gain_clamp_ex AL_SOFTX_hold_on_disconnect AL_SOFT_loop_points AL_SOFTX_map_buffer AL_SOFT_MSADPCM AL_SOFT_source_latency AL_SOFT_source_length AL_SOFT_source_resampler AL_SOFT_source_spatialize AL_SOFT_source_start_delay AL_SOFT_UHJ AL_SOFT_UHJ_ex
-[08:24:37.031 I] HRTF disabled
-[08:24:37.031 I] Allocated 256 sound sources
-[08:24:37.031 I] Low-pass filter supported
-[08:24:37.032 I] EAX Reverb supported
-[08:24:37.032 I] Enumerated output devices:
-[08:24:37.032 I]   Family 17h/19h HD Audio Controller Analog Stereo  Raven/Raven2/Fenghuang HDMI/DP Audio Controller Digital Stereo (HDMI)
-[08:24:37.039 I] Enumerated HRTF names:
-[08:24:37.039 I]   Default HRTF  Built-In HRTF
-[08:24:37.585 I] Loading content file Morrowind.esm
-[08:24:38.005 I] Loading content file Tribunal.esm
-[08:24:38.084 I] Loading content file Bloodmoon.esm
-[08:24:38.184 I] Loading content file AEA-Compatibility.esp
-[08:24:38.184 I] Loading content file ancestor_companion.esp
-[08:24:38.185 I] Loading content file adamantiumarmor.esp
-[08:24:38.185 I] Loading content file CompanionTeleportation.esp
-[08:24:38.189 I] Loading content file Particle Arrow Replacer.esp
-[08:24:38.190 I] Loading content file Area Effect Arrows Integrated.esp
-[08:24:38.191 I] Loading content file Area Effect Projectiles Integrated (PAR Edit).esp
-[08:24:38.193 I] Loading content file Area Effect Projectiles Integrated.esp
-[08:24:38.194 I] Loading content file AreaEffectArrows.esp
-[08:24:38.195 I] Loading content file bcsounds.esp
-[08:24:38.196 I] Loading content file Bound Arrow.ESP
-[08:24:38.197 I] Loading content file ajd_mwmj2022_telvanniDoorToApocrypha.ESP
-[08:24:38.203 I] Loading content file CrazyBatouIsNotEssential-Mw.ESP
-[08:24:38.203 I] Loading content file daedric travel network.ESP
-[08:24:38.204 I] Loading content file EBQ_Artifact.esp
-[08:24:38.220 I] Loading content file entertainers.esp
-[08:24:38.227 I] Loading content file Expansion Delay.ESP
-[08:24:38.229 I] Loading content file HideSugarHideSkooma.ESP
-[08:24:38.230 I] Loading content file HideSugarHideSkooma+Tweaks.ESP
-[08:24:38.231 I] Loading content file HideSugarHideSkooma+Tweaks+MCPfiltering.ESP
-[08:24:38.232 I] Loading content file Hortator.ESP
-[08:24:38.232 I] Loading content file Improved HandtoHand and Unarmored Skills.ESP
-[08:24:38.232 I] Loading content file LeFemmArmor.esp
-[08:24:38.233 I] Loading content file master_index.esp
-[08:24:38.237 I] Loading content file MoragTongWritFix.esp
-[08:24:38.241 I] Loading content file Morrowind Patch v1.6.3.esm
-[08:24:38.327 I] Loading content file MWWG.ESP
-[08:24:38.330 I] Loading content file PackGuarTravel.ESP
-[08:24:38.331 I] Loading content file Realistic Stealth 1.1.ESP
-[08:24:38.331 I] Loading content file RP House Hlaalu.esp
-[08:24:38.337 I] Loading content file Shrines - Restore Health and Cancel Options.esp
-[08:24:38.339 I] Loading content file Steampunk Paradise player home.esp
-[08:24:38.351 I] Loading content file SYTN.ESP
-[08:24:38.363 I] Loading content file telvanniseaspire.ESP
-[08:24:38.365 I] Loading content file Temple teleportation system.ESP
-[08:24:38.367 I] Loading content file To_The_Top.esp
-[08:24:38.372 I] Loading content file Uncharted Artifacts.esp
-[08:24:38.375 I] Loading content file To_the_Top_Mournhold.esp
-[08:24:38.671 V] Using idle priority for thread=139764517467840
-[08:24:38.874 I] Playing music/special/morrowind title.mp3
-[08:24:38.887 I] Quitting peacefully.
+[21:48:20.389 I] OpenMW version 0.48.0
+[21:48:20.389 I] Using default (English) font encoding.
+[21:48:20.389 W] No such dir: "/home/keith/Games/Morrowind/Data Files"
+[21:48:20.390 W] No such dir: "/home/keith/.local/share/openmw/data"
+[21:48:20.390 I] OSG version: 3.6.5
+[21:48:20.390 I] SDL version: 2.28.1
+[21:48:20.390 I] Loading shader settings file: "/home/keith/.config/openmw/shaders.yaml"
+[21:48:20.566 I] OpenGL Vendor: AMD
+[21:48:20.566 I] OpenGL Renderer: AMD Radeon Vega 8 Graphics (raven, LLVM 15.0.7, DRM 3.52, 6.4.7-zen1-1-zen)
+[21:48:20.566 I] OpenGL Version: 4.6 (Compatibility Profile) Mesa 23.1.3
+[21:48:20.566 I] Using reverse-z depth buffer
+[21:48:20.570 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Morrowind.bsa
+[21:48:20.588 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Tribunal.bsa
+[21:48:20.593 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Bloodmoon.bsa
+[21:48:20.596 I] Adding data directory /usr/share/games/openmw/resources/vfs
+[21:48:20.596 I] Adding data directory /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files
+[21:48:21.046 I] Lua version: Lua 5.1.4 (LuaJIT 2.1.0-beta3)
+[21:48:21.046 I] Loading keybindings file: /home/keith/.config/openmw/input_v3.xml
+[21:48:21.046 I] Loading font file magic_cards_regular.fnt
+[21:48:21.053 I] Loading font file daedric_font.fnt
+[21:48:21.058 I] Loading font file DejaVuLGCSansMono.omwfont
+[21:48:21.088 I] Initializing OpenAL...
+[21:48:21.100 I] Opened "Family 17h/19h HD Audio Controller Analog Stereo"
+[21:48:21.100 I]   ALC Version: 1.1
+[21:48:21.100 I]   ALC Extensions: ALC_ENUMERATE_ALL_EXT ALC_ENUMERATION_EXT ALC_EXT_CAPTURE ALC_EXT_DEDICATED ALC_EXT_disconnect ALC_EXT_EFX ALC_EXT_thread_local_context ALC_SOFT_device_clock ALC_SOFT_HRTF ALC_SOFT_loopback ALC_SOFT_loopback_bformat ALC_SOFT_output_limiter ALC_SOFT_output_mode ALC_SOFT_pause_device ALC_SOFT_reopen_device
+[21:48:21.129 I]   Vendor: OpenAL Community
+[21:48:21.129 I]   Renderer: OpenAL Soft
+[21:48:21.129 I]   Version: 1.1 ALSOFT 1.23.1
+[21:48:21.129 I]   Extensions: AL_EXT_ALAW AL_EXT_BFORMAT AL_EXT_DOUBLE AL_EXT_EXPONENT_DISTANCE AL_EXT_FLOAT32 AL_EXT_IMA4 AL_EXT_LINEAR_DISTANCE AL_EXT_MCFORMATS AL_EXT_MULAW AL_EXT_MULAW_BFORMAT AL_EXT_MULAW_MCFORMATS AL_EXT_OFFSET AL_EXT_source_distance_model AL_EXT_SOURCE_RADIUS AL_EXT_STATIC_BUFFER AL_EXT_STEREO_ANGLES AL_LOKI_quadriphonic AL_SOFT_bformat_ex AL_SOFTX_bformat_hoa AL_SOFT_block_alignment AL_SOFT_buffer_length_query AL_SOFT_callback_buffer AL_SOFTX_convolution_reverb AL_SOFT_deferred_updates AL_SOFT_direct_channels AL_SOFT_direct_channels_remix AL_SOFT_effect_target AL_SOFT_events AL_SOFT_gain_clamp_ex AL_SOFTX_hold_on_disconnect AL_SOFT_loop_points AL_SOFTX_map_buffer AL_SOFT_MSADPCM AL_SOFT_source_latency AL_SOFT_source_length AL_SOFT_source_resampler AL_SOFT_source_spatialize AL_SOFT_source_start_delay AL_SOFT_UHJ AL_SOFT_UHJ_ex
+[21:48:21.129 I] HRTF disabled
+[21:48:21.129 I] Allocated 256 sound sources
+[21:48:21.129 I] Low-pass filter supported
+[21:48:21.129 I] EAX Reverb supported
+[21:48:21.129 I] Enumerated output devices:
+[21:48:21.129 I]   Family 17h/19h HD Audio Controller Analog Stereo  Raven/Raven2/Fenghuang HDMI/DP Audio Controller Digital Stereo (HDMI)
+[21:48:21.131 I] Enumerated HRTF names:
+[21:48:21.131 I]   Default HRTF  Built-In HRTF
+[21:48:37.100 I] Loading content file builtin.omwscripts
+[21:48:37.100 I] Loading content file Morrowind.esm
+[21:48:37.398 I] Loading content file Tribunal.esm
+[21:48:37.435 I] Loading content file Bloodmoon.esm
+[21:48:37.479 I] Loading content file AEA-Compatibility.esp
+[21:48:37.480 I] Loading content file ancestor_companion.esp
+[21:48:37.480 I] Loading content file adamantiumarmor.esp
+[21:48:37.481 I] Loading content file CompanionTeleportation.esp
+[21:48:37.482 I] Loading content file Particle Arrow Replacer.esp
+[21:48:37.483 I] Loading content file Area Effect Arrows Integrated.esp
+[21:48:37.483 I] Loading content file Area Effect Projectiles Integrated (PAR Edit).esp
+[21:48:37.484 I] Loading content file Area Effect Projectiles Integrated.esp
+[21:48:37.485 I] Loading content file AreaEffectArrows.esp
+[21:48:37.485 I] Loading content file bcsounds.esp
+[21:48:37.486 I] Loading content file Bound Arrow.ESP
+[21:48:37.486 I] Loading content file ajd_mwmj2022_telvanniDoorToApocrypha.ESP
+[21:48:37.488 I] Loading content file CrazyBatouIsNotEssential-Mw.ESP
+[21:48:37.489 I] Loading content file daedric travel network.ESP
+[21:48:37.489 I] Loading content file EBQ_Artifact.esp
+[21:48:37.499 I] Loading content file entertainers.esp
+[21:48:37.501 I] Loading content file Expansion Delay.ESP
+[21:48:37.502 I] Loading content file HideSugarHideSkooma.ESP
+[21:48:37.502 I] Loading content file HideSugarHideSkooma+Tweaks.ESP
+[21:48:37.502 I] Loading content file HideSugarHideSkooma+Tweaks+MCPfiltering.ESP
+[21:48:37.503 I] Loading content file Hortator.ESP
+[21:48:37.503 I] Loading content file Improved HandtoHand and Unarmored Skills.ESP
+[21:48:37.503 I] Loading content file LeFemmArmor.esp
+[21:48:37.503 I] Loading content file master_index.esp
+[21:48:37.504 I] Loading content file MoragTongWritFix.esp
+[21:48:37.505 I] Loading content file Morrowind Patch v1.6.3.esm
+[21:48:37.526 I] Loading content file MWWG.ESP
+[21:48:37.527 I] Loading content file PackGuarTravel.ESP
+[21:48:37.527 I] Loading content file Realistic Stealth 1.1.ESP
+[21:48:37.528 I] Loading content file RP House Hlaalu.esp
+[21:48:37.529 I] Loading content file Shrines - Restore Health and Cancel Options.esp
+[21:48:37.530 I] Loading content file Steampunk Paradise player home.esp
+[21:48:37.537 I] Loading content file SYTN.ESP
+[21:48:37.537 I] Loading content file telvanniseaspire.ESP
+[21:48:37.537 I] Loading content file Temple teleportation system.ESP
+[21:48:37.539 I] Loading content file To_The_Top.esp
+[21:48:37.540 I] Loading content file Uncharted Artifacts.esp
+[21:48:37.541 I] Loading content file To_the_Top_Mournhold.esp
+[21:48:37.782 I] Using 1 async physics threads
+[21:48:37.792 V] Using idle priority for thread=140394774705856
+[21:48:37.792 V] Disabling Multiview (disabled by config)
+[21:48:37.806 I] Preferred locales: en
+[21:48:37.886 V] Fallback locale: en
+[21:48:37.887 V] Language file "l10n/SettingsMenu/en.yaml" is enabled
+[21:48:37.967 V] Fallback locale: en
+[21:48:37.967 V] Language file "l10n/DebugMenu/en.yaml" is enabled
+[21:48:37.968 V] Fallback locale: en
+[21:48:37.968 V] Language file "l10n/PostProcessing/en.yaml" is enabled
+[21:48:37.974 V] Lua scripts configuration (8 scripts):
+[21:48:37.974 V] #0 PLAYER : scripts/omw/mwui/init.lua
+[21:48:37.974 V] #1 GLOBAL : scripts/omw/settings/global.lua
+[21:48:37.974 V] #2 PLAYER : scripts/omw/settings/player.lua
+[21:48:37.974 V] #3 PLAYER : scripts/omw/camera/camera.lua
+[21:48:37.974 V] #4 NPC CREATURE : scripts/omw/ai.lua
+[21:48:37.974 V] #5 PLAYER : scripts/omw/console/player.lua
+[21:48:37.974 V] #6 GLOBAL : scripts/omw/console/global.lua
+[21:48:37.974 V] #7 CUSTOM : scripts/omw/console/local.lua
+[21:48:37.976 I] Playing music/special/morrowind title.mp3
+[21:48:44.071 V] Fallback locale: en
+[21:48:44.071 V] Language file "l10n/SavegameMenu/en.yaml" is enabled
+[21:48:45.022 I] Reading save file pilgramage.omwsave
+[21:48:45.033 I] Loading saved game 'pilgramage' for character 'Quayth'
+[21:48:45.671 V] Fallback locale: en
+[21:48:45.671 V] Language file "l10n/Interface/en.yaml" is enabled
+[21:48:45.672 V] Fallback locale: en
+[21:48:45.673 V] Language file "l10n/OMWCamera/en.yaml" is enabled
+[21:48:45.762 I] Changing to interior
+[21:48:45.762 I] Loading cell Basement
+[21:48:45.768 V] Fallback locale: en
+[21:48:45.768 V] Language file "l10n/Navigation/en.yaml" is enabled
+[21:48:45.778 V] Added meshes/o/contain_crate_01.nif collision shape to navmeshdb with id 1
+[21:48:45.788 V] Added meshes/o/contain_dwrv_barrel00.nif collision shape to navmeshdb with id 2
+[21:48:45.798 V] Added meshes/d/in_r_trapdoor_01.nif collision shape to navmeshdb with id 3
+[21:48:45.807 V] Added meshes/d/ex_r_trapdoor_01.nif collision shape to navmeshdb with id 4
+[21:48:45.817 V] Added meshes/i/in_c_plain_room_corner.nif collision shape to navmeshdb with id 5
+[21:48:45.826 V] Added meshes/f/furn_de_stool_01.nif collision shape to navmeshdb with id 6
+[21:48:45.836 V] Added meshes/f/furn_rug_big_04_collision.nif collision shape to navmeshdb with id 7
+[21:48:45.846 V] Added meshes/f/furn_de_winerack.nif collision shape to navmeshdb with id 8
+[21:48:45.988 I] Warning: cdc_call_compa_script line 59, column 30 (GetInterior): Stray explicit reference
+[21:48:46.805 I] Playing music/explore/mx_explore_4.mp3
+[21:52:03.181 I] Playing music/explore/mx_explore_2.mp3
+[21:52:03.990 I] Changing to interior
+[21:52:03.990 I] Unloading cell Basement
+[21:52:03.990 I] Loading cell Steampunk Paradice
+[21:52:04.019 V] Added meshes/i/act_sotha_gear03.nif collision shape to navmeshdb with id 9
+[21:52:04.029 V] Added meshes/o/contain_crate_02.nif collision shape to navmeshdb with id 10
+[21:52:04.038 V] Added meshes/o/contain_com_cupboard_01.nif collision shape to navmeshdb with id 11
+[21:52:04.047 V] Added meshes/l/light_dwe_bulb00.nif collision shape to navmeshdb with id 12
+[21:52:04.058 V] Added meshes/i/in_s_mainhall.nif collision shape to navmeshdb with id 13
+[21:52:04.067 V] Added meshes/i/in_sotha_dorjam_oil00.nif collision shape to navmeshdb with id 14
+[21:52:04.077 V] Added meshes/i/in_dwe_pillar00_exp.nif collision shape to navmeshdb with id 15
+[21:52:04.087 V] Added meshes/f/furn_cushion_round_04.nif collision shape to navmeshdb with id 16
+[21:52:04.096 V] Added meshes/l/light_logpile10.nif collision shape to navmeshdb with id 17
+[21:52:04.106 V] Added meshes/o/contain_dwrv_closet00.nif collision shape to navmeshdb with id 18
+[21:52:04.115 V] Added meshes/o/contain_com_sack_02.nif collision shape to navmeshdb with id 19
+[21:52:04.124 V] Added meshes/o/contain_com_sack_03.nif collision shape to navmeshdb with id 20
+[21:52:04.134 V] Added meshes/o/flora_hackle-lo_02.nif collision shape to navmeshdb with id 21
+[21:52:04.143 V] Added meshes/chimney_smoke_small.nif collision shape to navmeshdb with id 22
+[21:52:04.153 V] Added meshes/f/furn_dwrv_bookshelf00.nif collision shape to navmeshdb with id 23
+[21:52:04.162 V] Added meshes/i/in_m_sewer_fountain_01.nif collision shape to navmeshdb with id 24
+[21:52:04.172 V] Added meshes/f/furn_planter_mh_05.nif collision shape to navmeshdb with id 25
+[21:52:04.181 V] Added meshes/f/furn_dwrv_stove00.nif collision shape to navmeshdb with id 26
+[21:52:04.191 V] Added meshes/f/furn_dwrv_stove10.nif collision shape to navmeshdb with id 27
+[21:52:04.200 V] Added meshes/f/furn_dwrv_cabinet00.nif collision shape to navmeshdb with id 28
+[21:52:04.210 V] Added meshes/f/furn_cushion_round_01.nif collision shape to navmeshdb with id 29
+[21:52:04.220 V] Added meshes/f/furn_cushion_round_02.nif collision shape to navmeshdb with id 30
+[21:52:04.229 V] Added meshes/f/furn_cushion_round_03.nif collision shape to navmeshdb with id 31
+[21:52:04.240 V] Added meshes/o/contain_dwrv_barrel10.nif collision shape to navmeshdb with id 32
+[21:52:04.250 V] Added meshes/d/ex_nord_door_01.nif collision shape to navmeshdb with id 33
+[21:52:04.260 V] Added meshes/f/furn_dwrv_bench00.nif collision shape to navmeshdb with id 34
+[21:52:04.272 V] Added meshes/m/bearbrownplaque.nif collision shape to navmeshdb with id 35
+[21:52:04.286 V] Added meshes/i/in_s_doorjam_rounded.nif collision shape to navmeshdb with id 36
+[21:52:04.306 V] Added meshes/f/furn_rug_02.nif collision shape to navmeshdb with id 37
+[21:52:04.342 V] Added meshes/f/active_de_bed_26.nif collision shape to navmeshdb with id 38
+[21:52:04.357 V] Added meshes/o/contain_dwrv_desk00.nif collision shape to navmeshdb with id 39
+[21:52:04.380 V] Added meshes/o/contain_dwrv_drawers00.nif collision shape to navmeshdb with id 40
+[21:52:04.395 V] Added meshes/f/furn_wallscreen_01.nif collision shape to navmeshdb with id 41
+[21:52:04.408 V] Added meshes/f/furn_wallscreen_02.nif collision shape to navmeshdb with id 42
+[21:52:04.422 V] Added meshes/o/flora_plant_05.nif collision shape to navmeshdb with id 43
+[21:52:04.436 V] Added meshes/o/contain_de_drawers_01.nif collision shape to navmeshdb with id 44
+[21:52:04.448 V] Added meshes/o/flora_roobrush_01.nif collision shape to navmeshdb with id 45
+[21:52:04.460 V] Added meshes/f/furn_shrine_delyn_01.nif collision shape to navmeshdb with id 46
+[21:52:04.473 V] Added meshes/f/furn_shrine_aralor_01.nif collision shape to navmeshdb with id 47
+[21:52:04.484 V] Added meshes/i/xact_sotha_clockwork.nif collision shape to navmeshdb with id 48
+[21:52:04.495 V] Added meshes/f/furn_shrine_vivec_01.nif collision shape to navmeshdb with id 49
+[21:52:04.507 V] Added meshes/f/flora_corkbulb_01.nif collision shape to navmeshdb with id 50
+[21:52:04.519 V] Added meshes/o/flora_black_lichen_01.nif collision shape to navmeshdb with id 51
+[21:52:04.532 V] Added meshes/f/furn_museum_display_01.nif collision shape to navmeshdb with id 52
+[21:52:04.544 V] Added meshes/f/furn_dwrv_stool00.nif collision shape to navmeshdb with id 53
+[21:52:04.558 V] Added meshes/i/in_sotha_gear03.nif collision shape to navmeshdb with id 54
+[21:52:07.254 E] Failed to load 'meshes\RR\tlv\DMex_t_lant_03BIG.nif': Resource 'meshes/rr/tlv/dmex_t_lant_03big.nif' not found, using marker_error instead
+[21:52:08.712 I] Unloading cell Steampunk Paradice
+[21:52:08.714 I] Loading cell Grazelands Region (10, 11)
+[21:52:08.723 I] Loading cell Grazelands Region (9, 11)
+[21:52:08.727 I] Loading cell Grazelands Region (10, 10)
+[21:52:08.730 I] Loading cell Grazelands Region (10, 12)
+[21:52:08.735 V] Added meshes/x/ex_nord_doorrocks_01.nif collision shape to navmeshdb with id 55
+[21:52:08.736 I] Loading cell Grazelands Region (11, 11)
+[21:52:08.740 I] Loading cell Zainab Camp (9, 10)
+[21:52:08.744 V] Added meshes/f/terrain_rock_gl_06.nif collision shape to navmeshdb with id 56
+[21:52:08.746 I] Loading cell Grazelands Region (9, 12)
+[21:52:08.752 I] Loading cell Grazelands Region (11, 10)
+[21:52:08.754 V] Added meshes/f/furn_dwrv_well00.nif collision shape to navmeshdb with id 57
+[21:52:08.756 I] Loading cell Grazelands Region (11, 12)
+[21:52:08.764 V] Added meshes/f/flora_tree_gl_02.nif collision shape to navmeshdb with id 58
+[21:52:08.773 V] Added meshes/f/terrain_rock_gl_04.nif collision shape to navmeshdb with id 59
+[21:52:08.783 V] Added meshes/x/ex_s_longhouse_brown.nif collision shape to navmeshdb with id 60
+[21:52:08.793 V] Added meshes/f/terrain_rocks_gl_03.nif collision shape to navmeshdb with id 61
+[21:52:08.802 V] Added meshes/f/terrain_rock_ai_03.nif collision shape to navmeshdb with id 62
+[21:52:08.812 V] Added meshes/f/furn_guarcart00.nif collision shape to navmeshdb with id 63
+[21:52:08.821 V] Added meshes/f/terrain_rocks_gl_04.nif collision shape to navmeshdb with id 64
+[21:52:08.831 V] Added meshes/f/flora_tree_gl_01.nif collision shape to navmeshdb with id 65
+[21:52:08.841 V] Added meshes/f/terrain_rock_gl_11.nif collision shape to navmeshdb with id 66
+[21:52:08.851 V] Added meshes/f/terrain_rocks_gl_02.nif collision shape to navmeshdb with id 67
+[21:52:08.861 V] Added meshes/x/flora_ashtree_02.nif collision shape to navmeshdb with id 68
+[21:52:08.871 V] Added meshes/f/flora_bc_tree_03.nif collision shape to navmeshdb with id 69
+[21:52:08.881 V] Added meshes/f/flora_emp_parasol_03.nif collision shape to navmeshdb with id 70
+[21:52:08.891 V] Added meshes/f/flora_tree_gl_06.nif collision shape to navmeshdb with id 71
+[21:52:08.901 V] Added meshes/f/flora_tree_gl_05.nif collision shape to navmeshdb with id 72
+[21:52:08.911 V] Added meshes/f/terrain_rocks_gl_01.nif collision shape to navmeshdb with id 73
+[21:52:08.922 V] Added meshes/x/furn_com_fence_01.nif collision shape to navmeshdb with id 74
+[21:52:08.932 V] Added meshes/f/active_signpost_01.nif collision shape to navmeshdb with id 75
+[21:52:08.943 V] Added meshes/f/flora_tree_gl_07.nif collision shape to navmeshdb with id 76
+[21:52:08.953 V] Added meshes/f/terrain_rock_gl_12.nif collision shape to navmeshdb with id 77
+[21:52:08.963 V] Added meshes/f/terrain_rock_gl_08.nif collision shape to navmeshdb with id 78
+[21:52:08.975 V] Added meshes/f/terrain_rock_gl_10.nif collision shape to navmeshdb with id 79
+[21:52:08.985 V] Added meshes/x/ex_velothi_entrance_02.nif collision shape to navmeshdb with id 80
+[21:52:08.998 V] Added meshes/f/terrain_rock_gl_09.nif collision shape to navmeshdb with id 81
+[21:52:09.009 V] Added meshes/x/ex_ashl_tent_02.nif collision shape to navmeshdb with id 82
+[21:52:09.019 V] Added meshes/d/in_velothismall_ndoor_01.nif collision shape to navmeshdb with id 83
+[21:52:09.030 V] Added meshes/l/light_pitfire00.nif collision shape to navmeshdb with id 84
+[21:52:09.041 V] Added meshes/f/furn_ashl_bugbowl.nif collision shape to navmeshdb with id 85
+[21:52:09.051 V] Added meshes/f/furn_de_ex_stool_02.nif collision shape to navmeshdb with id 86
+[21:52:09.061 V] Added meshes/x/ex_ashl_door_02.nif collision shape to navmeshdb with id 87
+[21:52:09.073 V] Added meshes/x/ex_de_railing_02.nif collision shape to navmeshdb with id 88
+[21:52:09.084 V] Added meshes/x/ex_de_railing_01.nif collision shape to navmeshdb with id 89
+[21:52:09.094 V] Added meshes/x/ex_de_railing_03.nif collision shape to navmeshdb with id 90
+[21:52:09.105 V] Added meshes/d/ex_cave_door_01.nif collision shape to navmeshdb with id 91
+[21:52:09.115 V] Added meshes/x/ex_de_cave_entrance_01.nif collision shape to navmeshdb with id 92
+[21:52:09.127 V] Added meshes/f/terrain_rock_gl_07.nif collision shape to navmeshdb with id 93
+[21:52:09.139 V] Added meshes/f/flora_tree_gl_09.nif collision shape to navmeshdb with id 94
+[21:52:16.796 I] Warning: OutsideBanner line 38, column 6 (endif): endif without matching if/elseif
+[21:52:17.140 V] Controller R2_Claw02 present more than once in meshes/r/xsiltstrider.kf, ignoring later version
+[21:52:17.725 E] Failed to load 'meshes\RR\tlv\DMex_t_lant_03BIG.nif': Resource 'meshes/rr/tlv/dmex_t_lant_03big.nif' not found, using marker_error instead
+[21:52:17.962 W] Warning: detected OpenGL error 'invalid operation' at after RenderBin::draw(..)
+[21:52:19.025 I] Playing music/battle/mw battle 7.mp3
+[21:52:31.046 I] Changing to interior
+[21:52:31.046 I] Unloading cell Grazelands Region (10, 11)
+[21:52:31.051 I] Unloading cell Zainab Camp (9, 10)
+[21:52:31.055 I] Unloading cell Grazelands Region (9, 11)
+[21:52:31.058 I] Unloading cell Grazelands Region (9, 12)
+[21:52:31.061 I] Unloading cell Grazelands Region (10, 12)
+[21:52:31.064 I] Unloading cell Grazelands Region (10, 10)
+[21:52:31.066 I] Unloading cell Grazelands Region (11, 10)
+[21:52:31.067 I] Unloading cell Grazelands Region (11, 11)
+[21:52:31.069 I] Unloading cell Grazelands Region (11, 12)
+[21:52:31.072 I] Loading cell Steampunk Paradice
+[21:52:32.047 I] Playing music/explore/mx_explore_7.mp3
+[21:52:33.116 I] Changing to interior
+[21:52:33.116 I] Unloading cell Steampunk Paradice
+[21:52:33.119 I] Loading cell Basement
+[21:52:35.874 V] Changed setting: [Video] resolution x = 1920
+[21:52:35.874 V] Changed setting: [Video] resolution y = 1080
+[21:52:35.874 I] Updating settings file: "/home/keith/.config/openmw/settings.cfg"
+[21:52:35.875 I] Saving shader settings file: "/home/keith/.config/openmw/shaders.yaml"
+[21:52:35.875 I] Saving Lua storage ""/home/keith/.config/openmw/global_storage.bin"" (3 bytes)
+[21:52:35.875 I] Saving Lua storage ""/home/keith/.config/openmw/player_storage.bin"" (366 bytes)
+[21:52:35.875 I] Quitting peacefully.

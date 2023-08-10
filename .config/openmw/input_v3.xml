@@ -215,4 +215,8 @@
 		<MouseWheelBinder button="DOWN" direction="INCREASE" />
 		<Channel number="49" direction="DIRECT" percentage="1" />
 	</Control>
+	<Control name="50" autoChangeDirectionOnLimitsAfterStop="false" autoReverseToInitialValue="true" initialValue="0" stepSize="MAX" stepsPerSeconds="MAX">
+		<KeyBinder key="59" direction="INCREASE" />
+		<Channel number="50" direction="DIRECT" percentage="1" />
+	</Control>
 </Controller>
