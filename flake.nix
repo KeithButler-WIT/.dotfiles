@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-    description = "test";
+  description = "test";
 
   inputs =
     {
