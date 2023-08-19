@@ -44,14 +44,13 @@
       pkgs.keepassxc
       pkgs.pass
       pkgs.libreoffice
-      pkgs.qutebrowser
+      #pkgs.qutebrowser
       pkgs.firefox
       #pkgs.librewolf
       pkgs.gpodder
       pkgs.gparted
       pkgs.yt-dlp
       pkgs.tor-browser-bundle-bin
-      pkgs.stow
       pkgs.luarocks
       pkgs.tldr
       pkgs.git
@@ -63,39 +62,43 @@
       pkgs.htop
       pkgs.wget
       pkgs.gnupg
-      pkgs.stow
       pkgs.trash-cli
 
-# Programming Languages
       pkgs.cmake
       #pkgs.python3Full
       (pkgs.python310.withPackages(ps: with ps; [ beautifulsoup4 requests black pyside6 pylint pillow pywlroots ]))
       #pkgs.python3.pkgs.pip
       pkgs.nodejs_16
+      #pkgs.nodePackages.swagger
+      #(pkgs.nodejs_16.withPackages(ps: with ps; [ swagger ]))
+      pkgs.swagger-cli
       pkgs.postman
       #pkgs.mongodb
       #pkgs.mongodb-tools
       #pkgs.mongosh
 
-# Theming
       pkgs.dracula-theme
       pkgs.dracula-icon-theme
       #pkgs.catppuccin-gtk
       #pkgs.lxappearance
 
-      # VMs
       #pkgs.virt-manager
       #pkgs.libvirt
       #pkgs.libvirt-glib
       pkgs.quickemu
       pkgs.quickgui
 
-      # Gaming
       #pkgs.steam
       #pkgs.steam-run
-      #(steam.override { extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ]; nativeOnly = true; }).run
-      #(steam.override { withPrimus = true; extraPkgs = pkgs: [ bumblebee glxinfo ]; nativeOnly = true; }).run
-      #(steam.override { withJava = true; })
+      #pkgs.steamPackages.steamcmd
+      #pkgs.steam-tui
+      #(pkgs.steam.override {
+      #  withPrimus = true;
+      #  withJava = true;
+      #  extraPkgs = pkgs: [
+      #    pkgs.mono pkgs.gtk3 pkgs.gtk3-x11 pkgs.libgdiplus pkgs.zlib pkgs.bumblebee pkgs.glxinfo
+      #  ];
+      #  nativeOnly = true; })
       #pkgs.lutris
 
       pkgs.heroic
@@ -118,14 +121,11 @@
       pkgs.qbittorrent
 
       # Thunar
-      pkgs.gnome.gvfs
-      #pkgs.glib
-      #pkgs.glibc
-      pkgs.xfce.thunar
-      pkgs.xfce.thunar-volman
-      pkgs.xfce.thunar-dropbox-plugin
-      pkgs.xfce.thunar-archive-plugin
-      pkgs.xfce.thunar-media-tags-plugin
+      #pkgs.xfce.thunar
+      #pkgs.xfce.thunar-volman
+      #pkgs.xfce.thunar-dropbox-plugin
+      #pkgs.xfce.thunar-archive-plugin
+      #pkgs.xfce.thunar-media-tags-plugin
 
       # Xorg
       pkgs.xdg-desktop-portal-gtk
@@ -140,7 +140,6 @@
       pkgs.syncthing
       pkgs.syncthing-tray
 
-      # Socials
       pkgs.discord
       pkgs.betterdiscordctl
       pkgs.signal-desktop
@@ -206,8 +205,58 @@
     #  /etc/profiles/per-user/keith/etc/profile.d/hm-session-vars.sh
     #
     # if you don't want to manage your shell through Home Manager.
+
     sessionVariables = {
       EDITOR = "emacs";
+      TERMINAL = "alacritty";
+      TERMINAL_PROG = "alacritty";
+      BROWSER = "firedragon";
+
+      # ~/ Clean-up:
+      XDG_CONFIG_HOME="$HOME/.config";
+      XDG_DATA_HOME="$HOME/.local/share";
+      XDG_CACHE_HOME="$HOME/.cache";
+      XINITRC="$XDG_CONFIG_HOME/x11/xinitrc";
+      #XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"; # This line will break some DMs.
+      NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config";
+      GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0";
+      WGETRC="$XDG_CONFIG_HOME/wget/wgetrc";
+      INPUTRC="$XDG_CONFIG_HOME/shell/inputrc";
+      ZDOTDIR="$XDG_CONFIG_HOME/zsh";
+      GNUPGHOME="$XDG_DATA_HOME/gnupg";
+      WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default";
+      KODI_DATA="$XDG_DATA_HOME/kodi";
+      PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store";
+      TMUX_TMPDIR="$XDG_RUNTIME_DIR";
+      ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android";
+      CARGO_HOME="$XDG_DATA_HOME/cargo";
+      GOPATH="$XDG_DATA_HOME/go";
+      GOMODCACHE="$XDG_CACHE_HOME/go/mod";
+      ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg";
+      UNISON="$XDG_DATA_HOME/unison";
+      HISTFILE="$XDG_DATA_HOME/history";
+      MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config";
+      ELECTRUMDIR="$XDG_DATA_HOME/electrum";
+      PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc";
+      SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history";
+
+      # Other program settings:
+      # DICS="/usr/share/stardict/dic/";
+      # SUDO_ASKPASS="$HOME/.local/bin/dmenupass";
+      # FZF_DEFAULT_OPTS="--layout=reverse --height 40%";
+      # LESS=-R;
+      # LESS_TERMCAP_mb="$(printf '%b' '[1;31m')";
+      # LESS_TERMCAP_md="$(printf '%b' '[1;36m')";
+      # LESS_TERMCAP_me="$(printf '%b' '[0m')";
+      # LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')";
+      # LESS_TERMCAP_se="$(printf '%b' '[0m')";
+      # LESS_TERMCAP_us="$(printf '%b' '[1;32m')";
+      # LESS_TERMCAP_ue="$(printf '%b' '[0m')";
+      # LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null";
+      # QT_QPA_PLATFORMTHEME="gtk2"; # Have QT use gtk2 theme.
+      # MOZ_USE_XINPUT2="1"; # Mozilla smooth scrolling/touchpads.
+      # AWT_TOOLKIT="MToolkit wmname LG3D"; # May have to install wmname
+      # _JAVA_AWT_WM_NONREPARENTING=1; # Fix for Java applications in dwm
     };
 
     pointerCursor = {
@@ -238,9 +287,11 @@ programs.mpv = {
 };
 
 # Systemlink vi/vim/vimdiff to nvim binary
-programs.neovim.viAlias = true;
-programs.neovim.vimAlias = true;
-programs.neovim.vimdiffAlias = true;
+programs.neovim = {
+  viAlias = true;
+  vimAlias = true;
+  vimdiffAlias = true;
+};
 
 programs.starship = {
   enable = true;
@@ -281,14 +332,11 @@ programs.ncmpcpp = {
   services.syncthing.tray.enable = true;
   #services.mullvad-vpn.enable = true;
 
+  #services.gvfs.enable = true; # Mount, trash, and other functionalities
+  #services.tumbler.enable = true; # Thumbnail support for images
+
   services.home-manager.autoUpgrade.frequency = "weekly";
 
-  #hardware.opengl.driSupport32Bit = true;
-  #programs.steam = {
-  #  enable = true;
-  #  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  #  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  #};
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
