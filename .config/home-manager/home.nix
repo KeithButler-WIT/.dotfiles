@@ -63,6 +63,8 @@
       pkgs.wget
       pkgs.gnupg
       pkgs.trash-cli
+      pkgs.direnv
+      pkgs.nix-direnv
 
       pkgs.cmake
       #pkgs.python3Full
@@ -101,7 +103,7 @@
       #  nativeOnly = true; })
       #pkgs.lutris
 
-      pkgs.heroic
+      #pkgs.heroic
       pkgs.gamemode
       pkgs.protonup-ng
       #pkgs.proton-ge

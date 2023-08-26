@@ -12,7 +12,7 @@ function run {
 lxsession &
 run nm-applet &
 run pamac-tray &
-numlockx on &
+numlockx off &
 blueman-applet &
 #flameshot &
 #picom --config $HOME/.config/picom/picom.conf &
@@ -20,17 +20,18 @@ picom --config .config/picom/picom-blur.conf --experimental-backends &
 #/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 dunst &
 feh --randomize --bg-fill /usr/share/wallpapers/garuda-wallpapers/*
+#nitrogen --random --set-zoom-fill &
+
 #starting user applications at boot time
 run volumeicon &
 #run /usr/bin/emacs --daemon &
 run emacs --daemon &
-run onedrivegui &
+# run onedrivegui &
 run discord &
 run thunderbird &
 #run pcmanfm -d & # auto mount removeable media
 run thunar --daemon & # auto mount removeable media
 run onedrive --confdir ~/.config/onedrive/accounts/20089137@wit.ie -m &
-#nitrogen --random --set-zoom-fill &
 #run caffeine -a &
 #run firefox &
 #run insync start &

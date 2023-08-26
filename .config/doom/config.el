@@ -121,6 +121,9 @@
 
   (yas-global-mode 1))
 
+(require 'dired-preview)
+(add-hook 'dired-mode-hook #'dired-preview-mode)
+
 (after! org
   (use-package! ox-extra
     :config

@@ -91,6 +91,8 @@ dconf.settings = {
       pkgs.wget
       pkgs.gnupg
       pkgs.trash-cli
+      pkgs.direnv
+      pkgs.nix-direnv
       #+end_src
 *** Programming Languages
       #+begin_src nix
@@ -159,7 +161,7 @@ dconf.settings = {
       #+end_src
 **** Gaming Related Packages
 #+begin_src nix
-      pkgs.heroic
+      #pkgs.heroic
       pkgs.gamemode
       pkgs.protonup-ng
       #pkgs.proton-ge

@@ -11,7 +11,7 @@
    '("\\`https://fniessen\\.github\\.io/org-html-themes/org/theme-readtheorg\\.setup\\'"))
  '(org-trello-current-prefix-keybinding "C-c o" t)
  '(package-selected-packages
-   '(yaml-mode eat ytdl zk nix-mode vterm unicode-fonts python-mode json-mode gpr-mode db compat catppuccin-theme)))
+   '(dired-preview yaml-mode eat ytdl zk nix-mode vterm unicode-fonts python-mode json-mode gpr-mode db compat catppuccin-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

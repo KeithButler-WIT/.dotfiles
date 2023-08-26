@@ -1,3 +1,7 @@
 \.git
 LICENSE
 Desktop.org
+shell.nix
+.envrc
+.Xresources.old
+.gitignore

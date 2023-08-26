@@ -35,7 +35,7 @@ if test -d ~/Applications/depot_tools
 end
 
 # Add ~/.emacs.d/bin  to PATH
-if test -d ~/.emacs.d/bin
+if test -d ~/.config/emacs/bin
     if not contains -- ~/.emacs.d/bin $PATH
         set -p PATH ~/.emacs.d/bin
     end
@@ -161,7 +161,7 @@ alias l.="exa -a | egrep '^\.'"                                     # show only 
 alias ip="ip -color"
 
 # Replace some more things with better alternatives
-alias cat='bat --style header --style rules --style snip --style changes --style header'
+alias cat='bat --style header --style snip --style changes --style header'
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
 # Common use
@@ -210,8 +210,13 @@ alias jctl="journalctl -p 3 -xb"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
-
 ## Run fastfetch if session is interactive
 if status --is-interactive && type -q fastfetch
    fastfetch --load-config neofetch
 end
+
+direnv hook fish | source
+
+set -g direnv_fish_mode eval_on_arrow    # trigger direnv at prompt, and on every arrow-based directory change (default)
+# set -g direnv_fish_mode eval_after_arrow # trigger direnv at prompt, and only after arrow-based directory changes before executing command
+# set -g direnv_fish_mode disable_arrow    # trigger direnv at prompt only, this is similar functionality to the original behavior

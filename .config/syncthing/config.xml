@@ -1,5 +1,5 @@
 <configuration version="37">
-    <folder id="66lmn-aoha2" label="Org Roam" path="/home/keith/workspace/org/roam/" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="true" autoNormalize="true">
+    <folder id="66lmn-aoha2" label="Org Roam" path="/home/keith/workspace/org/roam" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="true" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="PV33LZJ-QODP24Y-DWLKXNA-3YGFVZ4-A7PTC2M-VSWINZD-KUUS5BW-337IPAI" introducedBy="">
             <encryptionPassword></encryptionPassword>
@@ -8,8 +8,7 @@
             <encryptionPassword></encryptionPassword>
         </device>
         <minDiskFree unit="%">1</minDiskFree>
-        <versioning type="trashcan">
-            <param key="cleanoutDays" val="0"></param>
+        <versioning>
             <cleanupIntervalS>3600</cleanupIntervalS>
             <fsPath></fsPath>
             <fsType>basic</fsType>
@@ -24,7 +23,7 @@
         <maxConflicts>10</maxConflicts>
         <disableSparseFiles>false</disableSparseFiles>
         <disableTempIndexes>false</disableTempIndexes>
-        <paused>false</paused>
+        <paused>true</paused>
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
         <copyOwnershipFromParent>false</copyOwnershipFromParent>
@@ -68,7 +67,7 @@
         <maxConflicts>10</maxConflicts>
         <disableSparseFiles>false</disableSparseFiles>
         <disableTempIndexes>false</disableTempIndexes>
-        <paused>false</paused>
+        <paused>true</paused>
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
         <copyOwnershipFromParent>false</copyOwnershipFromParent>
@@ -112,7 +111,7 @@
         <maxConflicts>10</maxConflicts>
         <disableSparseFiles>false</disableSparseFiles>
         <disableTempIndexes>false</disableTempIndexes>
-        <paused>false</paused>
+        <paused>true</paused>
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
         <copyOwnershipFromParent>false</copyOwnershipFromParent>
@@ -156,7 +155,7 @@
         <maxConflicts>10</maxConflicts>
         <disableSparseFiles>false</disableSparseFiles>
         <disableTempIndexes>false</disableTempIndexes>
-        <paused>false</paused>
+        <paused>true</paused>
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
         <copyOwnershipFromParent>false</copyOwnershipFromParent>
@@ -200,7 +199,7 @@
         <maxConflicts>10</maxConflicts>
         <disableSparseFiles>false</disableSparseFiles>
         <disableTempIndexes>false</disableTempIndexes>
-        <paused>false</paused>
+        <paused>true</paused>
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
         <copyOwnershipFromParent>false</copyOwnershipFromParent>
@@ -244,7 +243,7 @@
         <maxConflicts>10</maxConflicts>
         <disableSparseFiles>false</disableSparseFiles>
         <disableTempIndexes>false</disableTempIndexes>
-        <paused>false</paused>
+        <paused>true</paused>
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
         <copyOwnershipFromParent>false</copyOwnershipFromParent>
