@@ -420,6 +420,8 @@ programs.ncmpcpp = {
   ];
 };
 
+programs.java.enable = true;
+
 #+end_src
 
 * Services

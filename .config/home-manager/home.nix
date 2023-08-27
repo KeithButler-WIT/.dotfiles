@@ -314,6 +314,8 @@ programs.ncmpcpp = {
   ];
 };
 
+programs.java.enable = true;
+
   #xdg.portal = {
     #enable = true;
     # wlr.enable = true;
