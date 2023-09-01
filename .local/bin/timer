@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+#************************************************#
+#                   timer                        #
+#           written by Keith Butler              #
+#               August 08, 2023                  #
+#                                                #
+#       Counts down from a given number          #
+#************************************************#
+
+# --------------------------------------------------------- #
+# timer()                                                   #
+# Counts down from a designated number.                     #
+# Parameter: $timer_length                                  #
+# Returns: 0 on success                                     #
+# --------------------------------------------------------- #
+
+timer ()
+{
+    timer_length=$1
+
+    echo "Working"
+    echo "$timer_length"
+    sleep "$timer_length"
+
+    # TODO: play sound
+
+    notify-send -u critical "$timer_length Timer Up"
+}
+
+timer $1 &
+exit 0

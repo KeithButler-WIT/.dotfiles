@@ -22,5 +22,10 @@
 [credential]
 	helper = 
 	helper = /usr/bin/git-credential-manager
+	credentialStore = gpg
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[http]
+	postBuffer = 2147483648
+	lowSpeedLimit = 0
+	lowSpeedTime = 999999
