@@ -517,6 +517,12 @@ https://protesilaos.com/emacs/dired-preview
 (add-hook 'dired-mode-hook #'dired-preview-mode)
 #+end_src
 
+** COMMENT dired dragon-drop
+#+begin_src  emacs-lisp :results none
+(map! :map dired-mode-map
+      :leader :desc "Opens file in dragon-drop" :gnv "l" (start-process "" nil "dragon-drop" (lambda (fPath) (let ((process-connection-type nil)) (start-process "" nil "dragon-drop" fPath)) ) (dired-get-marked-files) ))
+#+end_src
+
 * org
 ** LaTeX Exporter
 #+begin_src  emacs-lisp :results none

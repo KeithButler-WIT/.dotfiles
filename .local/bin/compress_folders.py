@@ -6,13 +6,18 @@ import sys
 import tarfile
 from glob import glob
 
+
 def main():
-    if (len(sys.argv) <= 1):
-        print("compress_folders <command> <file_path>");
-    elif (sys.argv[1] == "compress"):
+    """
+    Main function
+    """
+    if len(sys.argv <= 1):
+        print("compress_folders <command> <file_path>")
+    elif sys.argv[1] == "compress":
         compress()
-    elif (sys.argv[1] == "decompress"):
+    elif sys.argv[1] == "decompress":
         decompress()
+
 
 def compress():
     """
@@ -23,11 +28,12 @@ def compress():
     print(dirlist)
     # dirlist = os.listdir(sys.argv[2])
     for index, source_dir in enumerate(dirlist):
-        print("Compressing {}".format(file_size(source_dir)))
-        print("{} : {}".format(index, source_dir))
-        with tarfile.open(source_dir+".tar.gz", "w:gz") as tar:
+        print(f"Compressing {file_size(source_dir)}")
+        print(f"{index} : {source_dir}")
+        with tarfile.open(source_dir + ".tar.gz", "w:gz") as tar:
             tar.add(source_dir, arcname=os.path.basename(source_dir))
-        print("New Size {}".format(file_size(source_dir+".tar.gz")))
+        print(f"New Size {file_size(source_dir + '.tar.gz')}")
+
 
 def decompress():
     """
@@ -37,13 +43,18 @@ def decompress():
     print("Files to decompress")
     print(filelist)
     for index, source_dir in enumerate(filelist):
-        print("Decompressing {}".format(file_size(source_dir+".tar.gz")))
-        print("{} : {}".format(index, source_dir))
+        print(f"Decompressing {source_dir}.tar.gz")
+        print(f"{index} : {source_dir}")
         with tarfile.open(source_dir, "r:gz") as tar:
-            tar.extractall();
-        print("New Size {}".format(file_size(source_dir)))
+            tar.extractall()
+        print(f"New Size {file_size(source_dir)}")
+
 
 def file_size(filename):
+    """
+    Gets the file size
+    returns size in human readable format
+    """
     total_size = 0
     for dirpath, _, filenames in os.walk(filename):
         for f in filenames:
@@ -55,14 +66,17 @@ def file_size(filename):
     return convert_bytes(total_size)
     # return convert_bytes(os.stat(filename).st_size)
 
+
 def convert_bytes(num):
     """
     this function will convert bytes to MB.... GB... etc
     """
-    for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
+    for x in ["bytes", "KB", "MB", "GB", "TB"]:
         if num < 1024.0:
             return "%3.1f %s" % (num, x)
         num /= 1024.0
+    return 0
+
 
 if __name__ == "__main__":
     main()

@@ -45,6 +45,9 @@ from libqtile.command import lazy
 
 from libqtile.widget import Spacer
 
+import json
+import colors
+
 # mod4 or mod = super key
 mod = "mod4"
 mod1 = "alt"
@@ -79,12 +82,16 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "t", lazy.spawn(emacsTerm)),
+    Key([mod], "w", lazy.spawn(myBrowser)),
+    # Key([mod], "e", lazy.spawn("emacsclient -c -a ''")),
+    # Key([mod], "m", lazy.spawn(myFileManager)),
     Key([mod], "v", lazy.spawn("pavucontrol")),
     Key([mod], "d", lazy.spawn("nwggrid -p -o 0.4")),
     Key([mod], "Escape", lazy.spawn("xkill")),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "KP_Enter", lazy.spawn(myTerm)),
     Key([mod], "x", lazy.shutdown()),
+    Key([mod], "m", lazy.spawn("music")),
 
     # Key([mod, "shift"], "Return", lazy.spawn(myFileManager)),
     Key(
@@ -109,12 +116,11 @@ keys = [
     Key(["mod1", "control"], "u", lazy.spawn("pavucontrol")),
 
     Key(["mod1"], "e", lazy.spawn("emacsclient -c -a ''")),
-    Key(["mod1"], "p", lazy.spawn("pamac-manager")),
+    # Key(["mod1"], "p", lazy.spawn("pamac-manager")),
     Key(["mod1"], "f", lazy.spawn(myBrowser)),
     Key(["mod1"], "m", lazy.spawn(myFileManager)),
-    # Key(["mod1"], "w", lazy.spawn('garuda-welcome')),
 
-    Key([mod2, "shift"], "Escape", lazy.spawn("lxtask")),
+    # Key([mod2, "shift"], "Escape", lazy.spawn("lxtask")),
 
     # SCREENSHOTS
     Key([], "Print", lazy.spawn("flameshot full -p " + home + "/Pictures/Screenshots")),
@@ -399,9 +405,9 @@ keys.extend(
 def init_layout_theme():
     return {
         "margin": 0,
-        "border_width": 2,
-        "border_focus": "#ff00ff",
-        "border_normal": "#f4c2c2",
+        "border_width": 3,
+        "border_focus": colors.colors["07"],
+        "border_normal": colors.colors["00"],
     }
 
 
@@ -409,11 +415,12 @@ layout_theme = init_layout_theme()
 
 
 layouts = [
+    # TODO Decide on a margin size
     layout.MonadTall(
-        margin=0, border_width=2, border_focus="#ff00ff", border_normal="#f4c2c2"
+        margin=15, border_width=3, border_focus=colors.colors["07"], border_normal=colors.colors["00"]
     ),
     layout.MonadWide(
-        margin=0, border_width=2, border_focus="#ff00ff", border_normal="#f4c2c2"
+        margin=15, border_width=3, border_focus=colors.colors["07"], border_normal=colors.colors["00"]
     ),
     layout.Matrix(**layout_theme),
     layout.Bsp(**layout_theme),
@@ -425,9 +432,9 @@ layouts = [
     layout.Tile(**layout_theme),
     layout.TreeTab(
         sections=["FIRST", "SECOND"],
-        bg_color="#141414",
-        active_bg="#0000ff",
-        inactive_bg="#1e90ff",
+        bg_color=colors.colors["01"],
+        active_bg=colors.colors["15"],
+        inactive_bg=colors.colors["08"],
         padding_y=5,
         section_top=10,
         panel_width=280,
@@ -436,46 +443,14 @@ layouts = [
     layout.Zoomy(**layout_theme),
 ]
 
-# COLORS FOR THE BAR
-def init_colors():
-    return [
-        ["#2F343F", "#2F343F"],  # 0
-        ["#2F343F", "#2F343F"],  # 1
-        ["#c0c5ce", "#c0c5ce"],  # 2 # NOT USED
-        ["#ff5050", "#ff5050"],  # 3
-        ["#f4c2c2", "#f4c2c2"],  # 4 # NOT USED
-        ["#ffffff", "#ffffff"],  # 5
-        ["#ffd47e", "#ffd47e"],  # 6
-        ["#62FF00", "#62FF00"],  # 7
-        ["#000000", "#000000"],  # 8 # NOT USED
-        ["#c40234", "#c40234"],  # 9
-        ["#6790eb", "#6790eb"],  # 10
-        ["#ff00ff", "#ff00ff"],  # 11 # NOT USED
-        ["#4c566a", "#4c566a"],  # 12 # NOT USED
-        ["#282c34", "#282c34"],  # 13
-        ["#212121", "#212121"],  # 14
-        ["#e75480", "#e75480"],  # 15
-        ["#2aa899", "#2aa899"],  # 16
-        ["#abb2bf", "#abb2bf"],  # 17
-        ["#81a1c1", "#81a1c1"],  # 18 # NOT USED
-        ["#56b6c2", "#56b6c2"],  # 19
-        ["#b48ead", "#b48ead"],  # 20
-        ["#e06c75", "#e06c75"],  # 21 # NOT USED
-        ["#fb9f7f", "#fb9f7f"],  # 22
-        ["#ffd47e", "#ffd47e"],  # 23
-    ]
-
-colors = init_colors()
-
-
 def base(fg="text", bg="dark"):
-    return {"foreground": colors[14], "background": colors[15]}
+    return {"foreground": colors.colors["00"], "background": colors.colors["00"]}
 
 # WIDGETS FOR THE BAR
 
 
 def init_widgets_defaults():
-    return dict(font="Noto Sans", fontsize=9, padding=2, background=colors[1])
+    return dict(font="Noto Sans", fontsize=9, padding=2, background=colors.colors["00"])
 
 
 widget_defaults = init_widgets_defaults()
@@ -485,17 +460,16 @@ def init_widgets_list():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
         widget.Sep(
-            linewidth=1, padding=10, foreground=colors[15], background=colors[15]
-        ),  #
+            linewidth=1, padding=10, foreground=colors.colors["00"], background=colors.colors["00"]
+        ),
         widget.Image(
-            # filename="~/.config/qtile/icons/garuda-red.png",
-            filename="~/.config/qtile/icons/white-hamburger-menu.png",
+            filename="~/.config/qtile/icons/garuda-red.png",
             iconsize=9,
-            background=colors[15],
+            background=colors.colors["00"],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("jgmenu_run")},
         ),
         widget.GroupBox(
-            **base(bg=colors[15]),
+            **base(bg=colors.colors["00"]),
             font="UbuntuMono Nerd Font",
             fontsize=15,
             margin_y=3,
@@ -503,16 +477,16 @@ def init_widgets_list():
             padding_y=5,
             padding_x=4,
             borderwidth=3,
-            active=colors[5],
-            inactive=colors[6],
+            active=colors.colors["07"],
+            inactive=colors.colors["04"],
             rounded=True,
             highlight_method="block",
             urgent_alert_method="block",
-            urgent_border=colors[16],
-            this_current_screen_border=colors[20],
-            this_screen_border=colors[17],
-            other_current_screen_border=colors[13],
-            other_screen_border=colors[17],
+            urgent_border=colors.colors["00"],
+            this_current_screen_border=colors.colors["03"],
+            this_screen_border=colors.colors["00"],
+            other_current_screen_border=colors.colors["00"],
+            other_screen_border=colors.colors["00"],
             disable_drag=True
         ),
         widget.TaskList(
@@ -524,28 +498,29 @@ def init_widgets_list():
             padding_y=0,
             margin_y=0,
             fontsize=14,
-            border=colors[7],
-            foreground=colors[9],
+            border=colors.colors["07"],
+            foreground=colors.colors["07"],
             margin=2,
             txt_floating="🗗",
             txt_minimized=">_ ",
             borderwidth=1,
-            background=colors[20],
+            background=colors.colors["00"],
             # unfocused_border = 'border'
         ),
         widget.CurrentLayoutIcon(
             custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
-            foreground=colors[5],
-            background=colors[3],
+            foreground=colors.colors["00"],
+            background=colors.colors["00"],
             padding=0,
             scale=0.7,
         ),
         widget.CurrentLayout(
             font="Noto Sans Bold",
             fontsize=12,
-            foreground=colors[5],
-            background=colors[3],
+            foreground=colors.colors["10"],
+            background=colors.colors["00"],
         ),
+        widget.Sep(linewidth=1, padding=10, foreground=colors.colors["07"], background=colors.colors["00"]),
         widget.Net(
             font="Noto Sans",
             fontsize=12,
@@ -555,55 +530,59 @@ def init_widgets_list():
             # interface=["wlp3s0"],
             # interface=["wg-mullvad"],
             format="{down} ↓↑ {up}",
-            foreground=colors[5],
-            background=colors[19],
+            foreground=colors.colors["11"],
+            background=colors.colors["00"],
             padding=0,
         ),
+        widget.Sep(linewidth=1, padding=10, foreground=colors.colors["07"], background=colors.colors["00"]),
         widget.CPU(
             font="Noto Sans",
             # format = '{MemUsed}M/{MemTotal}M',
             update_interval=1,
             fontsize=12,
-            foreground=colors[5],
-            background=colors[22],
+            foreground=colors.colors["12"],
+            background=colors.colors["00"],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
         ),
+        widget.Sep(linewidth=1, padding=10, foreground=colors.colors["07"], background=colors.colors["00"]),
         widget.Memory(
             font="Noto Sans",
             format="{MemUsed: .0f}M/{MemTotal: .0f}M",
             update_interval=1,
             fontsize=12,
             measure_mem="M",
-            foreground=colors[5],
-            background=colors[16],
+            foreground=colors.colors["13"],
+            background=colors.colors["00"],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
         ),
+        widget.Sep(linewidth=1, padding=10, foreground=colors.colors["07"], background=colors.colors["00"]),
         widget.Battery(
             font="Noto Sans",
             format="{percent:2.0%}",
             hide_threshold=90,
             update_interval=60,
             fontsize=12,
-            foreground=colors[9],
-            background=colors[23],
+            foreground=colors.colors["14"],
+            background=colors.colors["00"],
             notify_below=20,
         ),
         widget.BatteryIcon(
             custom_icon_paths=[
-                os.path.expanduser("~/.config/qtile/icons/battery_icons_horiz")
+                os.path.expanduser("~/.config/qtile/icons/battery_icons_horiz/*")
             ],
-            foreground=colors[9],
-            background=colors[23],
+            foreground=colors.colors["14"],
+            background=colors.colors["00"],
             padding=0,
             scale=1,
         ),
         widget.Clock(
-            foreground=colors[9],
-            background=colors[23],
+            foreground=colors.colors["14"],
+            background=colors.colors["00"],
             fontsize=12,
             format="%Y-%m-%d %H:%M",
         ),
-        widget.Systray(background=colors[10], icon_size=20, padding=4),
+        widget.Sep(linewidth=1, padding=10, foreground=colors.colors["07"], background=colors.colors["00"]),
+        widget.Systray(background=colors.colors["00"], icon_size=20, padding=4),
     ]
     return widgets_list
 
@@ -632,7 +611,7 @@ def init_screens():
                 widgets=init_widgets_screen1(),
                 size=20,
                 opacity=0.85,
-                background="000000",
+                background=colors.colors["00"],
             )
         ),
         Screen(
@@ -640,7 +619,7 @@ def init_screens():
                 widgets=init_widgets_screen2(),
                 size=20,
                 opacity=0.85,
-                background="000000",
+                background=colors.colors["00"],
             )
         ),
     ]

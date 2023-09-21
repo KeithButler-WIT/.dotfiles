@@ -34,10 +34,10 @@ if test -d ~/Applications/depot_tools
     end
 end
 
-# Add ~/.emacs.d/bin  to PATH
+# Add ~/.config/.emacs.d/bin  to PATH
 if test -d ~/.config/emacs/bin
-    if not contains -- ~/.emacs.d/bin $PATH
-        set -p PATH ~/.emacs.d/bin
+    if not contains -- ~/.config/.emacs.d/bin $PATH
+        set -p PATH ~/.config/.emacs.d/bin
     end
 end
 
@@ -157,7 +157,7 @@ alias ls='exa -al --color=always --group-directories-first --icons' # preferred 
 alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first --icons'  # long format
 alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+alias l.="exa -a | grep -E '^\.'"                                     # show only dotfiles
 alias ip="ip -color"
 
 # Replace some more things with better alternatives
@@ -195,12 +195,6 @@ alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/p
 alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
 alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
-# Help people new to Arch
-alias apt='man pacman'
-alias apt-get='man pacman'
-alias please='sudo'
-alias tb='nc termbin.com 9999'
-
 # Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
 
@@ -209,6 +203,9 @@ alias jctl="journalctl -p 3 -xb"
 
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+
+alias music="LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify $argv"
+alias nixclean="nix-store --gc; nix-store --optimise"
 
 ## Run fastfetch if session is interactive
 if status --is-interactive && type -q fastfetch
@@ -220,3 +217,11 @@ direnv hook fish | source
 set -g direnv_fish_mode eval_on_arrow    # trigger direnv at prompt, and on every arrow-based directory change (default)
 # set -g direnv_fish_mode eval_after_arrow # trigger direnv at prompt, and only after arrow-based directory changes before executing command
 # set -g direnv_fish_mode disable_arrow    # trigger direnv at prompt only, this is similar functionality to the original behavior
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/keith/miniconda3/bin/conda
+    eval /home/keith/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+end
+# <<< conda initialize <<<
+

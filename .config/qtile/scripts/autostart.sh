@@ -24,16 +24,18 @@ feh --randomize --bg-fill /usr/share/wallpapers/garuda-wallpapers/*
 
 #starting user applications at boot time
 run volumeicon &
-#run /usr/bin/emacs --daemon &
+# run /usr/bin/emacs --daemon &
 # run emacs --daemon &
 # run onedrivegui &
-run discord &
 run thunderbird &
 #run pcmanfm -d & # auto mount removeable media
 run thunar --daemon & # auto mount removeable media
-run onedrive --confdir ~/.config/onedrive/accounts/20089137@wit.ie -m &
-#run caffeine -a &
-#run firefox &
-#run insync start &
+
+run discord &
 #run telegram-desktop &
 #run signal-desktop &
+
+#run insync start &
+# run onedrive --confdir ~/.config/onedrive/accounts/20089137@wit.ie -m &
+run rclone --vfs-cache-mode writes mount OneDrive: ~/Onedrive &
+run rclone --vfs-cache-mode writes mount GoogleDrive: ~/GoogleDrive &
