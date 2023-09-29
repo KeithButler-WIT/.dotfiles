@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "NixOS configuration";
 
   outputs = { self, nixpkgs }: {
     # replace 'joes-desktop' with your hostname here.
