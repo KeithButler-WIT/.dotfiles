@@ -53,8 +53,6 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;;(unpin! t)
 
-(package! dired-preview)
-
 (package! org-super-agenda)
 
 (unpin! org-roam)

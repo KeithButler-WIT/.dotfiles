@@ -46,6 +46,7 @@ from libqtile.command import lazy
 from libqtile.widget import Spacer
 
 import json
+
 import colors
 
 # mod4 or mod = super key

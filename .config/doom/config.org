@@ -506,7 +506,7 @@ Use yas snippets templating package
   (yas-global-mode 1))
 #+end_src
 
-** dired-preview
+** COMMENT dired-preview
 https://protesilaos.com/emacs/dired-preview
 #+begin_src  emacs-lisp :results none :tangle packages.el
 (package! dired-preview)

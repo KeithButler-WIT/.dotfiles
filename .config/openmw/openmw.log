@@ -1,208 +1,193 @@
-[11:11:57.533 I] OpenMW version 0.48.0
-[11:11:57.534 I] Using default (English) font encoding.
-[11:11:57.536 W] No such dir: "/home/keith/.local/share/openmw/data"
-[11:11:57.536 I] OSG version: 3.6.5
-[11:11:57.536 I] SDL version: 2.28.3
-[11:11:57.536 I] Loading shader settings file: "/home/keith/.config/openmw/shaders.yaml"
-[11:11:57.800 I] OpenGL Vendor: AMD
-[11:11:57.800 I] OpenGL Renderer: AMD Radeon Vega 8 Graphics (raven, LLVM 15.0.7, DRM 3.52, 6.4.12-zen1-1-zen)
-[11:11:57.801 I] OpenGL Version: 4.6 (Compatibility Profile) Mesa 23.1.3
-[11:11:57.801 I] Using reverse-z depth buffer
-[11:11:57.808 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Morrowind.bsa
-[11:11:57.836 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Tribunal.bsa
-[11:11:57.843 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Bloodmoon.bsa
-[11:11:57.849 I] Adding data directory /usr/share/games/openmw/resources/vfs
-[11:11:57.849 I] Adding data directory /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files
-[11:11:57.991 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/a/glassAssaPaulCl.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.992 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/a/glassAssaPaulFA.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.992 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/a/glassAssaPaulGND.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.992 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/a/glassAssaPaulUA.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.993 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_06.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.993 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_07.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.993 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_08.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.993 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_09.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.993 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_10.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.993 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_11.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.993 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_12.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.993 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_16.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.993 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_17.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.998 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/f/ABsaplingBC01.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.998 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/f/ABsaplingBC02.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.998 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/f/absaplingbc03.nif', please check your file system for two files with the same name in different cases.
-[11:11:57.998 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/f/marshmerrows_01.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.003 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_00.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.003 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_00sm.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.003 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_01.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.003 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_01sm.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.003 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_02.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.003 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_02sm.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.003 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_03.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.003 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_03sm.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.003 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_04.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.004 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_04sm.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.004 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_05.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.004 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_05sm.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.004 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_06.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.004 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_06sm.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.007 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/m/rem_glass_rod.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.010 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/r/xundeadglassknight.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.017 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/glass_tanto.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.017 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/glass_wakizashi.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.017 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/rem_glass_spear.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.017 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/w_dart_glass.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.017 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/w_glass_dkatana.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.018 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/w_glass_katana.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.018 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/w_rapier_glass.nif', please check your file system for two files with the same name in different cases.
-[11:11:58.026 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/textures/oaab/tx_w_glass_grip01.dds', please check your file system for two files with the same name in different cases.
-[11:11:58.036 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Readme.txt', please check your file system for two files with the same name in different cases.
-[11:11:58.039 I] Lua version: Lua 5.1.4 (LuaJIT 2.1.1692616192)
-[11:11:58.039 I] Loading keybindings file: /home/keith/.config/openmw/input_v3.xml
-[11:11:58.042 I] Loading font file magic_cards_regular.fnt
-[11:11:58.062 I] Loading font file daedric_font.fnt
-[11:11:58.067 I] Loading font file DejaVuLGCSansMono.omwfont
-[11:11:58.126 I] Initializing OpenAL...
-[11:11:58.152 I] Opened "Family 17h/19h HD Audio Controller Analog Stereo"
-[11:11:58.152 I]   ALC Version: 1.1
-[11:11:58.152 I]   ALC Extensions: ALC_ENUMERATE_ALL_EXT ALC_ENUMERATION_EXT ALC_EXT_CAPTURE ALC_EXT_DEDICATED ALC_EXT_disconnect ALC_EXT_EFX ALC_EXT_thread_local_context ALC_SOFT_device_clock ALC_SOFT_HRTF ALC_SOFT_loopback ALC_SOFT_loopback_bformat ALC_SOFT_output_limiter ALC_SOFT_output_mode ALC_SOFT_pause_device ALC_SOFT_reopen_device
-[11:11:58.187 I]   Vendor: OpenAL Community
-[11:11:58.187 I]   Renderer: OpenAL Soft
-[11:11:58.187 I]   Version: 1.1 ALSOFT 1.23.1
-[11:11:58.187 I]   Extensions: AL_EXT_ALAW AL_EXT_BFORMAT AL_EXT_DOUBLE AL_EXT_EXPONENT_DISTANCE AL_EXT_FLOAT32 AL_EXT_IMA4 AL_EXT_LINEAR_DISTANCE AL_EXT_MCFORMATS AL_EXT_MULAW AL_EXT_MULAW_BFORMAT AL_EXT_MULAW_MCFORMATS AL_EXT_OFFSET AL_EXT_source_distance_model AL_EXT_SOURCE_RADIUS AL_EXT_STATIC_BUFFER AL_EXT_STEREO_ANGLES AL_LOKI_quadriphonic AL_SOFT_bformat_ex AL_SOFTX_bformat_hoa AL_SOFT_block_alignment AL_SOFT_buffer_length_query AL_SOFT_callback_buffer AL_SOFTX_convolution_reverb AL_SOFT_deferred_updates AL_SOFT_direct_channels AL_SOFT_direct_channels_remix AL_SOFT_effect_target AL_SOFT_events AL_SOFT_gain_clamp_ex AL_SOFTX_hold_on_disconnect AL_SOFT_loop_points AL_SOFTX_map_buffer AL_SOFT_MSADPCM AL_SOFT_source_latency AL_SOFT_source_length AL_SOFT_source_resampler AL_SOFT_source_spatialize AL_SOFT_source_start_delay AL_SOFT_UHJ AL_SOFT_UHJ_ex
-[11:11:58.187 I] HRTF disabled
-[11:11:58.187 I] Allocated 256 sound sources
-[11:11:58.187 I] Low-pass filter supported
-[11:11:58.187 I] EAX Reverb supported
-[11:11:58.188 I] Enumerated output devices:
-[11:11:58.188 I]   Family 17h/19h HD Audio Controller Analog Stereo
-[11:11:58.205 I] Enumerated HRTF names:
-[11:11:58.205 I]   Default HRTF  Built-In HRTF
-[11:11:59.322 I] Loading content file builtin.omwscripts
-[11:11:59.323 I] Loading content file Morrowind.esm
-[11:11:59.715 I] Loading content file Tribunal.esm
-[11:11:59.756 I] Loading content file Bloodmoon.esm
-[11:11:59.810 I] Loading content file AEA-Compatibility.esp
-[11:11:59.811 I] Loading content file CaiusSugar.esp
-[11:11:59.812 I] Loading content file Divine Providence.esp
-[11:11:59.814 I] Loading content file FGI_AldRuhn_BeneranBounty.esp
-[11:11:59.816 I] Loading content file FGI_AldRuhn_FlinElithPal.esp
-[11:11:59.816 I] Loading content file FGI_AldRuhn_SuranBandits.esp
-[11:11:59.817 I] Loading content file FGI_AldRuhn_Vas.esp
-[11:11:59.818 I] Loading content file FGI_BalMolagmerAddon_ThievesGuildOverhaul_Patch.esp
-[11:11:59.819 I] Loading content file OAAB_Data.esm
-[11:11:59.835 I] Loading content file FGI_BalmoraGuildsExpanded_Patch.esp
-[11:11:59.835 I] Loading content file FGI_Balmora_AlofOrcs.esp
-[11:11:59.835 I] Loading content file FGI_Balmora_CaveRats.esp
-[11:11:59.836 I] Loading content file FGI_Balmora_CodeBook.esp
-[11:11:59.836 I] Loading content file FGI_Balmora_DeseleDebt.esp
-[11:11:59.837 I] Loading content file FGI_Balmora_DuraGraBol.esp
-[11:11:59.856 I] Loading content file FGI_Balmora_EggPoachers.esp
-[11:11:59.857 I] Loading content file FGI_Balmora_Hunger.esp
-[11:11:59.858 I] Loading content file FGI_Balmora_TelvanniAgents.esp
-[11:11:59.859 I] Loading content file FGI_Balmora_VerethiGang.esp
-[11:11:59.860 I] Loading content file FGI_CaerisCamonnaTong_Patch.esp
-[11:11:59.861 I] Loading content file FGI_DuraGraBolsHouseReclaimed_Patch.esp
-[11:11:59.862 I] Loading content file FGI_ErrandsForOrvas_Patch.esp
-[11:11:59.862 I] Loading content file FGI_FinalQuests.esp
-[11:11:59.866 I] Loading content file FGI_JoinTheCamonnaTong_Patch.esp
-[11:11:59.866 I] Loading content file FGI_MDMD_Patch.esp
-[11:11:59.866 I] Loading content file FGI_SadrithMora_CorprusStalker.esp
-[11:11:59.867 I] Loading content file FGI_SadrithMora_EngaerBounty.esp
-[11:11:59.867 I] Loading content file FGI_SadrithMora_Nchurdamz.esp
-[11:11:59.868 I] Loading content file FGI_SadrithMora_Pudai.esp
-[11:11:59.868 I] Loading content file FGI_SadrithMora_Sondaale.esp
-[11:11:59.868 I] Loading content file FGI_SadrithMora_SujammaDunirai.esp
-[11:11:59.868 I] Loading content file FGI_SadrithMora_TenimBounty.esp
-[11:11:59.869 I] Loading content file FGI_Vivec_DroSakhar.esp
-[11:11:59.869 I] Loading content file FGI_Vivec_JuicedawRing.esp
-[11:11:59.869 I] Loading content file FGI_Vivec_LirielleDebt.esp
-[11:11:59.870 I] Loading content file FGI_Vivec_TongueToad.esp
-[11:11:59.870 I] Loading content file Fighters Guild Improved.esp
-[11:11:59.877 I] Loading content file Great Service.ESP
-[11:11:59.880 I] Loading content file Morag Tong Equipment Diversity.ESP
-[11:11:59.881 I] Loading content file Nwah Discount C.ESP
-[11:11:59.881 I] Loading content file Open Helmets.ESP
-[11:11:59.882 I] Loading content file Quest Tweaks and Alternatives_1.19 - No FG version.esp
-[11:11:59.900 I] Loading content file Religions Elaborated.esp
-[11:11:59.905 I] Loading content file Saprius' Disguised.esp
-[11:11:59.906 I] Loading content file Siege at Firemoth.esp
-[11:11:59.912 I] Loading content file Silt Strider Animation Restored.ESP
-[11:11:59.913 I] Loading content file ancestor_companion.esp
-[11:11:59.913 I] Loading content file adamantiumarmor.esp
-[11:11:59.915 I] Loading content file CompanionTeleportation.esp
-[11:11:59.917 I] Loading content file Particle Arrow Replacer.esp
-[11:11:59.918 I] Loading content file Area Effect Arrows Integrated.esp
-[11:11:59.919 I] Loading content file Area Effect Projectiles Integrated (PAR Edit).esp
-[11:11:59.920 I] Loading content file Area Effect Projectiles Integrated.esp
-[11:11:59.921 I] Loading content file AreaEffectArrows.esp
-[11:11:59.921 I] Loading content file bcsounds.esp
-[11:11:59.922 I] Loading content file Bound Arrow.ESP
-[11:11:59.923 I] Loading content file ajd_mwmj2022_telvanniDoorToApocrypha.ESP
-[11:11:59.925 I] Loading content file CrazyBatouIsNotEssential-Mw.ESP
-[11:11:59.925 I] Loading content file daedric travel network.ESP
-[11:11:59.926 I] Loading content file EBQ_Artifact.esp
-[11:11:59.928 I] Loading content file entertainers.esp
-[11:11:59.930 I] Loading content file Expansion Delay.ESP
-[11:11:59.930 I] Loading content file HideSugarHideSkooma.ESP
-[11:11:59.931 I] Loading content file HideSugarHideSkooma+Tweaks.ESP
-[11:11:59.931 I] Loading content file HideSugarHideSkooma+Tweaks+MCPfiltering.ESP
-[11:11:59.932 I] Loading content file Hortator.ESP
-[11:11:59.932 I] Loading content file Improved HandtoHand and Unarmored Skills.ESP
-[11:11:59.932 I] Loading content file LeFemmArmor.esp
-[11:11:59.933 I] Loading content file master_index.esp
-[11:11:59.934 I] Loading content file MoragTongWritFix.esp
-[11:11:59.936 I] Loading content file Morrowind Patch v1.6.3.esm
-[11:11:59.964 I] Loading content file MWWG.ESP
-[11:11:59.965 I] Loading content file PackGuarTravel.ESP
-[11:11:59.966 I] Loading content file Realistic Stealth 1.1.ESP
-[11:11:59.966 I] Loading content file RP House Hlaalu.esp
-[11:11:59.968 I] Loading content file Shrines - Restore Health and Cancel Options.esp
-[11:11:59.969 I] Loading content file Steampunk Paradise player home.esp
-[11:11:59.976 I] Loading content file SYTN.ESP
-[11:11:59.976 I] Loading content file telvanniseaspire.ESP
-[11:11:59.989 I] Loading content file Temple teleportation system.ESP
-[11:11:59.991 I] Loading content file To_The_Top.esp
-[11:11:59.993 I] Loading content file Uncharted Artifacts.esp
-[11:11:59.995 I] Loading content file To_the_Top_Mournhold.esp
-[11:12:00.330 I] Using 1 async physics threads
-[11:12:00.342 V] Using idle priority for thread=139860225545920
-[11:12:00.345 V] Disabling Multiview (disabled by config)
-[11:12:00.376 I] Preferred locales: en
-[11:12:00.510 V] Fallback locale: en
-[11:12:00.512 V] Language file "l10n/SettingsMenu/en.yaml" is enabled
-[11:12:00.580 V] Fallback locale: en
-[11:12:00.581 V] Language file "l10n/DebugMenu/en.yaml" is enabled
-[11:12:00.583 V] Fallback locale: en
-[11:12:00.584 V] Language file "l10n/PostProcessing/en.yaml" is enabled
-[11:12:00.595 V] Lua scripts configuration (8 scripts):
-[11:12:00.595 V] #0 PLAYER : scripts/omw/mwui/init.lua
-[11:12:00.595 V] #1 GLOBAL : scripts/omw/settings/global.lua
-[11:12:00.595 V] #2 PLAYER : scripts/omw/settings/player.lua
-[11:12:00.595 V] #3 PLAYER : scripts/omw/camera/camera.lua
-[11:12:00.595 V] #4 NPC CREATURE : scripts/omw/ai.lua
-[11:12:00.595 V] #5 PLAYER : scripts/omw/console/player.lua
-[11:12:00.595 V] #6 GLOBAL : scripts/omw/console/global.lua
-[11:12:00.595 V] #7 CUSTOM : scripts/omw/console/local.lua
-[11:12:00.597 I] Loading Lua storage ""/home/keith/.config/openmw/global_storage.bin"" (3 bytes)
-[11:12:00.597 I] Loading Lua storage ""/home/keith/.config/openmw/player_storage.bin"" (366 bytes)
-[11:12:00.610 I] Playing music/special/morrowind title.mp3
-[11:12:04.541 V] Fallback locale: en
-[11:12:04.542 V] Language file "l10n/SavegameMenu/en.yaml" is enabled
-[11:12:05.106 I] Reading save file Autosave - 2.omwsave
-[11:12:05.121 I] Loading saved game 'Autosave' for character 'Quayth'
-[11:12:05.189 V] Fallback locale: en
-[11:12:05.190 V] Language file "l10n/Interface/en.yaml" is enabled
-[11:12:05.192 V] Fallback locale: en
-[11:12:05.192 V] Language file "l10n/OMWCamera/en.yaml" is enabled
-[11:12:06.592 I] Changing to interior
-[11:12:06.592 I] Loading cell Basement
-[11:12:06.600 V] Fallback locale: en
-[11:12:06.601 V] Language file "l10n/Navigation/en.yaml" is enabled
-[11:12:06.838 I] Warning: cdc_call_compa_script line 59, column 30 (GetInterior): Stray explicit reference
-[11:12:07.701 I] Playing music/explore/morrowind title.mp3
-[11:12:15.192 V] Changed setting: [Video] resolution x = 1920
-[11:12:15.192 V] Changed setting: [Video] resolution y = 1080
-[11:12:15.192 I] Updating settings file: "/home/keith/.config/openmw/settings.cfg"
-[11:12:15.193 I] Saving shader settings file: "/home/keith/.config/openmw/shaders.yaml"
-[11:12:15.194 I] Saving Lua storage ""/home/keith/.config/openmw/global_storage.bin"" (3 bytes)
-[11:12:15.194 I] Saving Lua storage ""/home/keith/.config/openmw/player_storage.bin"" (366 bytes)
-[11:12:15.194 I] Quitting peacefully.
+[13:54:19.677 I] OpenMW version 0.48.0
+[13:54:19.677 I] Using default (English) font encoding.
+[13:54:19.677 W] No such dir: "/home/keith/.local/share/openmw/data"
+[13:54:19.677 I] OSG version: 3.6.5
+[13:54:19.677 I] SDL version: 2.28.3
+[13:54:19.677 I] Loading shader settings file: "/home/keith/.config/openmw/shaders.yaml"
+[13:54:19.855 I] OpenGL Vendor: AMD
+[13:54:19.855 I] OpenGL Renderer: AMD Radeon Vega 8 Graphics (raven, LLVM 16.0.6, DRM 3.54, 6.5.4-zen2-1-zen)
+[13:54:19.855 I] OpenGL Version: 4.6 (Compatibility Profile) Mesa 23.1.8-arch1.1
+[13:54:19.855 I] Using reverse-z depth buffer
+[13:54:19.855 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Morrowind.bsa
+[13:54:19.867 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Tribunal.bsa
+[13:54:19.867 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Bloodmoon.bsa
+[13:54:19.869 I] Adding data directory /usr/share/games/openmw/resources/vfs
+[13:54:19.869 I] Adding data directory /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files
+[13:54:19.960 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/a/glassAssaPaulCl.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.960 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/a/glassAssaPaulFA.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.960 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/a/glassAssaPaulGND.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.960 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/a/glassAssaPaulUA.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.961 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_06.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.961 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_07.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.961 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_08.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.961 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_09.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.961 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_10.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.961 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_11.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.961 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_12.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.961 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_16.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.961 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/b/b_Breton_M_Hair_17.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.964 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/f/ABsaplingBC01.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.964 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/f/ABsaplingBC02.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.964 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/f/absaplingbc03.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.965 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/f/marshmerrows_01.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_00.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_00sm.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_01.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_01sm.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_02.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_02sm.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_03.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_03sm.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_04.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_04sm.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_05.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_05sm.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_06.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.969 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/i/t_crystal_06sm.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.971 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/m/rem_glass_rod.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.974 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/r/xundeadglassknight.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.980 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/glass_tanto.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.980 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/glass_wakizashi.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.980 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/rem_glass_spear.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.980 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/w_dart_glass.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.980 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/w_glass_dkatana.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.980 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/w_glass_katana.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.980 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/meshes/oaab/w/w_rapier_glass.nif', please check your file system for two files with the same name in different cases.
+[13:54:19.986 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/textures/oaab/tx_w_glass_grip01.dds', please check your file system for two files with the same name in different cases.
+[13:54:19.993 W] Warning: found duplicate file for '/home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Readme.txt', please check your file system for two files with the same name in different cases.
+[13:54:19.994 I] Lua version: Lua 5.1.4 (LuaJIT 2.1.1694285958)
+[13:54:19.994 I] Loading keybindings file: /home/keith/.config/openmw/input_v3.xml
+[13:54:19.995 I] Loading font file magic_cards_regular.fnt
+[13:54:20.001 I] Loading font file daedric_font.fnt
+[13:54:20.005 I] Loading font file DejaVuLGCSansMono.omwfont
+[13:54:20.036 I] Detected game controller: BDA NSW wired controller
+[13:54:20.037 I] Initializing OpenAL...
+[13:54:20.044 I] Opened "Family 17h/19h HD Audio Controller Analog Stereo"
+[13:54:20.044 I]   ALC Version: 1.1
+[13:54:20.044 I]   ALC Extensions: ALC_ENUMERATE_ALL_EXT ALC_ENUMERATION_EXT ALC_EXT_CAPTURE ALC_EXT_DEDICATED ALC_EXT_disconnect ALC_EXT_EFX ALC_EXT_thread_local_context ALC_SOFT_device_clock ALC_SOFT_HRTF ALC_SOFT_loopback ALC_SOFT_loopback_bformat ALC_SOFT_output_limiter ALC_SOFT_output_mode ALC_SOFT_pause_device ALC_SOFT_reopen_device
+[13:54:20.334 I]   Vendor: OpenAL Community
+[13:54:20.334 I]   Renderer: OpenAL Soft
+[13:54:20.334 I]   Version: 1.1 ALSOFT 1.23.1
+[13:54:20.334 I]   Extensions: AL_EXT_ALAW AL_EXT_BFORMAT AL_EXT_DOUBLE AL_EXT_EXPONENT_DISTANCE AL_EXT_FLOAT32 AL_EXT_IMA4 AL_EXT_LINEAR_DISTANCE AL_EXT_MCFORMATS AL_EXT_MULAW AL_EXT_MULAW_BFORMAT AL_EXT_MULAW_MCFORMATS AL_EXT_OFFSET AL_EXT_source_distance_model AL_EXT_SOURCE_RADIUS AL_EXT_STATIC_BUFFER AL_EXT_STEREO_ANGLES AL_LOKI_quadriphonic AL_SOFT_bformat_ex AL_SOFTX_bformat_hoa AL_SOFT_block_alignment AL_SOFT_buffer_length_query AL_SOFT_callback_buffer AL_SOFTX_convolution_reverb AL_SOFT_deferred_updates AL_SOFT_direct_channels AL_SOFT_direct_channels_remix AL_SOFT_effect_target AL_SOFT_events AL_SOFT_gain_clamp_ex AL_SOFTX_hold_on_disconnect AL_SOFT_loop_points AL_SOFTX_map_buffer AL_SOFT_MSADPCM AL_SOFT_source_latency AL_SOFT_source_length AL_SOFT_source_resampler AL_SOFT_source_spatialize AL_SOFT_source_start_delay AL_SOFT_UHJ AL_SOFT_UHJ_ex
+[13:54:20.334 I] HRTF disabled
+[13:54:20.334 I] Allocated 256 sound sources
+[13:54:20.334 I] Low-pass filter supported
+[13:54:20.334 I] EAX Reverb supported
+[13:54:20.334 I] Enumerated output devices:
+[13:54:20.334 I]   Family 17h/19h HD Audio Controller Analog Stereo  Raven/Raven2/Fenghuang HDMI/DP Audio Controller Digital Stereo (HDMI)
+[13:54:20.336 I] Enumerated HRTF names:
+[13:54:20.336 I]   Default HRTF  Built-In HRTF
+[13:54:20.345 I] Unhandled SDL event of type 0x607
+[13:54:31.148 I] Loading content file builtin.omwscripts
+[13:54:31.148 I] Loading content file Morrowind.esm
+[13:54:31.380 I] Loading content file Tribunal.esm
+[13:54:31.414 I] Loading content file Bloodmoon.esm
+[13:54:31.452 I] Loading content file AEA-Compatibility.esp
+[13:54:31.453 I] Loading content file CaiusSugar.esp
+[13:54:31.453 I] Loading content file Divine Providence.esp
+[13:54:31.454 I] Loading content file FGI_AldRuhn_BeneranBounty.esp
+[13:54:31.455 I] Loading content file FGI_AldRuhn_FlinElithPal.esp
+[13:54:31.455 I] Loading content file FGI_AldRuhn_SuranBandits.esp
+[13:54:31.456 I] Loading content file FGI_AldRuhn_Vas.esp
+[13:54:31.456 I] Loading content file FGI_BalMolagmerAddon_ThievesGuildOverhaul_Patch.esp
+[13:54:31.457 I] Loading content file OAAB_Data.esm
+[13:54:31.474 I] Loading content file FGI_BalmoraGuildsExpanded_Patch.esp
+[13:54:31.474 I] Loading content file FGI_Balmora_AlofOrcs.esp
+[13:54:31.474 I] Loading content file FGI_Balmora_CaveRats.esp
+[13:54:31.475 I] Loading content file FGI_Balmora_CodeBook.esp
+[13:54:31.475 I] Loading content file FGI_Balmora_DeseleDebt.esp
+[13:54:31.490 I] Loading content file FGI_Balmora_DuraGraBol.esp
+[13:54:31.491 I] Loading content file FGI_Balmora_EggPoachers.esp
+[13:54:31.491 I] Loading content file FGI_Balmora_Hunger.esp
+[13:54:31.491 I] Loading content file FGI_Balmora_TelvanniAgents.esp
+[13:54:31.492 I] Loading content file FGI_Balmora_VerethiGang.esp
+[13:54:31.492 I] Loading content file FGI_CaerisCamonnaTong_Patch.esp
+[13:54:31.493 I] Loading content file FGI_DuraGraBolsHouseReclaimed_Patch.esp
+[13:54:31.493 I] Loading content file FGI_ErrandsForOrvas_Patch.esp
+[13:54:31.493 I] Loading content file FGI_FinalQuests.esp
+[13:54:31.495 I] Loading content file FGI_JoinTheCamonnaTong_Patch.esp
+[13:54:31.495 I] Loading content file FGI_MDMD_Patch.esp
+[13:54:31.495 I] Loading content file FGI_SadrithMora_CorprusStalker.esp
+[13:54:31.495 I] Loading content file FGI_SadrithMora_EngaerBounty.esp
+[13:54:31.496 I] Loading content file FGI_SadrithMora_Nchurdamz.esp
+[13:54:31.496 I] Loading content file FGI_SadrithMora_Pudai.esp
+[13:54:31.496 I] Loading content file FGI_SadrithMora_Sondaale.esp
+[13:54:31.496 I] Loading content file FGI_SadrithMora_SujammaDunirai.esp
+[13:54:31.496 I] Loading content file FGI_SadrithMora_TenimBounty.esp
+[13:54:31.496 I] Loading content file FGI_Vivec_DroSakhar.esp
+[13:54:31.497 I] Loading content file FGI_Vivec_JuicedawRing.esp
+[13:54:31.497 I] Loading content file FGI_Vivec_LirielleDebt.esp
+[13:54:31.497 I] Loading content file FGI_Vivec_TongueToad.esp
+[13:54:31.497 I] Loading content file Fighters Guild Improved.esp
+[13:54:31.500 I] Loading content file Great Service.ESP
+[13:54:31.502 I] Loading content file Morag Tong Equipment Diversity.ESP
+[13:54:31.502 I] Loading content file Nwah Discount C.ESP
+[13:54:31.502 I] Loading content file Open Helmets.ESP
+[13:54:31.502 I] Loading content file Quest Tweaks and Alternatives_1.19 - No FG version.esp
+[13:54:31.512 I] Loading content file Religions Elaborated.esp
+[13:54:31.515 I] Loading content file Saprius' Disguised.esp
+[13:54:31.515 I] Loading content file Siege at Firemoth.esp
+[13:54:31.516 I] Loading content file Silt Strider Animation Restored.ESP
+[13:54:31.516 I] Loading content file ancestor_companion.esp
+[13:54:31.516 I] Loading content file adamantiumarmor.esp
+[13:54:31.516 I] Loading content file CompanionTeleportation.esp
+[13:54:31.517 I] Loading content file Particle Arrow Replacer.esp
+[13:54:31.517 I] Loading content file Area Effect Arrows Integrated.esp
+[13:54:31.517 I] Loading content file Area Effect Projectiles Integrated (PAR Edit).esp
+[13:54:31.517 I] Loading content file Area Effect Projectiles Integrated.esp
+[13:54:31.517 I] Loading content file AreaEffectArrows.esp
+[13:54:31.518 I] Loading content file bcsounds.esp
+[13:54:31.518 I] Loading content file Bound Arrow.ESP
+[13:54:31.518 I] Loading content file ajd_mwmj2022_telvanniDoorToApocrypha.ESP
+[13:54:31.519 I] Loading content file CrazyBatouIsNotEssential-Mw.ESP
+[13:54:31.519 I] Loading content file daedric travel network.ESP
+[13:54:31.520 I] Loading content file EBQ_Artifact.esp
+[13:54:31.520 I] Loading content file entertainers.esp
+[13:54:31.521 I] Loading content file Expansion Delay.ESP
+[13:54:31.521 I] Loading content file HideSugarHideSkooma.ESP
+[13:54:31.521 I] Loading content file HideSugarHideSkooma+Tweaks.ESP
+[13:54:31.521 I] Loading content file HideSugarHideSkooma+Tweaks+MCPfiltering.ESP
+[13:54:31.521 I] Loading content file Hortator.ESP
+[13:54:31.522 I] Loading content file Improved HandtoHand and Unarmored Skills.ESP
+[13:54:31.522 I] Loading content file LeFemmArmor.esp
+[13:54:31.522 I] Loading content file master_index.esp
+[13:54:31.523 I] Loading content file MoragTongWritFix.esp
+[13:54:31.523 I] Loading content file Morrowind Patch v1.6.3.esm
+[13:54:31.540 I] Loading content file MWWG.ESP
+[13:54:31.540 I] Loading content file PackGuarTravel.ESP
+[13:54:31.541 I] Loading content file Realistic Stealth 1.1.ESP
+[13:54:31.541 I] Loading content file RP House Hlaalu.esp
+[13:54:31.543 I] Loading content file Shrines - Restore Health and Cancel Options.esp
+[13:54:31.543 I] Loading content file Steampunk Paradise player home.esp
+[13:54:31.549 I] Loading content file SYTN.ESP
+[13:54:31.557 I] Loading content file telvanniseaspire.ESP
+[13:54:31.557 I] Loading content file Temple teleportation system.ESP
+[13:54:31.559 I] Loading content file To_The_Top.esp
+[13:54:31.560 I] Loading content file Uncharted Artifacts.esp
+[13:54:31.561 I] Loading content file To_the_Top_Mournhold.esp
+[13:54:31.895 I] Using 1 async physics threads
+[13:54:31.901 V] Using idle priority for thread=7fb5fed796c0
+[13:54:31.902 V] Disabling Multiview (disabled by config)
+[13:54:31.921 I] Preferred locales: en
+[13:54:32.045 V] Fallback locale: en
+[13:54:32.047 V] Language file "l10n/SettingsMenu/en.yaml" is enabled
+[13:54:32.090 V] Fallback locale: en
+[13:54:32.091 V] Language file "l10n/DebugMenu/en.yaml" is enabled
+[13:54:32.094 V] Fallback locale: en
+[13:54:32.095 V] Language file "l10n/PostProcessing/en.yaml" is enabled
+[13:54:32.101 V] Lua scripts configuration (8 scripts):
+[13:54:32.101 V] #0 PLAYER : scripts/omw/mwui/init.lua
+[13:54:32.101 V] #1 GLOBAL : scripts/omw/settings/global.lua
+[13:54:32.101 V] #2 PLAYER : scripts/omw/settings/player.lua
+[13:54:32.101 V] #3 PLAYER : scripts/omw/camera/camera.lua
+[13:54:32.101 V] #4 NPC CREATURE : scripts/omw/ai.lua
+[13:54:32.101 V] #5 PLAYER : scripts/omw/console/player.lua
+[13:54:32.101 V] #6 GLOBAL : scripts/omw/console/global.lua
+[13:54:32.101 V] #7 CUSTOM : scripts/omw/console/local.lua
+[13:54:32.101 I] Loading Lua storage ""/home/keith/.config/openmw/global_storage.bin"" (3 bytes)
+[13:54:32.101 I] Loading Lua storage ""/home/keith/.config/openmw/player_storage.bin"" (16e bytes)
+[13:54:32.109 I] Playing music/special/morrowind title.mp3
+[13:54:50.853 I] Saving shader settings file: "/home/keith/.config/openmw/shaders.yaml"
+[13:54:50.854 I] Saving Lua storage ""/home/keith/.config/openmw/global_storage.bin"" (3 bytes)
+[13:54:50.854 I] Saving Lua storage ""/home/keith/.config/openmw/player_storage.bin"" (16e bytes)
+[13:54:50.854 I] Quitting peacefully.
