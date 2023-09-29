@@ -157,6 +157,8 @@ programs.steam = {
 
     docker
     docker-compose
+
+    blender
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
