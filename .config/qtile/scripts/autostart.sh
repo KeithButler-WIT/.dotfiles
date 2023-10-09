@@ -32,6 +32,7 @@ run thunderbird &
 run thunar --daemon & # auto mount removeable media
 
 run discord &
+run xremap ~/.config/xremap/config.yaml &
 #run telegram-desktop &
 #run signal-desktop &
 
