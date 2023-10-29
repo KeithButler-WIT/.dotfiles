@@ -1,7 +1,8 @@
+skip-menu=0
 no-sound=0
 fallback-archive=Morrowind.bsa
-fallback-archive=Tribunal.bsa
 fallback-archive=Bloodmoon.bsa
+fallback-archive=Tribunal.bsa
 fallback=LightAttenuation_UseConstant,0
 fallback=LightAttenuation_ConstantValue,0.0
 fallback=LightAttenuation_UseLinear,1

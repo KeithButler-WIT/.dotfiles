@@ -1,6 +1,50 @@
 #+TITLE: Emacs Configuration
 #+AUTHOR: Keith Butler
 
+* Table Of Contents :Toc:quote:
+#+BEGIN_QUOTE
+- [[#header-comments][Header Comments]]
+  - [[#configel][config.el]]
+  - [[#packagesel][packages.el]]
+  - [[#initel][init.el]]
+- [[#initel-1][init.el]]
+- [[#general-configuration][General Configuration]]
+  - [[#user-setup][User Setup]]
+  - [[#theme][Theme]]
+  - [[#background-transparency][Background Transparency]]
+  - [[#font][Font]]
+  - [[#line-numbering][Line Numbering]]
+  - [[#spell-checker][Spell Checker]]
+  - [[#displaying-world-time][Displaying World Time]]
+  - [[#ligatures][Ligatures]]
+  - [[#word-count][Word Count]]
+  - [[#avoid-long-line-performance-hit][Avoid Long-line Performance Hit]]
+  - [[#deft-variables][Deft Variables]]
+  - [[#pdf-tools][PDF Tools]]
+  - [[#yas-snippets][Yas Snippets]]
+- [[#org][org]]
+  - [[#latex-exporter][LaTeX Exporter]]
+  - [[#style][Style]]
+  - [[#pretty-mode][Pretty Mode]]
+  - [[#heading-size][Heading Size]]
+  - [[#setting-directory-variables][Setting directory variables]]
+  - [[#org-agenda][org-agenda]]
+  - [[#org-roam][org-roam]]
+  - [[#org-ref][org-ref]]
+  - [[#org-pomodoro][org-pomodoro]]
+  - [[#org-appear][org-appear]]
+  - [[#org-publish][org-Publish]]
+  - [[#org-auto-tangle][org-auto-tangle]]
+  - [[#openwith][openwith]]
+- [[#languanges][Languanges]]
+  - [[#org-babel-do-load-languages][Org-babel-do-load-languages]]
+  - [[#programming][Programming]]
+  - [[#design][Design]]
+- [[#applications][Applications]]
+  - [[#erc][ERC]]
+  - [[#vterm][Vterm]]
+#+END_QUOTE
+
 * Header Comments
 ** config.el
 #+begin_src  emacs-lisp :results none
@@ -165,7 +209,7 @@ This code is written to the init.el to select which modules to load. Written her
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
        ;;(emoji +unicode)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
-       ;;hydra
+       hydra
        indent-guides     ; highlighted indent columns
        (ligatures +extra)  ; ligatures and symbols to make your code pretty again
        ;;minimap           ; show a map of the code on the side
@@ -385,8 +429,13 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 #+end_src
 
 ** Theme
+#+begin_src  emacs-lisp :results none :tangle packages.el
+(package! catppuccin-theme)
+#+end_src
+
 #+begin_src  emacs-lisp :results none
-(setq doom-theme 'doom-one)
+(setq doom-theme 'catppuccin)
+;; (setq doom-theme 'doom-one)
 #+end_src
 
 ** Background Transparency
@@ -622,7 +671,8 @@ change `org-directory'. It must be set before org loads!
 ;; (setq org-agenda-files (my/org-agenda-files))
 #+end_src
 
-** org-super-agenda
+** org-agenda
+*** org-super-agenda
 #+begin_src  emacs-lisp :results none :tangle packages.el
 (package! org-super-agenda)
 #+end_src
@@ -675,6 +725,14 @@ change `org-directory'. It must be set before org loads!
                             (:discard (:not (:todo "TODO")))))))))))
   :config
   (org-super-agenda-mode))
+#+end_src
+
+*** org-timeblock
+#+begin_src  emacs-lisp :results none :tangle packages.el
+(package! org-timeblock)
+#+end_src
+
+#+begin_src  emacs-lisp :results none
 #+end_src
 
 ** org-roam
@@ -987,21 +1045,60 @@ Use [[https://github.com/awth13/org-appear][org-appear]] to reveal emphasis mark
   :hook (org-mode . org-auto-tangle-mode))
 #+end_src
 
+** openwith
+#+begin_src  emacs-lisp :results none :tangle packages.el
+(package! openwith)
+#+end_src
+
+#+begin_src  emacs-lisp :results none
+(when (require 'openwith nil 'noerror)
+    (setq openwith-associations
+        (list
+            (list (openwith-make-extension-regexp
+                '("mpg" "mpeg" "mp3" "mp4"
+                    "avi" "wmv" "wav" "mov" "flv"
+                    "ogm" "ogg" "mkv"))
+                "vlc"
+                '(file))
+            (list (openwith-make-extension-regexp
+                '("xbm" "pbm" "pgm" "ppm" "pnm"
+                    "png" "gif" "bmp" "tif" "jpeg" "jpg"))
+                "geeqie"
+                '(file))
+            (list (openwith-make-extension-regexp
+                '("doc" "xls" "ppt" "odt" "ods" "odg" "odp"))
+                "libreoffice"
+                '(file))
+            '("\\.lyx" "lyx" (file))
+            '("\\.chm" "kchmviewer" (file))
+            (list (openwith-make-extension-regexp
+                '("pdf" "ps" "ps.gz" "dvi"))
+                "okular"
+                '(file))
+            ))
+    (openwith-mode 1))
+#+end_src
+
 * Languanges
 ** Org-babel-do-load-languages
 #+begin_src emacs-lisp
 ;; active Babel languages
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((emacs-lisp . t)
+ '((mermaid . t)
+   (scheme . t)
+   (emacs-lisp . t)
    (python . t)
    (Kotlin . t)
    (bash . t)
    (sql . t)
    (rust . t)
+   (plantuml. t)
    ))
 #+end_src
-** Mongodb
+
+** Programming
+*** Mongodb
 I'm currently using mongodb in college.
 So these packages help alot when righting reports.
 #+begin_src  emacs-lisp :results none :tangle packages.el
@@ -1009,43 +1106,26 @@ So these packages help alot when righting reports.
 (package! ob-mongo)
 #+end_src
 
-** COMMENT Android
-#+begin_src  emacs-lisp :results none :tangle packages.el
-(package! android-mode)
-#+end_src
-
-#+begin_src  emacs-lisp :results none
-(require 'android-mode)
-(custom-set-variables
- '(android-mode-avd "AVD")
- '(android-mode-sdk-dir "/opt/android-sdk/"))
-#+end_src
-
-** Kotlin
+*** Kotlin
 #+begin_src  emacs-lisp :results none :tangle packages.el
 (package! ob-kotlin)
 #+end_src
 
-#+begin_src  emacs-lisp :results none
-(add-to-list 'org-src-lang-modes '("Kotlin" . "kotlin-mode"))
+** Design
+*** ob-mermaid
+[[https://github.com/arnm/ob-mermaid][GitHub - arnm/ob-mermaid: Generate mermaid diagrams within Emacs org-mode babel]]
+#+begin_src  emacs-lisp :results none :tangle packages.el
+(package! ob-mermaid)
 #+end_src
 
-** Plantuml
+*** Plantuml
 #+begin_src emacs-lisp
 (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
 #+end_src
 
-** COMMENT gdscript
-#+begin_src  emacs-lisp :results none :tangle packages.el
-(package! gdscript-mode)
-#+end_src
-
 * Applications
 ** COMMENT Mail
-:LOGBOOK:
-CLOCK: [2022-09-23 Fri 15:45]--[2022-09-23 Fri 15:50] =>  0:05
-:END:
 #+begin_src  emacs-lisp :results none :tangle packages.el
 (unpin! mu4e)
 #+end_src
@@ -1179,17 +1259,6 @@ CLOCK: [2022-09-23 Fri 15:45]--[2022-09-23 Fri 15:50] =>  0:05
       erc-fill-column 100
       erc-fill-function 'erc-fill-static
       erc-fill-static-center 20)
-#+end_src
-
-** COMMENT Trello
-#+begin_src  emacs-lisp :results none :tangle packages.el
-(package! org-trello)
-#+end_src
-
-#+begin_src  emacs-lisp :results none
-(require 'org-trello)
-(setq org-trello-consumer-key "5dd059929da10daa9f650c01e28412f5")  ;; 32 characters string
-(setq org-trello-access-token "63885c05cfaf717356c4dd89b40e11203d799e7f33a64a2585c7d62fee6873ad")  ;; 64 characters string
 #+end_src
 
 ** Vterm

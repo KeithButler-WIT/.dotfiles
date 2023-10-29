@@ -1,12 +1,10 @@
 #!/bin/bash
 
 function run {
-  if ! pgrep $1 ;
-  then
-    $@&
+  if ! pgrep $1; then
+    $@ &
   fi
 }
-
 
 #starting utility applications at boot time
 lxsession &
@@ -36,7 +34,9 @@ run xremap ~/.config/xremap/config.yaml &
 #run telegram-desktop &
 #run signal-desktop &
 
-#run insync start &
 # run onedrive --confdir ~/.config/onedrive/accounts/20089137@wit.ie -m &
 run rclone --vfs-cache-mode writes mount OneDrive: ~/Onedrive &
 run rclone --vfs-cache-mode writes mount GoogleDrive: ~/GoogleDrive &
+
+# colour-temperature setting depending on the time [https://github.com/d4l3k/go-sct]
+run sct &

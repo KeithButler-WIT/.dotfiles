@@ -1,0 +1,1 @@
+/nix/store/55armpxl9zwpwlh8xl93qhh5q253xm4d-home-manager-files/.config/fish/functions/gitignore.fish

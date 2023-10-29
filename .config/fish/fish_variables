@@ -1,5 +1,10 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR ZO_CMD:zo
+SETUVAR Z_CMD:z
+SETUVAR Z_DATA:/home/keith/\x2elocal/share/z/data
+SETUVAR Z_DATA_DIR:/home/keith/\x2elocal/share/z
+SETUVAR Z_EXCLUDE:\x5e/home/keith\x24
 SETUVAR __done_min_cmd_duration:10000
 SETUVAR __done_notification_urgency_level:low
 SETUVAR __fish_initialized:3400

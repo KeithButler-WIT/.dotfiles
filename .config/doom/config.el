@@ -62,7 +62,8 @@
 
 ;; (setq steam-username "Keithamine") ;; Replace Keithamine with your steam username
 
-(setq doom-theme 'doom-one)
+(setq doom-theme 'catppuccin)
+;; (setq doom-theme 'doom-one)
 
 (set-frame-parameter (selected-frame) 'alpha '(100 100))
 (add-to-list 'default-frame-alist '(alpha 100 100))
@@ -243,6 +244,8 @@
   :config
   (org-super-agenda-mode))
 
+
+
 (use-package org-roam
   :ensure t
   :demand t  ;; Ensure org-roam is loaded by default
@@ -413,18 +416,46 @@ capture was not aborted."
   :defer t
   :hook (org-mode . org-auto-tangle-mode))
 
+(when (require 'openwith nil 'noerror)
+    (setq openwith-associations
+        (list
+            (list (openwith-make-extension-regexp
+                '("mpg" "mpeg" "mp3" "mp4"
+                    "avi" "wmv" "wav" "mov" "flv"
+                    "ogm" "ogg" "mkv"))
+                "vlc"
+                '(file))
+            (list (openwith-make-extension-regexp
+                '("xbm" "pbm" "pgm" "ppm" "pnm"
+                    "png" "gif" "bmp" "tif" "jpeg" "jpg"))
+                "geeqie"
+                '(file))
+            (list (openwith-make-extension-regexp
+                '("doc" "xls" "ppt" "odt" "ods" "odg" "odp"))
+                "libreoffice"
+                '(file))
+            '("\\.lyx" "lyx" (file))
+            '("\\.chm" "kchmviewer" (file))
+            (list (openwith-make-extension-regexp
+                '("pdf" "ps" "ps.gz" "dvi"))
+                "okular"
+                '(file))
+            ))
+    (openwith-mode 1))
+
 ;; active Babel languages
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((emacs-lisp . t)
+ '((mermaid . t)
+   (scheme . t)
+   (emacs-lisp . t)
    (python . t)
    (Kotlin . t)
    (bash . t)
    (sql . t)
    (rust . t)
+   (plantuml. t)
    ))
-
-(add-to-list 'org-src-lang-modes '("Kotlin" . "kotlin-mode"))
 
 (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))

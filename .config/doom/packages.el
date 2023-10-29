@@ -53,7 +53,11 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;;(unpin! t)
 
+(package! catppuccin-theme)
+
 (package! org-super-agenda)
+
+(package! org-timeblock)
 
 (unpin! org-roam)
 (package! org-roam-ui)
@@ -69,9 +73,13 @@
 
 (package! org-auto-tangle)
 
+(package! openwith)
+
 (package! mongo)
 (package! ob-mongo)
 
 (package! ob-kotlin)
+
+(package! ob-mermaid)
 
 ;; (package! )
