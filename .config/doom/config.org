@@ -1063,7 +1063,7 @@ Use [[https://github.com/awth13/org-appear][org-appear]] to reveal emphasis mark
             (list (openwith-make-extension-regexp
                 '("xbm" "pbm" "pgm" "ppm" "pnm"
                     "png" "gif" "bmp" "tif" "jpeg" "jpg"))
-                "geeqie"
+                "feh"
                 '(file))
             (list (openwith-make-extension-regexp
                 '("doc" "xls" "ppt" "odt" "ods" "odg" "odp"))
@@ -1072,7 +1072,7 @@ Use [[https://github.com/awth13/org-appear][org-appear]] to reveal emphasis mark
             '("\\.lyx" "lyx" (file))
             '("\\.chm" "kchmviewer" (file))
             (list (openwith-make-extension-regexp
-                '("pdf" "ps" "ps.gz" "dvi"))
+                '("ps" "ps.gz" "dvi"))
                 "okular"
                 '(file))
             ))

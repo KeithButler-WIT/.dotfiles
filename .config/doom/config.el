@@ -428,7 +428,7 @@ capture was not aborted."
             (list (openwith-make-extension-regexp
                 '("xbm" "pbm" "pgm" "ppm" "pnm"
                     "png" "gif" "bmp" "tif" "jpeg" "jpg"))
-                "geeqie"
+                "feh"
                 '(file))
             (list (openwith-make-extension-regexp
                 '("doc" "xls" "ppt" "odt" "ods" "odg" "odp"))
@@ -437,7 +437,7 @@ capture was not aborted."
             '("\\.lyx" "lyx" (file))
             '("\\.chm" "kchmviewer" (file))
             (list (openwith-make-extension-regexp
-                '("pdf" "ps" "ps.gz" "dvi"))
+                '("ps" "ps.gz" "dvi"))
                 "okular"
                 '(file))
             ))
