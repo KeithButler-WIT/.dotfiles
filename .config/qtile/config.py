@@ -88,7 +88,8 @@ keys = [
     # Key([mod], "m", lazy.spawn(myFileManager)),
     Key([mod], "v", lazy.spawn("pavucontrol")),
     Key([mod], "d", lazy.spawn("nwggrid -p -o 0.4")),
-    Key([mod], "Escape", lazy.spawn("xkill")),
+    # Key([mod], "Escape", lazy.spawn("i3lock --color 000000")),
+    Key([mod], "Escape", lazy.spawn("i3lock-fancy")),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "KP_Enter", lazy.spawn(myTerm)),
     Key([mod], "x", lazy.shutdown()),
@@ -334,21 +335,21 @@ groups.append(
     ScratchPad(
         "scratchpad",
         [
-            DropDown("term", myTerm, width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+            DropDown("term", myTerm, width=0.5, height=0.6, x=0.3, y=0.2, opacity=1),
             DropDown(
                 "passwordmanager",
                 myPasswordManager,
-                width=0.4,
-                height=0.5,
+                width=0.5,
+                height=0.6,
                 x=0.3,
                 y=0.2,
                 opacity=1,
             ),
             DropDown(
-                "emacsFileManager",
-                emacsFileManager,
-                width=0.4,
-                height=0.5,
+                "fileManager",
+                myFileManager,
+                width=0.5,
+                height=0.6,
                 x=0.3,
                 y=0.2,
                 opacity=1,
@@ -356,22 +357,21 @@ groups.append(
             DropDown(
                 "emacsTerm",
                 emacsTerm,
-                width=0.4,
-                height=0.5,
+                width=0.5,
+                height=0.6,
                 x=0.3,
                 y=0.2,
                 opacity=1,
             ),
             DropDown(
-                "emacsMail",
-                emacsMail,
-                width=0.4,
+                "audioControls",
+                "pavucontrol",
+                width=0.8,
                 height=0.5,
-                x=0.3,
+                x=0.1,
                 y=0.2,
                 opacity=1,
             ),
-            # DropDown('podcastapp', "cpod", width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
         ],
     )
 )
@@ -387,7 +387,7 @@ keys.extend(
         Key(
             ["control"],
             "3",
-            lazy.group["scratchpad"].dropdown_toggle("emacsFileManager"),
+            lazy.group["scratchpad"].dropdown_toggle("fileManager"),
         ),
         Key(
             ["control"],
@@ -397,7 +397,7 @@ keys.extend(
         Key(
             ["control"],
             "5",
-            lazy.group["scratchpad"].dropdown_toggle("emacsMail"),
+            lazy.group["scratchpad"].dropdown_toggle("audioControls"),
         ),
         # Key(["control"], "3", lazy.group['scratchpad'].dropdown_toggle('podcastapp')),
     ]
@@ -659,6 +659,7 @@ def assign_app_group(client):
     d["1"] = [
         "TelegramDesktop",
         "Discord",
+        "com.discordapp.Discord",
         "telegramDesktop",
         "discord",
     ]
