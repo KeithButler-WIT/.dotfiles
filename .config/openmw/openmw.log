@@ -1,60 +1,611 @@
-[10:58:31.836 I] OpenMW version 0.48.0
-[10:58:31.836 I] Using default (English) font encoding.
-[10:58:31.836 W] No such dir: "/home/keith/.local/share/openmw/data"
-[10:58:31.836 I] OSG version: 3.6.5
-[10:58:31.836 I] SDL version: 2.28.4
-[10:58:31.836 I] Loading shader settings file: "/home/keith/.config/openmw/shaders.yaml"
-[10:58:31.953 I] OpenGL Vendor: AMD
-[10:58:31.953 I] OpenGL Renderer: AMD Radeon Vega 8 Graphics (raven, LLVM 16.0.6, DRM 3.54, 6.5.9-zen2-1-zen)
-[10:58:31.953 I] OpenGL Version: 4.6 (Compatibility Profile) Mesa 23.2.1-arch1.2
-[10:58:31.953 I] Using reverse-z depth buffer
-[10:58:31.953 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Morrowind.bsa
-[10:58:31.955 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Tribunal.bsa
-[10:58:31.955 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Bloodmoon.bsa
-[10:58:31.956 I] Adding data directory /usr/share/games/openmw/resources/vfs
-[10:58:31.956 I] Adding data directory /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files
-[10:58:31.978 I] Lua version: Lua 5.1.4 (LuaJIT 2.1.1694285958)
-[10:58:31.978 I] Loading keybindings file: /home/keith/.config/openmw/input_v3.xml
-[10:58:31.980 I] Loading font file magic_cards_regular.fnt
-[10:58:31.987 I] Loading font file daedric_font.fnt
-[10:58:31.991 I] Loading font file DejaVuLGCSansMono.omwfont
-[10:58:32.010 I] Initializing OpenAL...
-[10:58:32.020 I] Opened "Family 17h/19h HD Audio Controller Analog Stereo"
-[10:58:32.020 I]   ALC Version: 1.1
-[10:58:32.020 I]   ALC Extensions: ALC_ENUMERATE_ALL_EXT ALC_ENUMERATION_EXT ALC_EXT_CAPTURE ALC_EXT_DEDICATED ALC_EXT_disconnect ALC_EXT_EFX ALC_EXT_thread_local_context ALC_SOFT_device_clock ALC_SOFT_HRTF ALC_SOFT_loopback ALC_SOFT_loopback_bformat ALC_SOFT_output_limiter ALC_SOFT_output_mode ALC_SOFT_pause_device ALC_SOFT_reopen_device
-[10:58:34.016 I]   Vendor: OpenAL Community
-[10:58:34.016 I]   Renderer: OpenAL Soft
-[10:58:34.016 I]   Version: 1.1 ALSOFT 1.23.1
-[10:58:34.016 I]   Extensions: AL_EXT_ALAW AL_EXT_BFORMAT AL_EXT_DOUBLE AL_EXT_EXPONENT_DISTANCE AL_EXT_FLOAT32 AL_EXT_IMA4 AL_EXT_LINEAR_DISTANCE AL_EXT_MCFORMATS AL_EXT_MULAW AL_EXT_MULAW_BFORMAT AL_EXT_MULAW_MCFORMATS AL_EXT_OFFSET AL_EXT_source_distance_model AL_EXT_SOURCE_RADIUS AL_EXT_STATIC_BUFFER AL_EXT_STEREO_ANGLES AL_LOKI_quadriphonic AL_SOFT_bformat_ex AL_SOFTX_bformat_hoa AL_SOFT_block_alignment AL_SOFT_buffer_length_query AL_SOFT_callback_buffer AL_SOFTX_convolution_reverb AL_SOFT_deferred_updates AL_SOFT_direct_channels AL_SOFT_direct_channels_remix AL_SOFT_effect_target AL_SOFT_events AL_SOFT_gain_clamp_ex AL_SOFTX_hold_on_disconnect AL_SOFT_loop_points AL_SOFTX_map_buffer AL_SOFT_MSADPCM AL_SOFT_source_latency AL_SOFT_source_length AL_SOFT_source_resampler AL_SOFT_source_spatialize AL_SOFT_source_start_delay AL_SOFT_UHJ AL_SOFT_UHJ_ex
-[10:58:34.016 I] HRTF disabled
-[10:58:34.016 I] Allocated 256 sound sources
-[10:58:34.016 I] Low-pass filter supported
-[10:58:34.016 I] EAX Reverb supported
-[10:58:34.016 I] Enumerated output devices:
-[10:58:34.016 I]   Family 17h/19h HD Audio Controller Analog Stereo  Raven/Raven2/Fenghuang HDMI/DP Audio Controller Pro
-[10:58:34.018 I] Enumerated HRTF names:
-[10:58:34.018 I]   Default HRTF  Built-In HRTF
-[10:58:36.040 I] Loading content file builtin.omwscripts
-[10:58:36.040 I] Loading content file Morrowind.esm
-[10:58:36.248 I] Loading content file Tribunal.esm
-[10:58:36.277 I] Loading content file Bloodmoon.esm
-[10:58:36.567 I] Using 1 async physics threads
-[10:58:36.568 V] Using idle priority for thread=140187185866432
-[10:58:36.568 V] Disabling Multiview (disabled by config)
-[10:58:36.576 I] Preferred locales: en
-[10:58:36.643 V] Fallback locale: en
-[10:58:36.645 V] Language file "l10n/SettingsMenu/en.yaml" is enabled
-[10:58:36.722 V] Fallback locale: en
-[10:58:36.722 V] Language file "l10n/DebugMenu/en.yaml" is enabled
-[10:58:36.723 V] Fallback locale: en
-[10:58:36.723 V] Language file "l10n/PostProcessing/en.yaml" is enabled
-[10:58:36.730 V] Lua scripts configuration (8 scripts):
-[10:58:36.731 V] #0 PLAYER : scripts/omw/mwui/init.lua
-[10:58:36.731 V] #1 GLOBAL : scripts/omw/settings/global.lua
-[10:58:36.731 V] #2 PLAYER : scripts/omw/settings/player.lua
-[10:58:36.731 V] #3 PLAYER : scripts/omw/camera/camera.lua
-[10:58:36.731 V] #4 NPC CREATURE : scripts/omw/ai.lua
-[10:58:36.731 V] #5 PLAYER : scripts/omw/console/player.lua
-[10:58:36.731 V] #6 GLOBAL : scripts/omw/console/global.lua
-[10:58:36.731 V] #7 CUSTOM : scripts/omw/console/local.lua
-[10:58:36.731 I] Loading Lua storage ""/home/keith/.config/openmw/global_storage.bin"" (0 bytes)
+[16:24:46.345 I] OpenMW version 0.48.0
+[16:24:46.345 I] Revision: 3b669c2b02
+[16:24:46.346 I] Using default (English) font encoding.
+[16:24:46.366 I] OSG version: 3.6.5
+[16:24:46.366 I] SDL version: 2.26.3
+[16:24:46.366 I] Loading shader settings file: "/home/keith/.config/openmw/shaders.yaml"
+[16:24:46.637 I] OpenGL Vendor: AMD
+[16:24:46.637 I] OpenGL Renderer: AMD Radeon Vega 8 Graphics (raven, LLVM 16.0.6, DRM 3.54, 6.5.9-zen2-1-zen)
+[16:24:46.637 I] OpenGL Version: 4.6 (Compatibility Profile) Mesa 23.2.1-arch1.2
+[16:24:46.637 I] Using reverse-z depth buffer
+[16:24:46.638 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Morrowind.bsa
+[16:24:46.664 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Tribunal.bsa
+[16:24:46.669 I] Adding BSA archive /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files/Bloodmoon.bsa
+[16:24:46.674 I] Adding data directory /home/keith/.config/openmw/resources/vfs
+[16:24:46.674 I] Adding data directory /home/keith/.steam/steam/steamapps/common/Morrowind/Data Files
+[16:24:46.674 I] Adding data directory /home/keith/Games/openmwMods/Mods/Adamantium Armor-3882-1-0-1585499339
+[16:24:46.674 I] Adding data directory /home/keith/Games/openmwMods/Mods/Ancestor_Companion/Data Files
+[16:24:46.674 I] Adding data directory /home/keith/Games/openmwMods/Mods/Area Effect Arrows Integrated-47745-1-0-1-1603853173
+[16:24:46.674 I] Adding data directory /home/keith/Games/openmwMods/Mods/Area Effect Arrows-3882-1-0-1585499210
+[16:24:46.674 I] Adding data directory /home/keith/Games/openmwMods/Mods/Better Morrowind Crosshair
+[16:24:46.674 I] Adding data directory /home/keith/Games/openmwMods/Mods/Bitter Coast Sounds-3882-1-0-1585499312
+[16:24:46.674 I] Adding data directory /home/keith/Games/openmwMods/Mods/Bound Arrow-43170-1
+[16:24:46.674 I] Adding data directory /home/keith/Games/openmwMods/Mods/Bthanchend/Main files/Data Files
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/Bthanchend/Optional 'face' helm/Data Files
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/Bthanchend/Optional lo-res textures (performance)/Data Files
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/Caius Sugar-47662-1-0-0-1583172524/Data Files
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/Companion Teleportation 1_2-49864-1-2-1622012381
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/Crazy Batou Is Not Essential-50812-1-00-1645656623
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/DaedricTravelNetwork-50414-1-1636730926
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/Divine Providence-51467-1-1-1658054778/00 - Core
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/Divine Providence-51467-1-1-1658054778/01 - role-play
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/ebony_frogmouth_helm/Data Files
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/Entertainers-3882-1-0-1585499298
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/Expansion Delay-47588-1-3-1612481103
+[16:24:46.675 I] Adding data directory /home/keith/Games/openmwMods/Mods/Fighters Guild Improved 2.5.1-51409-2-5-1-1675064052/00 Merged
+[16:24:46.676 I] Adding data directory /home/keith/Games/openmwMods/Mods/Fighters Guild Improved 2.5.1-51409-2-5-1-1675064052/00 Modular
+[16:24:46.676 I] Adding data directory /home/keith/Games/openmwMods/Mods/Fighters Guild Improved 2.5.1-51409-2-5-1-1675064052/01 Patch for Bal Molagmer Add-on and Thieves Guild Overhaul
+[16:24:46.676 I] Adding data directory /home/keith/Games/openmwMods/Mods/Fighters Guild Improved 2.5.1-51409-2-5-1-1675064052/02 Patch for Balmora Guilds Expanded
+[16:24:46.676 I] Adding data directory /home/keith/Games/openmwMods/Mods/Fighters Guild Improved 2.5.1-51409-2-5-1-1675064052/03 Patch for Caeris' Camonna Tong
+[16:24:46.676 I] Adding data directory /home/keith/Games/openmwMods/Mods/Fighters Guild Improved 2.5.1-51409-2-5-1-1675064052/04 Patch for DD4n's Join the Camonna Tong
+[16:24:46.676 I] Adding data directory /home/keith/Games/openmwMods/Mods/Fighters Guild Improved 2.5.1-51409-2-5-1-1675064052/05 Patch for Errands for Orvas
+[16:24:46.676 I] Adding data directory /home/keith/Games/openmwMods/Mods/Fighters Guild Improved 2.5.1-51409-2-5-1-1675064052/06 Patch for More Deadly Morrowind Denizens
+[16:24:46.676 I] Adding data directory /home/keith/Games/openmwMods/Mods/Fighters Guild Improved 2.5.1-51409-2-5-1-1675064052/07 Patch for Dura gra-Bol's House Reclaimed
+[16:24:46.676 I] Adding data directory /home/keith/Games/openmwMods/Mods/Fighters Guild Improved 2.5.1-51409-2-5-1-1675064052/08 Patch for Quest Tweaks and Alternatives
+[16:24:46.676 I] Adding data directory /home/keith/Games/openmwMods/Mods/firemoth-42982-/Data Files
+[16:24:46.676 I] Adding data directory /home/keith/Games/openmwMods/Mods/Great Service
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/Helm of Tohan-3882-1-0-1585499283
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/Hide the Sugar Hide the Skooma-44713-1
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/Hortator
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/House Telvanni - The Forgotten Apocrypha Excursion Main File-50661-1-01-1642833940
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/Improved Hand-to-Hand and Unarmored Skills-45864-1-0
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/Interface and main menu/Interface
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/LeFemme Armor-3882-1-0-1585499228
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/Main file-47749-4-1585592699
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/Master Index-3882-1-0-1585499324
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/MET 6 main
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/MET_Meshes
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/Morag Tong Equipment Diversity
+[16:24:46.677 I] Adding data directory /home/keith/Games/openmwMods/Mods/Morag Tong Writ Fix-47788-1-3-1589911793
+[16:24:46.678 I] Adding data directory /home/keith/Games/openmwMods/Mods/Morrowind Official Mods/Data Files
+[16:24:46.678 I] Adding data directory /home/keith/Games/openmwMods/Mods/Morrowind Optimization Patch-45384-1-17-0-1675865257/00 Core
+[16:24:46.678 I] Adding data directory /home/keith/Games/openmwMods/Mods/Morrowind Optimization Patch-45384-1-17-0-1675865257/01 Lake Fjalding Anti-Suck
+[16:24:46.678 I] Adding data directory /home/keith/Games/openmwMods/Mods/Morrowind Optimization Patch-45384-1-17-0-1675865257/02 Weapon Sheathing Patch
+[16:24:46.678 I] Adding data directory /home/keith/Games/openmwMods/Mods/Morrowind Optimization Patch-45384-1-17-0-1675865257/03 Chuzei Fix
+[16:24:46.678 I] Adding data directory /home/keith/Games/openmwMods/Mods/Morrowind Optimization Patch-45384-1-17-0-1675865257/04 Better Vanilla Textures
+[16:24:46.678 I] Adding data directory /home/keith/Games/openmwMods/Mods/Morrowind Optimization Patch-45384-1-17-0-1675865257/05 Graphic Herbalism Patch
+[16:24:46.678 I] Adding data directory /home/keith/Games/openmwMods/Mods/MWWG-50338-1-01-1635664752
+[16:24:46.678 I] Adding data directory /home/keith/Games/openmwMods/Mods/N'wah discount
+[16:24:46.678 I] Adding data directory /home/keith/Games/openmwMods/Mods/OAAB_Data (HD)-49042-2-0-0-1664460334
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/OAAB_Data-49042-2-0-3-1667259595/00 Core
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/OAAB_Data-49042-2-0-3-1667259595/01 Epic Plants Patch
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/OAAB_Data-49042-2-0-3-1667259595/02 SM_Bitter Coast Trees Patch
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/OAAB_Data-49042-2-0-3-1667259595/03 Breton Knife-Ears Patch
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/OAAB_Data-49042-2-0-3-1667259595/04 Better Telvanni Crystal Patch
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/OAAB_Data-49042-2-0-3-1667259595/05 Glass Glowset Patch
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/Open Helmets
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/Pack Guar Travel-49555-1-0-1618330149
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/Patch 1.6.3b-43838-1-6-3b
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/Patch for Purists-45096-4-0-2-1593803721
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/Privileges and Services-50403-1-0-1636391536/Data Files
+[16:24:46.679 I] Adding data directory /home/keith/Games/openmwMods/Mods/Realistic Stealth 1.1-49021-1-1-1604896382
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Religions Elaborated-47843-1-06-1657931710/Crown Edition
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Religions Elaborated-47843-1-06-1657931710/Essentials Edition
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Religions Elaborated-47843-1-06-1657931710/Full Edition
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Religions Elaborated-47843-1-06-1657931710/Full Edition Less Exclusion
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Religions Elaborated-47843-1-06-1657931710/Full Edition Less Markers
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Religions Elaborated-47843-1-06-1657931710/Lite Edition
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Religions Elaborated-47843-1-06-1657931710/Lite Edition Less Exclusion
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Religions Elaborated-47843-1-06-1657931710/Lite Edition Less Markers
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/RP House Hlaalu-45208-4-54-1658050374
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Saprius Disguised
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Shrines - Restore Health and Cancel Options-43233-1-0
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Siege at Firemoth-3882-1-0-1585499356/Data Files
+[16:24:46.680 I] Adding data directory /home/keith/Games/openmwMods/Mods/Silt Strider Animation Restored-44150-1-0/Data Files
+[16:24:46.681 I] Adding data directory /home/keith/Games/openmwMods/Mods/Skies-IV/Particles
+[16:24:46.681 I] Adding data directory /home/keith/Games/openmwMods/Mods/Skies-IV/Skies - .IV
+[16:24:46.681 I] Adding data directory /home/keith/Games/openmwMods/Mods/Skies-IV/Skies - AoF Skies
+[16:24:46.681 I] Adding data directory /home/keith/Games/openmwMods/Mods/Skies-IV/Skies - Extreme Textures
+[16:24:46.681 I] Adding data directory /home/keith/Games/openmwMods/Mods/SlaverSpireV1.1-50662-1-1-1642910547
+[16:24:46.681 I] Adding data directory /home/keith/Games/openmwMods/Mods/Sload and Slavers/Data Files
+[16:24:46.681 I] Adding data directory /home/keith/Games/openmwMods/Mods/Sload and Slavers Upscaled Textures-49074-0-0-1611701084
+[16:24:46.681 I] Adding data directory /home/keith/Games/openmwMods/Mods/Sloadic Transport/Data Files
+[16:24:46.681 I] Adding data directory /home/keith/Games/openmwMods/Mods/Steampunk Paradise player home.esp-49243-1-0-1611605717
+[16:24:46.681 I] Adding data directory /home/keith/Games/openmwMods/Mods/SYTN-46896-1-5-1560268922
+[16:24:46.681 I] Adding data directory /home/keith/Games/openmwMods/Mods/Temple teleportation system-50478-1-2-1638036407
+[16:24:46.682 I] Adding data directory /home/keith/Games/openmwMods/Mods/Thy Spirits Thy Lords
+[16:24:46.682 I] Adding data directory /home/keith/Games/openmwMods/Mods/To the Top (Plus 2 New Addons)-50842-1-1-0-1650576419
+[16:24:46.682 I] Adding data directory /home/keith/Games/openmwMods/Mods/Uncharted Artifacts-49281-1-0-4-1612712166
+[16:24:46.682 I] Adding data directory /home/keith/Games/openmwMods/Mods/WeaponSheathing1.6-OpenMW-46069-1-6-1565439130/Data Files
+[16:24:46.682 I] Adding data directory /home/keith/Games/openmwMods/Mods/WeaponSheathing1.6-OpenMW-46069-1-6-1565439130/Extras/alternate draw animations/animation compilation
+[16:24:46.682 I] Adding data directory /home/keith/Games/openmwMods/Mods/WeaponSheathing1.6-OpenMW-46069-1-6-1565439130/Extras/alternate draw animations/vanilla
+[16:24:46.682 I] Adding data directory /home/keith/Games/openmwMods/Mods/Wear a Mask/Data Files
+[16:24:46.682 I] Adding data directory /home/keith/Games/openmwMods/Mods/What a fool you are/Data Files
+[16:24:46.682 I] Adding data directory ../Data Files
+[16:24:48.066 I] Lua version: Lua 5.1.4 (LuaJIT 2.1.0-beta3)
+[16:24:48.066 I] Loading keybindings file: /home/keith/.config/openmw/input_v3.xml
+[16:24:48.068 I] Loading font file magic_cards_regular.fnt
+[16:24:48.080 I] Loading font file daedric_font.fnt
+[16:24:48.090 I] Loading font file DejaVuLGCSansMono.omwfont
+[16:24:48.168 I] Initializing OpenAL...
+[16:24:48.234 I] Opened "Family 17h/19h HD Audio Controller Analog Stereo"
+[16:24:48.234 I]   ALC Version: 1.1
+[16:24:48.234 I]   ALC Extensions: ALC_ENUMERATE_ALL_EXT ALC_ENUMERATION_EXT ALC_EXT_CAPTURE ALC_EXT_DEDICATED ALC_EXT_disconnect ALC_EXT_EFX ALC_EXT_thread_local_context ALC_SOFT_device_clock ALC_SOFT_HRTF ALC_SOFT_loopback ALC_SOFT_loopback_bformat ALC_SOFT_output_limiter ALC_SOFT_output_mode ALC_SOFT_pause_device ALC_SOFT_reopen_device
+[16:24:48.275 I]   Vendor: OpenAL Community
+[16:24:48.275 I]   Renderer: OpenAL Soft
+[16:24:48.275 I]   Version: 1.1 ALSOFT 1.23.0
+[16:24:48.275 I]   Extensions: AL_EXT_ALAW AL_EXT_BFORMAT AL_EXT_DOUBLE AL_EXT_EXPONENT_DISTANCE AL_EXT_FLOAT32 AL_EXT_IMA4 AL_EXT_LINEAR_DISTANCE AL_EXT_MCFORMATS AL_EXT_MULAW AL_EXT_MULAW_BFORMAT AL_EXT_MULAW_MCFORMATS AL_EXT_OFFSET AL_EXT_source_distance_model AL_EXT_SOURCE_RADIUS AL_EXT_STEREO_ANGLES AL_LOKI_quadriphonic AL_SOFT_bformat_ex AL_SOFTX_bformat_hoa AL_SOFT_block_alignment AL_SOFT_callback_buffer AL_SOFTX_convolution_reverb AL_SOFT_deferred_updates AL_SOFT_direct_channels AL_SOFT_direct_channels_remix AL_SOFT_effect_target AL_SOFT_events AL_SOFT_gain_clamp_ex AL_SOFTX_hold_on_disconnect AL_SOFT_loop_points AL_SOFTX_map_buffer AL_SOFT_MSADPCM AL_SOFT_source_latency AL_SOFT_source_length AL_SOFT_source_resampler AL_SOFT_source_spatialize AL_SOFTX_source_start_delay AL_SOFT_UHJ
+[16:24:48.276 I] Enabled HRTF default-44100
+[16:24:48.276 I] Allocated 256 sound sources
+[16:24:48.276 I] Low-pass filter supported
+[16:24:48.276 I] EAX Reverb supported
+[16:24:48.286 I] Enumerated output devices:
+[16:24:48.286 I]   Family 17h/19h HD Audio Controller Analog Stereo  Raven/Raven2/Fenghuang HDMI/DP Audio Controller Pro
+[16:24:48.287 I] Enumerated HRTF names:
+[16:24:48.287 I]   default-44100  default-48000  Built-In HRTF
+[16:24:57.472 I] Loading content file builtin.omwscripts
+[16:24:57.474 I] Loading content file Morrowind.esm
+[16:24:58.410 I] Loading content file Tribunal.esm
+[16:24:58.544 I] Loading content file Bloodmoon.esm
+[16:24:58.664 I] Loading content file adamantiumarmor.esp
+[16:24:58.667 I] Loading content file ancestor_companion.esp
+[16:24:58.668 I] Loading content file Area Effect Arrows Integrated.esp
+[16:24:58.670 I] Loading content file Area Effect Projectiles Integrated (PAR Edit).esp
+[16:24:58.672 I] Loading content file Area Effect Projectiles Integrated.esp
+[16:24:58.674 I] Loading content file AreaEffectArrows.esp
+[16:24:58.676 I] Loading content file bcsounds.esp
+[16:24:58.678 I] Loading content file Bound Arrow.ESP
+[16:24:58.680 I] Loading content file Bthanchend V0.7.ESP
+[16:24:58.721 I] Loading content file CaiusSugar.esp
+[16:24:58.722 I] Loading content file CompanionTeleportation.esp
+[16:24:58.724 I] Loading content file CrazyBatouIsNotEssential-Mw.ESP
+[16:24:58.725 I] Loading content file daedric travel network.ESP
+[16:24:58.726 I] Loading content file Divine Providence.esp
+[16:24:58.728 I] Loading content file Ebony Frogmouth Helm.ESP
+[16:24:58.729 I] Loading content file entertainers.esp
+[16:24:58.734 I] Loading content file Expansion Delay.ESP
+[16:24:58.736 I] Loading content file Fighters Guild Improved.esp
+[16:24:58.749 I] Loading content file FGI_AldRuhn_BeneranBounty.esp
+[16:24:58.754 I] Loading content file FGI_AldRuhn_FlinElithPal.esp
+[16:24:58.756 I] Loading content file FGI_AldRuhn_SuranBandits.esp
+[16:24:58.757 I] Loading content file FGI_AldRuhn_Vas.esp
+[16:24:58.758 I] Loading content file FGI_Balmora_AlofOrcs.esp
+[16:24:58.759 I] Loading content file FGI_Balmora_CaveRats.esp
+[16:24:58.759 I] Loading content file FGI_Balmora_CodeBook.esp
+[16:24:58.760 I] Loading content file FGI_Balmora_DeseleDebt.esp
+[16:24:58.761 I] Loading content file FGI_Balmora_DuraGraBol.esp
+[16:24:58.762 I] Loading content file FGI_Balmora_EggPoachers.esp
+[16:24:58.762 I] Loading content file FGI_Balmora_Hunger.esp
+[16:24:58.764 I] Loading content file FGI_Balmora_TelvanniAgents.esp
+[16:24:58.766 I] Loading content file FGI_Balmora_VerethiGang.esp
+[16:24:58.769 I] Loading content file FGI_FinalQuests.esp
+[16:24:58.775 I] Loading content file FGI_SadrithMora_CorprusStalker.esp
+[16:24:58.776 I] Loading content file FGI_SadrithMora_EngaerBounty.esp
+[16:24:58.777 I] Loading content file FGI_SadrithMora_Nchurdamz.esp
+[16:24:58.777 I] Loading content file FGI_SadrithMora_Pudai.esp
+[16:24:58.778 I] Loading content file FGI_SadrithMora_Sondaale.esp
+[16:24:58.778 I] Loading content file FGI_SadrithMora_SujammaDunirai.esp
+[16:24:58.778 I] Loading content file FGI_SadrithMora_TenimBounty.esp
+[16:24:58.779 I] Loading content file FGI_Vivec_DroSakhar.esp
+[16:24:58.780 I] Loading content file FGI_Vivec_JuicedawRing.esp
+[16:24:58.780 I] Loading content file FGI_Vivec_LirielleDebt.esp
+[16:24:58.780 I] Loading content file FGI_Vivec_TongueToad.esp
+[16:24:58.782 I] Loading content file FGI_BalMolagmerAddon_ThievesGuildOverhaul_Patch.esp
+[16:24:58.783 I] Loading content file OAAB_Data.esm
+[16:24:58.815 I] Loading content file FGI_BalmoraGuildsExpanded_Patch.esp
+[16:24:58.816 I] Loading content file FGI_CaerisCamonnaTong_Patch.esp
+[16:24:58.817 I] Loading content file FGI_JoinTheCamonnaTong_Patch.esp
+[16:24:58.817 I] Loading content file FGI_ErrandsForOrvas_Patch.esp
+[16:24:58.820 I] Loading content file FGI_MDMD_Patch.esp
+[16:24:58.821 I] Loading content file FGI_DuraGraBolsHouseReclaimed_Patch.esp
+[16:24:58.823 I] Loading content file Quest Tweaks and Alternatives_1.19 - No FG version.esp
+[16:24:58.852 I] Loading content file Siege at Firemoth.esp
+[16:24:58.862 I] Loading content file Great Service.ESP
+[16:24:58.876 I] Loading content file EBQ_Artifact.esp
+[16:24:58.878 I] Loading content file HideSugarHideSkooma+Tweaks+MCPfiltering.ESP
+[16:24:58.879 I] Loading content file HideSugarHideSkooma+Tweaks.ESP
+[16:24:58.880 I] Loading content file HideSugarHideSkooma.ESP
+[16:24:58.881 I] Loading content file Hortator.ESP
+[16:24:58.881 I] Loading content file ajd_mwmj2022_telvanniDoorToApocrypha.ESP
+[16:24:58.885 I] Loading content file Improved HandtoHand and Unarmored Skills.ESP
+[16:24:58.886 I] Loading content file LeFemmArmor.esp
+[16:24:58.888 I] Loading content file AEA-Compatibility.esp
+[16:24:58.889 I] Loading content file Particle Arrow Replacer.esp
+[16:24:58.890 I] Loading content file master_index.esp
+[16:24:58.891 I] Loading content file Morag Tong Equipment Diversity.ESP
+[16:24:58.911 I] Loading content file MoragTongWritFix.esp
+[16:24:58.914 I] Loading content file OfficialMods_v5.esp
+[16:24:58.976 I] Loading content file Lake Fjalding Anti-Suck.ESP
+[16:24:58.979 I] Loading content file chuzei_helm_no_neck.esp
+[16:24:58.980 I] Loading content file MWWG.ESP
+[16:24:58.984 I] Loading content file Nwah Discount C.ESP
+[16:24:58.987 I] Loading content file Open Helmets.ESP
+[16:24:58.989 I] Loading content file PackGuarTravel.ESP
+[16:24:58.991 I] Loading content file Morrowind Patch v1.6.3.esm
+[16:24:59.089 I] Loading content file Patch for Purists - Book Typos.ESP
+[16:24:59.116 I] Loading content file Patch for Purists - Semi-Purist Fixes.ESP
+[16:24:59.118 I] Loading content file Patch for Purists.esm
+[16:24:59.212 I] Loading content file Privileges&Services 1.1.esp
+[16:24:59.290 I] Loading content file Realistic Stealth 1.1.ESP
+[16:24:59.290 I] Loading content file Religions Elaborated.esp
+[16:24:59.293 I] Loading content file RP House Hlaalu.esp
+[16:24:59.296 I] Loading content file Saprius' Disguised.esp
+[16:24:59.298 I] Loading content file Shrines - Restore Health and Cancel Options.esp
+[16:24:59.301 I] Loading content file Silt Strider Animation Restored.ESP
+[16:24:59.302 I] Loading content file telvanniseaspire.ESP
+[16:24:59.303 I] Loading content file Sload and Slavers.ESP
+[16:24:59.308 I] Loading content file Sloadic Transport Necro.ESP
+[16:24:59.309 I] Loading content file Sloadic Transport.ESP
+[16:24:59.309 I] Loading content file Steampunk Paradise player home.esp
+[16:24:59.326 I] Loading content file SYTN.ESP
+[16:24:59.326 I] Loading content file Temple teleportation system.ESP
+[16:24:59.330 I] Loading content file To_The_Top.esp
+[16:24:59.332 I] Loading content file To_the_Top_Mournhold.esp
+[16:24:59.333 I] Loading content file Uncharted Artifacts.esp
+[16:24:59.338 I] Loading content file Wear a Mask.ESP
+[16:24:59.863 I] Using 1 async physics threads
+[16:24:59.873 V] Using idle priority for thread=140141139003072
+[16:24:59.875 V] Disabling Multiview (disabled by config)
+[16:24:59.915 I] Reserving texture unit for sky RTT: 30
+[16:24:59.916 I] Preferred locales: en
+[16:25:00.238 V] Fallback locale: en
+[16:25:00.240 V] Language file "l10n/SettingsMenu/en.yaml" is enabled
+[16:25:00.338 V] Fallback locale: en
+[16:25:00.338 V] Language file "l10n/DebugMenu/en.yaml" is enabled
+[16:25:00.342 V] Fallback locale: en
+[16:25:00.343 V] Language file "l10n/PostProcessing/en.yaml" is enabled
+[16:25:00.364 V] Lua scripts configuration (8 scripts):
+[16:25:00.364 V] #0 PLAYER : scripts/omw/mwui/init.lua
+[16:25:00.364 V] #1 GLOBAL : scripts/omw/settings/global.lua
+[16:25:00.364 V] #2 PLAYER : scripts/omw/settings/player.lua
+[16:25:00.364 V] #3 PLAYER : scripts/omw/camera/camera.lua
+[16:25:00.364 V] #4 NPC CREATURE : scripts/omw/ai.lua
+[16:25:00.364 V] #5 PLAYER : scripts/omw/console/player.lua
+[16:25:00.364 V] #6 GLOBAL : scripts/omw/console/global.lua
+[16:25:00.364 V] #7 CUSTOM : scripts/omw/console/local.lua
+[16:25:00.364 I] Loading Lua storage ""/home/keith/.config/openmw/global_storage.bin"" (3 bytes)
+[16:25:00.364 I] Loading Lua storage ""/home/keith/.config/openmw/player_storage.bin"" (366 bytes)
+[16:25:00.399 I] Playing music/special/morrowind title.mp3
+[16:25:20.522 V] Fallback locale: en
+[16:25:20.523 V] Language file "l10n/SavegameMenu/en.yaml" is enabled
+[16:25:38.470 I] Reading save file after_UR.omwsave
+[16:25:38.489 I] Loading saved game 'after UR' for character 'Quayth'
+[16:25:38.597 V] Fallback locale: en
+[16:25:38.598 V] Language file "l10n/Interface/en.yaml" is enabled
+[16:25:38.600 V] Fallback locale: en
+[16:25:38.601 V] Language file "l10n/OMWCamera/en.yaml" is enabled
+[16:25:39.073 W] Warning: Dropping moved ref tag for 3143 (moved object no longer exists)
+[16:25:39.078 W] Warning: Dropping moved ref tag for 3094 (moved object no longer exists)
+[16:25:39.110 W] Warning: Dropping moved ref tag for 3129 (moved object no longer exists)
+[16:25:39.162 W] Warning: Dropping moved ref tag for 3168 (moved object no longer exists)
+[16:25:39.193 W] Warning: Dropping moved ref tag for 3172 (moved object no longer exists)
+[16:25:39.195 W] Warning: Dropping moved ref tag for 3190 (moved object no longer exists)
+[16:25:41.305 I] Warning: abm_targetblade3script[local variables] line 71, column 17 (=>): invalid operator =>, treating it as ==
+[16:25:41.307 I] Warning: abm_targetblade3script[local variables] line 261, column 17 (=>): invalid operator =>, treating it as ==
+[16:25:41.309 I] Warning: abm_targetblade3script[local variables] line 451, column 17 (=>): invalid operator =>, treating it as ==
+[16:25:46.692 I] Loading cell Grazelands Region (10, 11)
+[16:25:47.070 I] Loading cell Grazelands Region (9, 11)
+[16:25:47.132 I] Loading cell Grazelands Region (10, 10)
+[16:25:47.179 I] Loading cell Grazelands Region (10, 12)
+[16:25:47.423 I] Loading cell Grazelands Region (11, 11)
+[16:25:47.527 I] Loading cell Zainab Camp (9, 10)
+[16:25:47.650 I] Loading cell Grazelands Region (9, 12)
+[16:25:47.725 I] Loading cell Grazelands Region (11, 10)
+[16:25:47.771 I] Loading cell Grazelands Region (11, 12)
+[16:25:47.949 V] Fallback locale: en
+[16:25:47.967 V] Language file "l10n/Navigation/en.yaml" is enabled
+[16:25:48.501 I] Warning: OutsideBanner line 38, column 6 (endif): endif without matching if/elseif
+[16:25:48.507 I] Warning: abm_starterscript line 134, column 6 (endif): endif without matching if/elseif
+[16:25:49.099 I] Warning: cdc_call_compa_script line 59, column 30 (GetInterior): Stray explicit reference
+[16:25:49.432 E] Failed to open image: Resource 'textures/gherb/tx_corkbulb_01_p.dds' not found
+[16:25:51.235 V] Controller R2_Claw02 present more than once in meshes/r/xsiltstrider.kf, ignoring later version
+[16:25:53.037 I] Playing music/explore/mx_explore_4.mp3
+[16:29:09.214 I] Playing music/explore/morrowind title.mp3
+[16:31:03.421 I] Playing music/explore/mx_explore_7.mp3
+[16:31:06.759 I] Making a screenshot for saved game 'Autosave'
+[16:31:06.925 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:31:08.383 I] 'Autosave' is saved in 1643.34ms
+[16:31:13.765 I] Playing music/battle/mw battle2.mp3
+[16:31:19.462 I] Playing music/explore/mx_explore_2.mp3
+[16:31:41.102 I] Changing to interior
+[16:31:41.102 I] Unloading cell Zainab Camp (9, 10)
+[16:31:41.114 I] Unloading cell Grazelands Region (9, 11)
+[16:31:41.119 I] Unloading cell Grazelands Region (10, 11)
+[16:31:41.125 I] Unloading cell Grazelands Region (9, 12)
+[16:31:41.129 I] Unloading cell Grazelands Region (10, 10)
+[16:31:41.131 I] Unloading cell Grazelands Region (10, 12)
+[16:31:41.135 I] Unloading cell Grazelands Region (11, 10)
+[16:31:41.136 I] Unloading cell Grazelands Region (11, 11)
+[16:31:41.138 I] Unloading cell Grazelands Region (11, 12)
+[16:31:41.141 I] Loading cell Steampunk Paradice
+[16:31:42.842 I] Changing to interior
+[16:31:42.842 I] Unloading cell Steampunk Paradice
+[16:31:42.843 I] Loading cell Basement
+[16:33:27.156 I] Changing to interior
+[16:33:27.156 I] Unloading cell Basement
+[16:33:27.157 I] Loading cell Steampunk Paradice
+[16:33:28.498 I] Unloading cell Steampunk Paradice
+[16:33:28.502 I] Loading cell Grazelands Region (10, 11)
+[16:33:28.526 I] Loading cell Grazelands Region (9, 11)
+[16:33:28.533 I] Loading cell Grazelands Region (10, 10)
+[16:33:28.539 I] Loading cell Grazelands Region (10, 12)
+[16:33:28.548 I] Loading cell Grazelands Region (11, 11)
+[16:33:28.555 I] Loading cell Zainab Camp (9, 10)
+[16:33:28.571 I] Loading cell Grazelands Region (9, 12)
+[16:33:28.579 I] Loading cell Grazelands Region (11, 10)
+[16:33:28.605 I] Loading cell Grazelands Region (11, 12)
+[16:33:29.697 V] Controller R2_Claw02 present more than once in meshes/r/xsiltstrider.kf, ignoring later version
+[16:34:04.361 I] Unloading cell Grazelands Region (11, 10)
+[16:34:04.366 I] Unloading cell Grazelands Region (11, 11)
+[16:34:04.370 I] Unloading cell Grazelands Region (11, 12)
+[16:34:04.376 I] Loading cell Grazelands Region (8, 11)
+[16:34:04.387 I] Loading cell Grazelands Region (8, 10)
+[16:34:04.395 I] Loading cell Nchuleft Ruin (8, 12)
+[16:34:25.623 I] Playing music/battle/mw battle5.mp3
+[16:34:29.791 I] Playing music/explore/mx_explore_3.mp3
+[16:34:48.076 I] Unloading cell Grazelands Region (10, 11)
+[16:34:48.084 I] Unloading cell Grazelands Region (9, 12)
+[16:34:48.089 I] Unloading cell Grazelands Region (10, 10)
+[16:34:48.092 I] Unloading cell Grazelands Region (10, 12)
+[16:34:48.097 I] Unloading cell Nchuleft Ruin (8, 12)
+[16:34:48.102 I] Loading cell Ashlands Region (7, 10)
+[16:34:48.118 I] Loading cell Grazelands Region (8, 9)
+[16:34:48.124 I] Loading cell Ashlands Region (7, 9)
+[16:34:48.133 I] Loading cell Ashlands Region (7, 11)
+[16:34:48.137 I] Loading cell Grazelands Region (9, 9)
+[16:34:48.197 V] Added meshes/f/terrain_rock_gl_05.nif collision shape to navmeshdb with id 2536
+[16:34:52.267 I] Playing music/battle/mw battle 8.mp3
+[16:34:53.396 V] Added meshes/f/flora_tree_gl_04.nif collision shape to navmeshdb with id 2537
+[16:34:53.432 V] Added meshes/f/flora_tree_gl_08.nif collision shape to navmeshdb with id 2538
+[16:34:53.471 V] Added meshes/f/flora_tree_gl_03.nif collision shape to navmeshdb with id 2539
+[16:34:55.816 I] Playing music/explore/mx_explore_5.mp3
+[16:35:34.596 I] Unloading cell Zainab Camp (9, 10)
+[16:35:34.603 I] Unloading cell Grazelands Region (9, 11)
+[16:35:34.607 I] Unloading cell Grazelands Region (9, 9)
+[16:35:34.612 I] Loading cell Ashlands Region (6, 10)
+[16:35:34.615 I] Loading cell Ashlands Region (6, 9)
+[16:35:34.623 I] Loading cell Ashlands Region (6, 11)
+[16:35:38.422 I] Playing music/battle/mw battle 7.mp3
+[16:35:43.192 I] Playing music/explore/mx_explore_1.mp3
+[16:36:15.426 I] Unloading cell Ashlands Region (6, 9)
+[16:36:15.431 I] Unloading cell Grazelands Region (8, 9)
+[16:36:15.434 I] Unloading cell Ashlands Region (7, 9)
+[16:36:15.440 I] Loading cell Ashlands Region (7, 12)
+[16:36:15.459 I] Loading cell Ashlands Region (6, 12)
+[16:36:15.469 I] Loading cell Nchuleft Ruin (8, 12)
+[16:36:43.963 I] Playing music/battle/mw battle1.mp3
+[16:36:58.422 I] Playing music/explore/mx_explore_6.mp3
+[16:37:08.806 I] Unloading cell Ashlands Region (6, 10)
+[16:37:08.811 I] Unloading cell Grazelands Region (8, 10)
+[16:37:08.816 I] Unloading cell Ashlands Region (7, 10)
+[16:37:08.821 I] Loading cell Ashlands Region (7, 13)
+[16:37:08.824 I] Loading cell Ashlands Region (6, 13)
+[16:37:08.829 I] Loading cell Grazelands Region (8, 13)
+[16:37:23.445 V] Added meshes/x/ex_ci_doorjam_01.nif collision shape to navmeshdb with id 2540
+[16:37:23.465 V] Added meshes/d/in_ci_door_01.nif collision shape to navmeshdb with id 2541
+[16:37:30.620 I] Unloading cell Grazelands Region (8, 11)
+[16:37:30.626 I] Unloading cell Nchuleft Ruin (8, 12)
+[16:37:30.629 I] Unloading cell Grazelands Region (8, 13)
+[16:37:30.634 I] Loading cell Ashlands Region (5, 12)
+[16:37:30.639 I] Loading cell Ashlands Region (5, 11)
+[16:37:30.809 I] Loading cell Ashlands Region (5, 13)
+[16:37:47.462 I] Playing music/battle/mw battle 4.mp3
+[16:37:50.719 I] Playing music/explore/mx_explore_2.mp3
+[16:37:57.686 I] Changing to interior
+[16:37:57.686 I] Unloading cell Ashlands Region (6, 12)
+[16:37:57.690 I] Unloading cell Ashlands Region (7, 11)
+[16:37:57.693 I] Unloading cell Ashlands Region (7, 12)
+[16:37:57.694 I] Unloading cell Ashlands Region (7, 13)
+[16:37:57.696 I] Unloading cell Ashlands Region (6, 11)
+[16:37:57.697 I] Unloading cell Ashlands Region (5, 13)
+[16:37:57.698 I] Unloading cell Ashlands Region (6, 13)
+[16:37:57.700 I] Unloading cell Ashlands Region (5, 11)
+[16:37:57.702 I] Unloading cell Ashlands Region (5, 12)
+[16:37:57.704 I] Loading cell Maran-Adon
+[16:37:57.861 V] Added meshes/i/in_lava_rock_11.nif collision shape to navmeshdb with id 2542
+[16:37:57.890 V] Added meshes/i/in_lava_rock_17.nif collision shape to navmeshdb with id 2543
+[16:37:57.924 V] Added meshes/l/light_com_candle_13.nif collision shape to navmeshdb with id 2544
+[16:37:57.953 V] Added meshes/i/in_lava_rock_16.nif collision shape to navmeshdb with id 2545
+[16:37:57.982 V] Added meshes/i/in_lava_rock_08.nif collision shape to navmeshdb with id 2546
+[16:37:58.015 V] Added meshes/i/in_lavacave2_05.nif collision shape to navmeshdb with id 2547
+[16:37:58.045 V] Added meshes/i/in_lavacave2_00.nif collision shape to navmeshdb with id 2548
+[16:37:58.081 V] Added meshes/i/in_lava_rock_13.nif collision shape to navmeshdb with id 2549
+[16:37:58.118 V] Added meshes/i/in_lava_rock_19.nif collision shape to navmeshdb with id 2550
+[16:37:58.147 V] Added meshes/i/in_lava_rock_18.nif collision shape to navmeshdb with id 2551
+[16:37:58.178 V] Added meshes/i/in_lavacave_21_1.nif collision shape to navmeshdb with id 2552
+[16:37:58.208 V] Added meshes/i/in_lava_rock_12.nif collision shape to navmeshdb with id 2553
+[16:37:58.245 V] Added meshes/i/in_lava_rock_09.nif collision shape to navmeshdb with id 2554
+[16:37:58.280 V] Added meshes/i/in_lavacave_07.nif collision shape to navmeshdb with id 2555
+[16:37:58.314 V] Added meshes/i/in_lava_rock_10.nif collision shape to navmeshdb with id 2556
+[16:37:58.342 V] Added meshes/i/in_lava_rock_15.nif collision shape to navmeshdb with id 2557
+[16:37:58.371 V] Added meshes/i/in_lavacave_26.nif collision shape to navmeshdb with id 2558
+[16:37:58.407 V] Added meshes/o/contain_chest_small_02.nif collision shape to navmeshdb with id 2559
+[16:37:58.436 V] Added meshes/o/contain_chest_small_01.nif collision shape to navmeshdb with id 2560
+[16:38:04.378 I] Playing music/battle/mw battle3.mp3
+[16:38:13.912 I] Playing music/explore/morrowind title.mp3
+[16:38:22.668 I] Playing music/battle/mw battle1.mp3
+[16:38:31.000 I] Playing music/explore/mx_explore_4.mp3
+[16:38:37.223 I] Playing music/battle/mw battle3.mp3
+[16:38:50.842 I] Playing music/explore/mx_explore_3.mp3
+[16:38:52.433 I] Playing music/battle/mw battle5.mp3
+[16:39:01.131 I] Playing music/explore/mx_explore_6.mp3
+[16:39:07.761 I] Playing music/battle/mw battle 7.mp3
+[16:39:28.970 I] Playing music/explore/mx_explore_7.mp3
+[16:39:33.815 I] Playing music/battle/mw battle2.mp3
+[16:39:38.010 I] Playing music/explore/mx_explore_5.mp3
+[16:39:43.215 I] Playing music/battle/mw battle 4.mp3
+[16:39:47.171 I] Playing music/explore/mx_explore_1.mp3
+[16:40:01.722 I] Making a screenshot for saved game 'Autosave'
+[16:40:01.775 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:40:01.925 I] 'Autosave' is saved in 205.866ms
+[16:40:22.323 I] Playing music/battle/mw battle 8.mp3
+[16:40:31.786 I] Playing music/explore/mx_explore_7.mp3
+[16:40:34.280 I] Playing music/battle/mw battle 4.mp3
+[16:40:39.134 I] Playing music/explore/mx_explore_3.mp3
+[16:40:43.328 I] Playing music/battle/mw battle5.mp3
+[16:40:46.350 I] Playing music/explore/mx_explore_2.mp3
+[16:42:02.866 I] Unloading cell Maran-Adon
+[16:42:02.873 I] Loading cell Ashlands Region (6, 12)
+[16:42:02.876 I] Loading cell Ashlands Region (5, 12)
+[16:42:02.878 I] Loading cell Ashlands Region (6, 11)
+[16:42:02.891 I] Loading cell Ashlands Region (6, 13)
+[16:42:02.892 I] Loading cell Ashlands Region (7, 12)
+[16:42:02.901 I] Loading cell Ashlands Region (5, 11)
+[16:42:02.905 I] Loading cell Ashlands Region (5, 13)
+[16:42:02.910 I] Loading cell Ashlands Region (7, 11)
+[16:42:02.916 I] Loading cell Ashlands Region (7, 13)
+[16:42:02.943 V] Added meshes/l/furn_de_firepit_f_01.nif collision shape to navmeshdb with id 2561
+[16:42:11.065 I] Making a screenshot for saved game 'Autosave'
+[16:42:11.176 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:42:11.326 I] 'Autosave' is saved in 263.344ms
+[16:42:24.032 I] Unloading cell Ashlands Region (7, 11)
+[16:42:24.034 I] Unloading cell Ashlands Region (7, 12)
+[16:42:24.036 I] Unloading cell Ashlands Region (7, 13)
+[16:42:24.041 I] Loading cell Ashlands Region (4, 12)
+[16:42:24.052 I] Loading cell Red Mountain Region (4, 11)
+[16:42:24.060 I] Loading cell Ashlands Region (4, 13)
+[16:42:25.735 I] Playing music/battle/mw battle1.mp3
+[16:42:30.706 I] Changing to interior
+[16:42:30.706 I] Unloading cell Ashlands Region (6, 12)
+[16:42:30.710 I] Unloading cell Ashlands Region (4, 13)
+[16:42:30.712 I] Unloading cell Red Mountain Region (4, 11)
+[16:42:30.715 I] Unloading cell Ashlands Region (6, 11)
+[16:42:30.717 I] Unloading cell Ashlands Region (5, 13)
+[16:42:30.718 I] Unloading cell Ashlands Region (6, 13)
+[16:42:30.719 I] Unloading cell Ashlands Region (4, 12)
+[16:42:30.721 I] Unloading cell Ashlands Region (5, 11)
+[16:42:30.723 I] Unloading cell Ashlands Region (5, 12)
+[16:42:30.725 I] Loading cell Tin-Ahhe
+[16:42:30.805 V] Added meshes/l/light_tikitorch00.nif collision shape to navmeshdb with id 2562
+[16:42:30.834 V] Added meshes/x/ex_common_plat_lrg.nif collision shape to navmeshdb with id 2563
+[16:42:30.862 V] Added meshes/i/in_mudcave_form00.nif collision shape to navmeshdb with id 2564
+[16:42:30.889 V] Added meshes/x/ex_de_shack_steps.nif collision shape to navmeshdb with id 2565
+[16:42:30.915 V] Added meshes/i/in_mudcave_form20.nif collision shape to navmeshdb with id 2566
+[16:42:30.942 V] Added meshes/i/in_mudcave_form10.nif collision shape to navmeshdb with id 2567
+[16:42:30.969 V] Added meshes/i/in_mudcave_15.nif collision shape to navmeshdb with id 2568
+[16:42:30.997 V] Added meshes/i/in_mudcave2_end.nif collision shape to navmeshdb with id 2569
+[16:42:31.029 V] Added meshes/i/in_mudcave_stal20.nif collision shape to navmeshdb with id 2570
+[16:42:31.059 V] Added meshes/i/in_mudcave_21_1.nif collision shape to navmeshdb with id 2571
+[16:42:31.839 I] Playing music/explore/morrowind title.mp3
+[16:42:33.922 I] Playing music/battle/mw battle 7.mp3
+[16:42:35.190 I] Playing music/explore/mx_explore_6.mp3
+[16:42:40.214 I] Playing music/battle/mw battle 8.mp3
+[16:42:42.093 I] Playing music/explore/mx_explore_4.mp3
+[16:42:46.889 I] Playing music/battle/mw battle2.mp3
+[16:42:48.631 I] Playing music/explore/mx_explore_5.mp3
+[16:45:48.409 I] Unloading cell Tin-Ahhe
+[16:45:48.413 I] Loading cell Ashlands Region (5, 12)
+[16:45:48.417 I] Loading cell Ashlands Region (4, 12)
+[16:45:48.419 I] Loading cell Ashlands Region (5, 11)
+[16:45:48.422 I] Loading cell Ashlands Region (5, 13)
+[16:45:48.428 I] Loading cell Ashlands Region (6, 12)
+[16:45:48.432 I] Loading cell Red Mountain Region (4, 11)
+[16:45:48.435 I] Loading cell Ashlands Region (4, 13)
+[16:45:48.438 I] Loading cell Ashlands Region (6, 11)
+[16:45:48.441 I] Loading cell Ashlands Region (6, 13)
+[16:45:49.443 I] Playing music/battle/mw battle3.mp3
+[16:46:00.207 I] Playing music/explore/mx_explore_1.mp3
+[16:46:09.127 V] Added meshes/x/terrain_rock_ma_06.nif collision shape to navmeshdb with id 2572
+[16:46:31.947 I] Playing music/battle/mw battle 4.mp3
+[16:46:39.123 I] Playing music/explore/mx_explore_7.mp3
+[16:47:38.660 I] Unloading cell Ashlands Region (6, 12)
+[16:47:38.666 I] Unloading cell Ashlands Region (6, 11)
+[16:47:38.668 I] Unloading cell Ashlands Region (6, 13)
+[16:47:38.671 I] Loading cell Ashlands Region (3, 12)
+[16:47:38.682 I] Loading cell Red Mountain Region (3, 11)
+[16:47:38.691 I] Loading cell Ashlands Region (3, 13)
+[16:47:41.064 I] Playing music/battle/mw battle 8.mp3
+[16:47:49.599 I] Playing music/explore/mx_explore_2.mp3
+[16:48:26.046 I] Making a screenshot for saved game 'Autosave'
+[16:48:26.135 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:48:26.279 I] 'Autosave' is saved in 234.983ms
+[16:48:28.280 I] Unloading cell Ashlands Region (5, 13)
+[16:48:28.284 I] Unloading cell Ashlands Region (5, 11)
+[16:48:28.287 I] Unloading cell Ashlands Region (5, 12)
+[16:48:28.293 I] Loading cell Ashlands Region (2, 12)
+[16:48:28.306 I] Loading cell Red Mountain Region (2, 11)
+[16:48:28.318 I] Loading cell Ashlands Region (2, 13)
+[16:48:32.420 I] Playing music/battle/mw battle 7.mp3
+[16:48:34.554 I] Playing music/explore/mx_explore_4.mp3
+[16:48:47.173 V] Added meshes/l/light_dae_brazier00.nif collision shape to navmeshdb with id 2573
+[16:49:17.121 I] Unloading cell Red Mountain Region (2, 11)
+[16:49:17.128 I] Unloading cell Ashlands Region (2, 12)
+[16:49:17.131 I] Unloading cell Ashlands Region (2, 13)
+[16:49:17.134 I] Loading cell Ashlands Region (5, 12)
+[16:49:17.137 I] Loading cell Ashlands Region (5, 11)
+[16:49:17.145 I] Loading cell Ashlands Region (5, 13)
+[16:49:54.718 I] Unloading cell Ashlands Region (4, 13)
+[16:49:54.722 I] Unloading cell Ashlands Region (3, 13)
+[16:49:54.725 I] Unloading cell Ashlands Region (5, 13)
+[16:49:54.728 I] Loading cell Red Mountain Region (4, 10)
+[16:49:54.753 I] Loading cell Red Mountain Region (3, 10)
+[16:49:54.757 I] Loading cell Red Mountain Region (5, 10)
+[16:49:56.436 I] Playing music/battle/mw battle2.mp3
+[16:50:05.414 I] Playing music/explore/mx_explore_1.mp3
+[16:50:09.017 I] Playing music/battle/mw battle1.mp3
+[16:50:15.766 I] Playing music/explore/mx_explore_3.mp3
+[16:50:28.140 I] Playing music/battle/mw battle3.mp3
+[16:50:39.350 I] Playing music/explore/morrowind title.mp3
+[16:50:40.360 I] Making a screenshot for saved game 'Autosave'
+[16:50:40.449 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:40.597 I] 'Autosave' is saved in 238.674ms
+[16:50:45.336 I] Making a screenshot for saved game 'Autosave'
+[16:50:45.442 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:45.585 I] 'Autosave' is saved in 250.168ms
+[16:50:46.817 I] Making a screenshot for saved game 'Autosave'
+[16:50:46.914 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:47.054 I] 'Autosave' is saved in 238.098ms
+[16:50:47.850 I] Making a screenshot for saved game 'Autosave'
+[16:50:47.945 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:48.087 I] 'Autosave' is saved in 238.599ms
+[16:50:48.991 I] Making a screenshot for saved game 'Autosave'
+[16:50:49.091 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:49.239 I] 'Autosave' is saved in 249.904ms
+[16:50:50.045 I] Making a screenshot for saved game 'Autosave'
+[16:50:50.145 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:50.290 I] 'Autosave' is saved in 245.825ms
+[16:50:51.087 I] Making a screenshot for saved game 'Autosave'
+[16:50:51.185 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:51.330 I] 'Autosave' is saved in 244.365ms
+[16:50:52.095 I] Making a screenshot for saved game 'Autosave'
+[16:50:52.197 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:52.339 I] 'Autosave' is saved in 246.559ms
+[16:50:53.060 I] Making a screenshot for saved game 'Autosave'
+[16:50:53.155 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:53.300 I] 'Autosave' is saved in 241.348ms
+[16:50:54.052 I] Making a screenshot for saved game 'Autosave'
+[16:50:54.152 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:54.299 I] 'Autosave' is saved in 248.688ms
+[16:50:55.699 I] Making a screenshot for saved game 'Autosave'
+[16:50:55.803 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:55.944 I] 'Autosave' is saved in 246.237ms
+[16:50:56.755 I] Making a screenshot for saved game 'Autosave'
+[16:50:56.855 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:57.004 I] 'Autosave' is saved in 250.363ms
+[16:50:58.450 I] Making a screenshot for saved game 'Autosave'
+[16:50:58.547 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:50:58.689 I] 'Autosave' is saved in 240.444ms
+[16:51:01.370 I] Making a screenshot for saved game 'Autosave'
+[16:51:01.468 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:51:01.611 I] 'Autosave' is saved in 242.537ms
+[16:51:03.622 I] Making a screenshot for saved game 'Autosave'
+[16:51:03.732 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:51:03.876 I] 'Autosave' is saved in 254.752ms
+[16:51:04.958 I] Making a screenshot for saved game 'Autosave'
+[16:51:05.065 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:51:05.212 I] 'Autosave' is saved in 255.037ms
+[16:51:07.183 I] Making a screenshot for saved game 'Autosave'
+[16:51:07.287 I] Writing saved game 'Autosave' for character 'Quayth'
+[16:51:07.433 I] 'Autosave' is saved in 251.111ms
+[16:51:15.278 I] Playing music/battle/mw battle5.mp3
+[16:51:16.143 I] Unloading cell Ashlands Region (4, 12)
+[16:51:16.148 I] Unloading cell Ashlands Region (3, 12)
+[16:51:16.153 I] Unloading cell Ashlands Region (5, 12)
+[16:51:16.157 I] Loading cell Tureynulal (4, 9)
+[16:51:16.163 I] Loading cell Red Mountain Region (3, 9)
+[16:51:16.168 I] Loading cell Red Mountain Region (5, 9)
+[16:51:21.923 I] Playing music/explore/mx_explore_5.mp3
+[16:51:40.073 I] Making a screenshot for saved game 'after UR'
+[16:51:40.196 I] Writing saved game 'after UR' for character 'Quayth'
+[16:51:40.343 I] 'after UR' is saved in 271.731ms
+[16:51:41.572 I] Playing music/battle/mw battle5.mp3
+[16:51:42.872 V] Changed setting: [Map] global = false
+[16:51:42.872 V] Added new setting: [Windows] container h = 0.37963
+[16:51:42.872 V] Added new setting: [Windows] container w = 0.383854
+[16:51:42.872 V] Added new setting: [Windows] container x = 0.495313
+[16:51:42.872 V] Added new setting: [Windows] container y = 0.539815
+[16:51:42.872 I] Updating settings file: "/home/keith/.config/openmw/settings.cfg"
+[16:51:42.873 I] Saving shader settings file: "/home/keith/.config/openmw/shaders.yaml"
+[16:51:42.881 I] Saving Lua storage ""/home/keith/.config/openmw/global_storage.bin"" (3 bytes)
+[16:51:42.882 I] Saving Lua storage ""/home/keith/.config/openmw/player_storage.bin"" (366 bytes)
+[16:51:42.882 I] Quitting peacefully.
