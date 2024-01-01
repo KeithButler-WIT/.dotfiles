@@ -87,22 +87,23 @@ keys = [
     # Key([mod], "e", lazy.spawn("emacsclient -c -a ''")),
     # Key([mod], "m", lazy.spawn(myFileManager)),
     Key([mod], "v", lazy.spawn("pavucontrol")),
-    Key([mod], "d", lazy.spawn("nwggrid -p -o 0.4")),
     # Key([mod], "Escape", lazy.spawn("i3lock --color 000000")),
     Key([mod], "Escape", lazy.spawn("i3lock-fancy")),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "KP_Enter", lazy.spawn(myTerm)),
     Key([mod], "x", lazy.shutdown()),
     Key([mod], "m", lazy.spawn("music")),
-
-    # Key([mod, "shift"], "Return", lazy.spawn(myFileManager)),
+    # Dmenu app launcher
     Key(
-        [mod, "shift"],
+        [mod],
         "d",
         lazy.spawn(
             "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'"
         ),
     ),
+
+    # Key([mod, "shift"], "Return", lazy.spawn(myFileManager)),
+    Key([mod, "shift"], "d", lazy.spawn("nwggrid -p -o 0.4")),
     #    Key([mod, "shift"], "d", lazy.spawn(home + '/.config/qtile/scripts/dmenu.sh')),
     Key([mod, "shift"], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.restart()),
@@ -543,7 +544,7 @@ def init_widgets_list():
             fontsize=12,
             foreground=colors.colors["12"],
             background=colors.colors["00"],
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
+            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e btop")},
         ),
         widget.Sep(linewidth=1, padding=10, foreground=colors.colors["07"], background=colors.colors["00"]),
         widget.Memory(
@@ -554,7 +555,7 @@ def init_widgets_list():
             measure_mem="M",
             foreground=colors.colors["13"],
             background=colors.colors["00"],
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
+            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e btop")},
         ),
         widget.Sep(linewidth=1, padding=10, foreground=colors.colors["07"], background=colors.colors["00"]),
         widget.Battery(

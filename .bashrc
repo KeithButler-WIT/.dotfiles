@@ -19,7 +19,7 @@ fi
 
 # Default Programs
 export BROWSER=firedragon
-export TERM=nixGL\ alacritty
+export TERM=alacritty
 export MAIL=thunderbird
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
@@ -64,6 +64,8 @@ alias jctl="journalctl -p 3 -xb"
 
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+
+# alias music="LD_PRELOAD=/usr/local/lib/spotify-adblock.so ${pkgs.spotify}/bin/spotify $argv";
 
 
 eval "$(direnv hook bash)"
